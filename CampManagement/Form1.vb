@@ -18,17 +18,17 @@ Public Class CampManagement
                 'Resets back to january.
                 MonthLabel.Text = "January"
                 If My.Settings.Difficulty = "0" Then
-                    Mechanics.EasyInflation()
+                    Mechanics.Inflation()
                     HistoryLog.AppendText(Environment.NewLine + "Your treasury master comes running to your office to warn you that inflation destroyed a good portion of your money.")
-                    Mechanics.EasyTaxes()
+                    Mechanics.Taxes()
                     'Reads TaxInfo to know how much will be debted
                     Dim TaxToBeDebted = My.Computer.FileSystem.ReadAllText(Environment.CurrentDirectory + "/Data/TaxInfo.txt")
                     HistoryLog.AppendText(Environment.NewLine + "The local government requires payment of taxes." + "$" + TaxToBeDebted + " will be taken from your treasury")
 
                 Else
-                    Mechanics.HardInflation()
+                    Mechanics.Inflation()
                     HistoryLog.AppendText(Environment.NewLine + "Your treasury master kicks the door open and, yelling, tells you that inflation has taken most of your money.")
-                    Mechanics.HardTaxes()
+                    Mechanics.Taxes()
                     Dim TaxToBeDebted = My.Computer.FileSystem.ReadAllText(Environment.CurrentDirectory + "/Data/TaxInfo.txt")
                     HistoryLog.AppendText(Environment.NewLine + "The local government requires payment of taxes." + "$" + TaxToBeDebted + " will be taken from your treasury")
                 End If
