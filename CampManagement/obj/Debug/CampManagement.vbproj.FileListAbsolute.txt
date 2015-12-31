@@ -27,3 +27,13 @@ C:\Users\Miller\Source\Repos\CampManagement-API\CampManagement\bin\Debug\CampMan
 C:\Users\Miller\Source\Repos\CampManagement-API\CampManagement\obj\Debug\CampManagement.exe
 C:\Users\Miller\Source\Repos\CampManagement-API\CampManagement\obj\Debug\CampManagement.xml
 C:\Users\Miller\Source\Repos\CampManagement-API\CampManagement\obj\Debug\CampManagement.pdb
+C:\Users\Miller\Source\Repos\CampManagement-API\CampManagement\obj\Debug\CampManagement.vbprojResolveAssemblyReference.cache
+C:\Users\Miller\Source\Repos\CampManagement-API\CampManagement\obj\Debug\CampManagement.CampManagement.resources
+C:\Users\Miller\Source\Repos\CampManagement-API\CampManagement\obj\Debug\CampManagement.Resources.resources
+C:\Users\Miller\Source\Repos\CampManagement-API\CampManagement\obj\Debug\CampManagement.vbproj.GenerateResource.Cache
+C:\Users\Miller\Source\Repos\CampManagement-API\CampManagement\bin\Debug\CampManagement.exe
+C:\Users\Miller\Source\Repos\CampManagement-API\CampManagement\bin\Debug\CampManagement.pdb
+C:\Users\Miller\Source\Repos\CampManagement-API\CampManagement\bin\Debug\CampManagement.xml
+C:\Users\Miller\Source\Repos\CampManagement-API\CampManagement\bin\Debug\TheckStudios Management Sim API 2015.dll
+C:\Users\Miller\Source\Repos\CampManagement-API\CampManagement\bin\Debug\TheckStudios Management Sim API 2015.pdb
+C:\Users\Miller\Source\Repos\CampManagement-API\CampManagement\bin\Debug\TheckStudios Management Sim API 2015.xml
