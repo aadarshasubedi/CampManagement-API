@@ -16,7 +16,7 @@ _All these features are part of the API at it's current state. These may or may 
 # Setup: <br />
 First of all, I recommend copying the folder "Data" from CampManagement/Bin/Debug/ to your game's root location. After that, create a timer that will read information from Data/FinanceInfo.txt, Data/WoodInfo.txt etc and keep it updated with the UI every 0.3 seconds, This is **obligatory for the API to be in sync with your game!**. If you want an example, check out Timer1 and Timer2 on CampManagement.<br />
 
-# To setup the API:
+## To setup the API:
 Add the API to your project as a Reference under Project Properties. Use "Imports" to tie it to your form.
 
 ## To setup taxes:
