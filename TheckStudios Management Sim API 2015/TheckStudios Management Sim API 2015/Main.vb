@@ -47,7 +47,7 @@ Public Class Mechanics
         Dim PlayerWealth = My.Computer.FileSystem.ReadAllText(Environment.CurrentDirectory + "/Data/FinanceInfo.txt")
         Dim PlayerWealthPath = Environment.CurrentDirectory + "/Data/FinanceInfo.txt"
         If PlayerWealth > "25000" Then
-            Dim Inflation = 0.9
+            Dim Inflation = 0.89
             Dim InflationDifference = PlayerWealth * Inflation
             Dim WriteToFinanceInfo As StreamWriter
             WriteToFinanceInfo = My.Computer.FileSystem.OpenTextFileWriter(PlayerWealthPath, False)
@@ -55,7 +55,7 @@ Public Class Mechanics
             WriteToFinanceInfo.Close()
         End If
         If PlayerWealth < "5000" And PlayerWealth > 2500 Then
-            Dim Inflation = 0.99
+            Dim Inflation = 0.93
             Dim InflationDifference = PlayerWealth * Inflation
             Dim WriteToFinanceInfo As StreamWriter
             WriteToFinanceInfo = My.Computer.FileSystem.OpenTextFileWriter(PlayerWealthPath, false)
@@ -63,7 +63,7 @@ Public Class Mechanics
             WriteToFinanceInfo.Close()
         End If
         If PlayerWealth < "2500" Then
-            Dim Inflation = 0.95
+            Dim Inflation = 0.98
             Dim InflationDifference = PlayerWealth * Inflation
             Dim WriteToFinanceInfo As StreamWriter
             WriteToFinanceInfo = My.Computer.FileSystem.OpenTextFileWriter(PlayerWealthPath, False)
