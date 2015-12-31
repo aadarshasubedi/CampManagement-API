@@ -9,6 +9,8 @@ _This small API can be used to create a simple management simulation game with V
 -- Easy-to-use: Add the API as a dependency, and call the functions! <br />
 -- This is a proof-of-concept of gaming on Visual Basic and may not work. <br />
 
+Demo built with .NET 4.6 - Visual Studio 2015 Professional - Update 1 not installed.
+
 _All these features are part of the API at it's current state. These may or may not be currently implemented in the demo "CampManagement"._
 
 # Setup: <br />
