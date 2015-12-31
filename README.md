@@ -11,13 +11,18 @@ _This small API can be used to create a simple management simulation game with V
 
 Demo built with .NET 4.6 - Visual Studio 2015 Professional - Update 1 not installed.
 
-_All these features are part of the API at it's current state. These may or may not be currently implemented in the demo "CampManagement"._
+_All these features may or may not currently be implemented in the API. If you want to test the API, execute CampManagement._
 
 # Setup: <br />
-First of all, I recommend copying the folder "Data" from CampManagement/Bin/Debug/ to your game's root location. After doing that, create a timer in-game that will read the current amount of money the player from "/Data/FinanceInfo.txt" every 3s or so. This is  **obligatory**. You may also need to read from other files on the "Data" Folder. Check Timer1 and Timer2 on CampManagement for more information.<br />
+First of all, copy the folder "Data" from CampManagement/Bin/Debug/ to your game's root location. After that, create a timer that will read information from Data/FinanceInfo.txt, Data/WoodInfo.txt etc and keep it updated with the UI every 0.3 seconds, This is **obligatory for the API to be in sync with your game!**. If you want an example, check out Timer1 and Timer2 on CampManagement.<br />
 
-## To setup taxes:
-All you have to do is call the EasyTax() or HardTax() (EasyTax tax is 15%. HardTax is 35%) once a year in-game. Or more often. After calling it, it will calculate how much the player shall be taxed, and put the result in "/Data/TaxInfo.txt". You need to diminish the player's money in-game by the value on TaxInfo.txt. <br />
+## To setup the API:
+Add the API to your project as a Reference under Project Properties. Use "Imports" to tie it to your form. You need to have something in-game to allow the user to select his prefered difficulty settings. For a easy playthrough, call _Mechanics.SetDifficultyEasy_, for a harder and more punishing playthrough, call _Mechanics.SetDifficultyHard_. This is necessary for the taxes and inflation to work correctly.
 
-## To setup inflation:
-All you have to do is call the EasyInflation() or HardInflation() once a year in-game. After doing that, make sure to overwrite the in-game wealth with the data from "/Data/FinanceInfo.txt", as the inflation-applied money quantity will be in that file. Otherwise, the inflation will be ignored by the game. <br />
+# Usage: <br />
+
+## How to: Taxes:
+All you have to do is call _Mechanics.Taxes()_ once a year in-game or so. After calling it, it will calculate how much the player shall be taxed, and update the money the player has in-game. <br />
+
+## How to: Inflation:
+All you have to do is call _Mechanics.Inflation()_ once a year in-game. After calling it, it will calculate how much the player shall have after having his money corrected by the current inflation index, and update the money the player has in-game. <br />
