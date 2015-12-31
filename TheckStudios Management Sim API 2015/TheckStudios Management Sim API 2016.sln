@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "TheckStudios Management Sim API 2016", "TheckStudios Management Sim API 2015\TheckStudios Management Sim API 2016.vbproj", "{6332A213-8970-4E7C-9E9F-A71BC7D22795}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "CampManagement", "CampManagement\CampManagement.vbproj", "{BCF05B9D-D02A-439B-99B7-04FEF8E359BC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6332A213-8970-4E7C-9E9F-A71BC7D22795} = {6332A213-8970-4E7C-9E9F-A71BC7D22795}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6332A213-8970-4E7C-9E9F-A71BC7D22795}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6332A213-8970-4E7C-9E9F-A71BC7D22795}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6332A213-8970-4E7C-9E9F-A71BC7D22795}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6332A213-8970-4E7C-9E9F-A71BC7D22795}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCF05B9D-D02A-439B-99B7-04FEF8E359BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCF05B9D-D02A-439B-99B7-04FEF8E359BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCF05B9D-D02A-439B-99B7-04FEF8E359BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCF05B9D-D02A-439B-99B7-04FEF8E359BC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

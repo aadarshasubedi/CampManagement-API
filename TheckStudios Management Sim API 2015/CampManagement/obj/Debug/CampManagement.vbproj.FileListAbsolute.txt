@@ -1,0 +1,15 @@
+C:\Users\Miller\Documents\Visual Studio 2015\Projects\TheckStudios Management Sim API 2015\CampManagement\bin\Debug\CampManagement.exe.config
+C:\Users\Miller\Documents\Visual Studio 2015\Projects\TheckStudios Management Sim API 2015\CampManagement\bin\Debug\CampManagement.exe
+C:\Users\Miller\Documents\Visual Studio 2015\Projects\TheckStudios Management Sim API 2015\CampManagement\bin\Debug\CampManagement.pdb
+C:\Users\Miller\Documents\Visual Studio 2015\Projects\TheckStudios Management Sim API 2015\CampManagement\bin\Debug\CampManagement.xml
+C:\Users\Miller\Documents\Visual Studio 2015\Projects\TheckStudios Management Sim API 2015\CampManagement\obj\Debug\CampManagement.vbprojResolveAssemblyReference.cache
+C:\Users\Miller\Documents\Visual Studio 2015\Projects\TheckStudios Management Sim API 2015\CampManagement\obj\Debug\CampManagement.Form1.resources
+C:\Users\Miller\Documents\Visual Studio 2015\Projects\TheckStudios Management Sim API 2015\CampManagement\obj\Debug\CampManagement.Resources.resources
+C:\Users\Miller\Documents\Visual Studio 2015\Projects\TheckStudios Management Sim API 2015\CampManagement\obj\Debug\CampManagement.vbproj.GenerateResource.Cache
+C:\Users\Miller\Documents\Visual Studio 2015\Projects\TheckStudios Management Sim API 2015\CampManagement\obj\Debug\CampManagement.exe
+C:\Users\Miller\Documents\Visual Studio 2015\Projects\TheckStudios Management Sim API 2015\CampManagement\obj\Debug\CampManagement.xml
+C:\Users\Miller\Documents\Visual Studio 2015\Projects\TheckStudios Management Sim API 2015\CampManagement\obj\Debug\CampManagement.pdb
+C:\Users\Miller\Source\Repos\CampManagement-API\TheckStudios Management Sim API 2015\CampManagement\bin\Debug\CampManagement.exe.config
+C:\Users\Miller\Source\Repos\CampManagement-API\TheckStudios Management Sim API 2015\CampManagement\obj\Debug\CampManagement.exe
+C:\Users\Miller\Source\Repos\CampManagement-API\TheckStudios Management Sim API 2015\CampManagement\obj\Debug\CampManagement.xml
+C:\Users\Miller\Source\Repos\CampManagement-API\TheckStudios Management Sim API 2015\CampManagement\obj\Debug\CampManagement.pdb
