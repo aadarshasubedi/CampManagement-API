@@ -1,7 +1,18 @@
 ﻿Imports System.IO
 
 Public Class Resources
+    Public Shared Sub Wood()
+        ' ??
+    End Sub
+    Public Shared Sub Water()
 
+    End Sub
+    Public Shared Sub ManPower()
+        Dim PrisonerAmountPath = Environment.CurrentDirectory + "/Data/MPInfo.txt"
+        Dim PrisonerAmount = My.Computer.FileSystem.ReadAllText(Environment.CurrentDirectory + "/Data/MPInfo.txt")
+
+
+    End Sub
 End Class
 Public Class Mechanics
     Public Shared Sub EasyTaxes()
@@ -11,7 +22,7 @@ Public Class Mechanics
         Dim TaxTotal = PlayerWealth - 85%
 
 
-        '  MsgBox("The local government demands taxes from you." + " $" + TaxTotal + "Will be taken from your treasury.")
+        MsgBox("The local government demands taxes from you." + " $" + TaxTotal + "Will be taken from your treasury.")
 
         Dim WriteToGameInfo As StreamWriter
         WriteToGameInfo = My.Computer.FileSystem.OpenTextFileWriter(TaxToBeDebted, True)
@@ -25,7 +36,7 @@ Public Class Mechanics
         Dim TaxTotal = PlayerWealth - 65%
 
 
-        '  MsgBox("The local government demands taxes from you." + " $" + TaxTotal + "Will be taken from your treasury.")
+        MsgBox("The local government demands taxes from you." + " $" + TaxTotal + "Will be taken from your treasury.")
 
         Dim WriteToGameInfo As StreamWriter
         WriteToGameInfo = My.Computer.FileSystem.OpenTextFileWriter(TaxToBeDebted, True)
@@ -91,9 +102,7 @@ Public Class Mechanics
 
 
     End Sub
-    Public Shared Sub PrisonerEasy()
 
-    End Sub
 End Class
 Public Class Misc
 
