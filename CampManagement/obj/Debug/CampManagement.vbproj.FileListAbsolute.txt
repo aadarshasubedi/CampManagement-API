@@ -23,3 +23,7 @@ C:\Users\Miller\Source\Repos\CampManagement-API\TheckStudios Management Sim API 
 C:\Users\Miller\Source\Repos\CampManagement-API\TheckStudios Management Sim API 2015\CampManagement\obj\Debug\CampManagement.Form1.resources
 C:\Users\Miller\Source\Repos\CampManagement-API\TheckStudios Management Sim API 2015\CampManagement\obj\Debug\CampManagement.Resources.resources
 C:\Users\Miller\Source\Repos\CampManagement-API\TheckStudios Management Sim API 2015\CampManagement\obj\Debug\CampManagement.vbproj.GenerateResource.Cache
+C:\Users\Miller\Source\Repos\CampManagement-API\CampManagement\bin\Debug\CampManagement.exe.config
+C:\Users\Miller\Source\Repos\CampManagement-API\CampManagement\obj\Debug\CampManagement.exe
+C:\Users\Miller\Source\Repos\CampManagement-API\CampManagement\obj\Debug\CampManagement.xml
+C:\Users\Miller\Source\Repos\CampManagement-API\CampManagement\obj\Debug\CampManagement.pdb
