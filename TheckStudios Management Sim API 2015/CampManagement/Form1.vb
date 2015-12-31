@@ -1,4 +1,5 @@
-﻿Public Class Form1
+﻿Imports TheckStudios_Management_Sim_API_2015
+Public Class Form1
     Dim Month = "1"
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -51,6 +52,30 @@
             Label13.Text = "December"
         End If
 
+
+    End Sub
+
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+
+    End Sub
+
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        'This timer ensures that all values are synced with the information the API is returning to these files.
+        ' That is, every time you call a function, it may modify these files, and thus, you need to keep them synced.
+        Label5.Text = My.Computer.FileSystem.ReadAllText(Application.StartupPath + "/Data/FinanceInfo.txt")
+        Label6.Text = My.Computer.FileSystem.ReadAllText(Application.StartupPath + "/Data/FoodInfo.txt")
+        Label7.Text = My.Computer.FileSystem.ReadAllText(Application.StartupPath + "/Data/WoodInfo.txt")
+        Label8.Text = My.Computer.FileSystem.ReadAllText(Application.StartupPath + "/Data/MPInfo.txt")
+
+        Timer2.Enabled = True
+        Timer2.start
+        Timer1.Stop()
+    End Sub
+
+    Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick
+        Timer1.Start()
+        Timer2.Stop()
 
     End Sub
 End Class
