@@ -9,10 +9,10 @@ This small API can be used to create a simple management simulation game with Vi
 -- Easy-to-use: Add the API as a dependency, and call the functions! <br />
 -- May not even work yet! <br />
 
-All these features are part of the API at it's current state. These may or may not be currently implemented in the demonstration.
+All these features are part of the API at it's current state. These may or may not be currently implemented in the demo "CampManagement".
 
 # Setup: <br />
-First of all,  I recommend copying the folder "Data" from "**/CampManagement/Bin/Debug/" to your application root location. After doing that, create a timer in-game that will write the current amount of money the player has to "/Data/FinanceInfo.txt" every 3s or so. This is  obligatory.<br />
+First of all, I recommend copying the folder "Data" from CampManagement/Bin/Debug/ to your game's root location. After doing that, create a timer in-game that will read the current amount of money the player from "/Data/FinanceInfo.txt" every 3s or so. This is  obligatory. You may also need to read from other files on the "Data" Folder. Check Timer1 and Timer2 on CampManagement for more information.<br />
 
 To setup taxes, all you have to do is call the EasyTax() or HardTax() (EasyTax tax is 15%. HardTax is 35%) once a year in-game. Or more often. After calling it, it will calculate how much the player shall be taxed, and put the result in "/Data/TaxInfo.txt". You need to diminish the player's money in-game by the value on TaxInfo.txt. <br />
 
