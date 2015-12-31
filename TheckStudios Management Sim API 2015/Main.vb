@@ -29,13 +29,12 @@ Public Class Mechanics
                 'TaxTotal is the playerwealth minus 85%, so we can calculate 15% of it to charge taxes.
                 Dim TaxTotal = PlayerWealth - 85%
                 'TaxDebted is the player's wealth - how much taxes will be charged.
-                Dim TaxDebted = PlayerWealth - TaxTotal
+                Dim NewPlayerWealth = PlayerWealth - TaxTotal
 
-                MsgBox("The local government demands taxes from you." + " $" + TaxTotal + "Will be taken from your treasury.")
-
+                'Write to disk the new playerwealth.
                 Dim WriteToGameInfo As StreamWriter
                 WriteToGameInfo = My.Computer.FileSystem.OpenTextFileWriter(PlayerWealthPath, False)
-                WriteToGameInfo.WriteLine(TaxDebted)
+                WriteToGameInfo.WriteLine(NewPlayerWealth)
                 WriteToGameInfo.Close()
 
                 'This is simply so the game knows how much tax were charged on player, if the developer wishes to disclose it..
@@ -61,13 +60,12 @@ Public Class Mechanics
                 'TaxTotal is the playerwealth minus 85%, so we can calculate 15% of it to charge taxes.
                 Dim TaxTotal = PlayerWealth - 65%
                 'TaxDebted is the player's wealth - how much taxes will be charged.
-                Dim TaxDebted = PlayerWealth - TaxTotal
+                Dim NewPlayerWealth = PlayerWealth - TaxTotal
 
-                MsgBox("The local government demands taxes from you." + " $" + TaxTotal + "Will be taken from your treasury.")
-
+                'Write to disk the new playerwealth.
                 Dim WriteToGameInfo As StreamWriter
                 WriteToGameInfo = My.Computer.FileSystem.OpenTextFileWriter(PlayerWealthPath, False)
-                WriteToGameInfo.WriteLine(TaxDebted)
+                WriteToGameInfo.WriteLine(NewPlayerWealth)
                 WriteToGameInfo.Close()
 
                 'This is simply so the game knows how much tax were charged on player, if the developer wishes to disclose it..
@@ -163,6 +161,21 @@ Public Class Mechanics
                 MsgBox("Failed to call Inflation! Files must be missing from the Data folder!")
             End Try
         End If
+    End Sub
+
+    Public Shared Sub SetDifficultyEasy()
+        Dim DifficultyPath = Environment.CurrentDirectory + "/Data/Difficulty.txt"
+        Dim WriteToDifficultyInfo As StreamWriter
+        WriteToDifficultyInfo = My.Computer.FileSystem.OpenTextFileWriter(DifficultyPath, False)
+        WriteToDifficultyInfo.WriteLine("0")
+        WriteToDifficultyInfo.Close()
+    End Sub
+    Public Shared Sub SetDifficultyHard()
+        Dim DifficultyPath = Environment.CurrentDirectory + "/Data/Difficulty.txt"
+        Dim WriteToDifficultyInfo As StreamWriter
+        WriteToDifficultyInfo = My.Computer.FileSystem.OpenTextFileWriter(DifficultyPath, False)
+        WriteToDifficultyInfo.WriteLine("1")
+        WriteToDifficultyInfo.Close()
     End Sub
 End Class
 Public Class Misc
