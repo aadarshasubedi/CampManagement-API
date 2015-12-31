@@ -51,7 +51,7 @@ Public Class Form1
         If Month = 12 Then
             Label13.Text = "December"
         End If
-
+        TextBox1.Text = TextBox1.Text + Environment.NewLine + "You come back to your camp to check how it is going. It is " + Label14.Text + "th of " + Label13.Text
 
     End Sub
 
@@ -74,6 +74,14 @@ Public Class Form1
     End Sub
 
     Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick
+        If Label12.Text = "1950" Then
+            MsgBox("You won! Congratulations!")
+            TextBox1.Text = TextBox1.Text + Environment.NewLine + "You beat the game! The soldiers were acquitted from the Nuremberg Trials and you are free to go home."
+            My.Settings.Save()
+            Timer2.Enabled = False
+            Timer1.Stop()
+
+        End If
         Timer1.Start()
         Timer2.Stop()
 

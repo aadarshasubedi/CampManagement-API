@@ -117,15 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="RichTextBox1.Text" xml:space="preserve">
-    <value>Welcome to Camp Management by Miller Berto.
-Germany just surrendered. You must protect the POWs until 1950, while taking care of the POW camp.
-This is an example of what our API can do, but you may play it as a game.</value>
-  </data>
   <metadata name="Timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
   <metadata name="Timer2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>106, 17</value>
   </metadata>
+  <data name="TextBox1.Text" xml:space="preserve">
+    <value>Welcome to Camp Management by Miller Berto.
+Germany just surrendered. You must protect the POWs until 1950, while taking care of the POW camp.
+This is a demonstration of our API. A proof-of-concept project to test whether gaming can be done
+on Visual Basic software.</value>
+  </data>
 </root>

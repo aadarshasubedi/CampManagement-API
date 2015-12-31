@@ -42,9 +42,9 @@ Partial Class Form1
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
-        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -68,7 +68,7 @@ Partial Class Form1
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Location = New System.Drawing.Point(12, 12)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(444, 122)
+        Me.Panel1.Size = New System.Drawing.Size(444, 112)
         Me.Panel1.TabIndex = 0
         '
         'Label16
@@ -254,20 +254,6 @@ Partial Class Form1
         Me.Label12.TabIndex = 3
         Me.Label12.Text = "1946"
         '
-        'RichTextBox1
-        '
-        Me.RichTextBox1.BackColor = System.Drawing.SystemColors.InactiveCaptionText
-        Me.RichTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.RichTextBox1.Font = New System.Drawing.Font("Segoe UI", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RichTextBox1.ForeColor = System.Drawing.SystemColors.Window
-        Me.RichTextBox1.Location = New System.Drawing.Point(12, 140)
-        Me.RichTextBox1.Name = "RichTextBox1"
-        Me.RichTextBox1.ReadOnly = True
-        Me.RichTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedHorizontal
-        Me.RichTextBox1.Size = New System.Drawing.Size(444, 122)
-        Me.RichTextBox1.TabIndex = 6
-        Me.RichTextBox1.Text = resources.GetString("RichTextBox1.Text")
-        '
         'Timer1
         '
         Me.Timer1.Enabled = True
@@ -277,13 +263,26 @@ Partial Class Form1
         '
         Me.Timer2.Interval = 45
         '
+        'TextBox1
+        '
+        Me.TextBox1.BackColor = System.Drawing.SystemColors.MenuText
+        Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TextBox1.Font = New System.Drawing.Font("Segoe UI", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox1.ForeColor = System.Drawing.SystemColors.Window
+        Me.TextBox1.Location = New System.Drawing.Point(12, 130)
+        Me.TextBox1.Multiline = True
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(444, 137)
+        Me.TextBox1.TabIndex = 7
+        Me.TextBox1.Text = resources.GetString("TextBox1.Text")
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ControlDarkDark
         Me.ClientSize = New System.Drawing.Size(468, 406)
-        Me.Controls.Add(Me.RichTextBox1)
+        Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Label11)
@@ -317,9 +316,9 @@ Partial Class Form1
     Friend WithEvents Label12 As Label
     Friend WithEvents Label13 As Label
     Friend WithEvents Label14 As Label
-    Friend WithEvents RichTextBox1 As RichTextBox
     Friend WithEvents Label16 As Label
     Friend WithEvents Label15 As Label
     Friend WithEvents Timer1 As Timer
     Friend WithEvents Timer2 As Timer
+    Friend WithEvents TextBox1 As TextBox
 End Class
