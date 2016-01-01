@@ -17,21 +17,15 @@ Public Class CampManagement
                 YearLabel.Text = YearLabel.Text + 1
                 'Resets back to january.
                 MonthLabel.Text = "January"
-                If My.Settings.Difficulty = "0" Then
-                    Mechanics.Inflation()
-                    HistoryLog.AppendText(Environment.NewLine + "Your treasury master comes running to your office to warn you that inflation destroyed a good portion of your money.")
-                    Mechanics.Taxes()
-                    'Reads TaxInfo to know how much will be debted
-                    Dim TaxToBeDebted = My.Computer.FileSystem.ReadAllText(Environment.CurrentDirectory + "/Data/TaxInfo.txt")
-                    HistoryLog.AppendText(Environment.NewLine + "The local government requires payment of taxes." + "$" + TaxToBeDebted + " will be taken from your treasury")
 
-                Else
-                    Mechanics.Inflation()
-                    HistoryLog.AppendText(Environment.NewLine + "Your treasury master kicks the door open and, yelling, tells you that inflation has taken most of your money.")
-                    Mechanics.Taxes()
-                    Dim TaxToBeDebted = My.Computer.FileSystem.ReadAllText(Environment.CurrentDirectory + "/Data/TaxInfo.txt")
-                    HistoryLog.AppendText(Environment.NewLine + "The local government requires payment of taxes." + "$" + TaxToBeDebted + " will be taken from your treasury")
-                End If
+                Mechanics.Inflation()
+                HistoryLog.AppendText(Environment.NewLine + "Your treasury master comes running to your office to warn you that inflation destroyed a good portion of your money.")
+                Mechanics.Taxes()
+                'Reads TaxInfo to know how much will be debted
+                Dim TaxToBeDebted = My.Computer.FileSystem.ReadAllText(Environment.CurrentDirectory + "/Data/TaxInfo.txt")
+                HistoryLog.AppendText(Environment.NewLine + "The local government requires payment of taxes. You lost the following: $" + TaxToBeDebted)
+                'HistoryLog.AppendText(Environment.NewLine + "Your treasury master kicks the door open and, yelling, tells you that inflation has taken most of your money.")
+
             End If
         End If
 
@@ -76,22 +70,30 @@ Public Class CampManagement
 
     End Sub
 
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-
-    End Sub
-
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         'This timer ensures that all values are synced with the information the API is returning to these files.
         ' That is, every time you call a function, it may modify these files, and thus, you need to keep them synced.
-        FinanceInfoLabel.Text = My.Computer.FileSystem.ReadAllText(Application.StartupPath + "/Data/FinanceInfo.txt")
-        RationInfoLabel.Text = My.Computer.FileSystem.ReadAllText(Application.StartupPath + "/Data/FoodInfo.txt")
-        WoodInfoLabel.Text = My.Computer.FileSystem.ReadAllText(Application.StartupPath + "/Data/WoodInfo.txt")
-        MPInfoLabel.Text = My.Computer.FileSystem.ReadAllText(Application.StartupPath + "/Data/MPInfo.txt")
+        Try
+            FinanceInfoLabel.Text = My.Computer.FileSystem.ReadAllText(Application.StartupPath + "/Data/FinanceInfo.txt")
+            RationInfoLabel.Text = My.Computer.FileSystem.ReadAllText(Application.StartupPath + "/Data/FoodInfo.txt")
+            WoodInfoLabel.Text = My.Computer.FileSystem.ReadAllText(Application.StartupPath + "/Data/WoodInfo.txt")
+            MPInfoLabel.Text = My.Computer.FileSystem.ReadAllText(Application.StartupPath + "/Data/MPInfo.txt")
 
-        Timer2.Enabled = True
-        Timer2.Start()
-        Timer1.Stop()
+            'If difficulty is set to 1 (Hard), then show 35% as the taxes on the UI
+            If My.Computer.FileSystem.ReadAllText(Application.StartupPath + "/Data/DifficultyInfo.txt") = 1 Then
+                TaxesLabel.Text = "35%"
+            Else
+                TaxesLabel.Text = "15%"
+            End If
+
+            Timer2.Enabled = True
+            Timer2.Start()
+            Timer1.Stop()
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+            MsgBox("Information synchronizer Game-API crashed and has been restarted.")
+        End Try
+
     End Sub
 
     Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick

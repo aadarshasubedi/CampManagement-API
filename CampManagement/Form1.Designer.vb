@@ -27,7 +27,7 @@ Partial Class CampManagement
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
-        Me.InflationLabel = New System.Windows.Forms.Label()
+        Me.TaxesLabel = New System.Windows.Forms.Label()
         Me.CountryLabel = New System.Windows.Forms.Label()
         Me.DayLabel = New System.Windows.Forms.Label()
         Me.YearLabel = New System.Windows.Forms.Label()
@@ -54,7 +54,7 @@ Partial Class CampManagement
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel1.Controls.Add(Me.Label16)
         Me.Panel1.Controls.Add(Me.Label15)
-        Me.Panel1.Controls.Add(Me.InflationLabel)
+        Me.Panel1.Controls.Add(Me.TaxesLabel)
         Me.Panel1.Controls.Add(Me.CountryLabel)
         Me.Panel1.Controls.Add(Me.DayLabel)
         Me.Panel1.Controls.Add(Me.YearLabel)
@@ -95,15 +95,15 @@ Partial Class CampManagement
         Me.Label15.TabIndex = 10
         Me.Label15.Text = "Month:"
         '
-        'InflationLabel
+        'TaxesLabel
         '
-        Me.InflationLabel.AutoSize = True
-        Me.InflationLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.InflationLabel.Location = New System.Drawing.Point(388, 10)
-        Me.InflationLabel.Name = "InflationLabel"
-        Me.InflationLabel.Size = New System.Drawing.Size(29, 15)
-        Me.InflationLabel.TabIndex = 9
-        Me.InflationLabel.Text = "15%"
+        Me.TaxesLabel.AutoSize = True
+        Me.TaxesLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.TaxesLabel.Location = New System.Drawing.Point(388, 10)
+        Me.TaxesLabel.Name = "TaxesLabel"
+        Me.TaxesLabel.Size = New System.Drawing.Size(29, 15)
+        Me.TaxesLabel.TabIndex = 9
+        Me.TaxesLabel.Text = "15%"
         '
         'CountryLabel
         '
@@ -261,7 +261,6 @@ Partial Class CampManagement
         'Timer1
         '
         Me.Timer1.Enabled = True
-        Me.Timer1.Interval = 25
         '
         'Timer2
         '
@@ -311,7 +310,7 @@ Partial Class CampManagement
     Friend WithEvents WoodInfoLabel As Label
     Friend WithEvents RationInfoLabel As Label
     Friend WithEvents FinanceInfoLabel As Label
-    Friend WithEvents InflationLabel As Label
+    Friend WithEvents TaxesLabel As Label
     Friend WithEvents Label9 As Label
     Friend WithEvents Button1 As Button
     Friend WithEvents CountryLabel As Label
