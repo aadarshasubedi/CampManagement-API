@@ -26,3 +26,6 @@ All you have to do is call _Mechanics.Taxes()_ once a year in-game or so. After 
 
 ## How to: Inflation:
 All you have to do is call _Mechanics.Inflation()_ once a year in-game. After calling it, it will calculate how much the player shall have after having his money corrected by the current inflation index, and update the money the player has in-game. <br />
+
+## How to: Worker Profit
+All you have ot do is call _Resources.WorkForceGenerateProfits()_ every time you want to update the player money based on worker production (Every day, every week, etc). After calling it, it will calculate how much the profit the player shall receive, and update the money the player has in-game. TO-DO: Setup daily/weekly different profits <br />
