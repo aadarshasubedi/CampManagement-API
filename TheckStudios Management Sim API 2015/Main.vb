@@ -2,17 +2,17 @@
 
 Public Class Resources
     'Gets current directory and stores into object, as to not request it everytime.
-    Shared MyLocation = Environment.CurrentDirectory
+    Friend Shared MyLocation = Environment.CurrentDirectory
     'This is necessary to save on disk how much wood the player now has.
-    Private Shared WoodAmountPath As String = MyLocation + "/Data/WoodInfo.txt"
+    Friend Shared WoodAmountPath As String = MyLocation + "/Data/WoodInfo.txt"
     'This is necessary to save on the disk how much workers the player now has.
-    Private Shared WorkerAmountPath As String = MyLocation + "/Data/MPInfo.txt"
+    Friend Shared WorkerAmountPath As String = MyLocation + "/Data/MPInfo.txt"
     'This is necessary to find out how much workers the player has.
-    Private Shared WorkerAmount As String = My.Computer.FileSystem.ReadAllText(WorkerAmountPath)
+    Friend Shared WorkerAmount As String = My.Computer.FileSystem.ReadAllText(WorkerAmountPath)
     'This is necessary to know where the difficulty settings are.
-    Private Shared DifficultyPath As String = MyLocation + "/Data/Difficulty.txt"
+    Friend Shared DifficultyPath As String = MyLocation + "/Data/Difficulty.txt"
     'This is necessary to know what difficulty the player is playing on.
-    Private Shared DifficultySettings As String = My.Computer.FileSystem.ReadAllText(DifficultyPath)
+    Friend Shared DifficultySettings As String = My.Computer.FileSystem.ReadAllText(DifficultyPath)
     'This is necessary to save/read on the disk how much money the player now has.
     Private Shared PlayerWealthPath As String = MyLocation + "/Data/FinanceInfo.txt"
     'Other variables. self-explanatory
@@ -76,18 +76,12 @@ Public Class Resources
     End Sub
 End Class
 Public Class Mechanics
-    'Gets current directory and stores into object, as to not request it everytime.
-    Shared MyLocation = Environment.CurrentDirectory
-    'This is necessary if the developer wishes to disclose how much was charged as taxes.
-    Private Shared TaxInfo As String = MyLocation + "/Data/TaxInfo.txt"
     'This is necessary to know where the difficulty settings are.
-    Private Shared DifficultyPath As String = MyLocation + "/Data/DifficultyInfo.txt"
+    Private Shared DifficultyPath As String = Resources.MyLocation + "/Data/DifficultyInfo.txt"
     'This is necessary to know what difficulty the player is playing on.
     Private Shared DifficultySettings As String = My.Computer.FileSystem.ReadAllText(DifficultyPath)
-    'This is necessary to save/read on the disk how much money the player now has.
-    Private Shared PlayerWealthPath As String = MyLocation + "/Data/FinanceInfo.txt"
     'Other variables. self-explanatory
-    Private Shared PlayerWealth, NewPlayerWealth, TaxTotal, InflationCalculus, InflationDifference As String
+    Private Shared NewPlayerWealth, TaxTotal, InflationCalculus, InflationDifference As String
 
 
     'Uses consts instead of static doubles
@@ -100,151 +94,126 @@ Public Class Mechanics
     Const HardInflationPercentage5000 As Double = 0.8
     Const HardInflationPercentage2500 As Double = 0.85
 
-    Const InflationPlayerWealth25000 As String = "25000"
-    Const InflationPlayerWealth5000 As String = "5000"
-    Const InflationPlayerWealth2500 As String = "2500"
+    Const InflationPlayerWealth25000 As Double = 25000
+    Const InflationPlayerWealth5000 As Double = 5000
+    Const InflationPlayerWealth2500 As Double = 2500
+    Private Shared Function Taxes(PlayerWealth As Double) As Double
 
-    'Opens StreamWriters
-    Public Shared WriteToDifficultyInfo As StreamWriter
-    Public Shared WritetoGameInfo As StreamWriter
-    Public Shared WriteToGameInfo2 As StreamWriter
-    Public Shared WriteToFinanceInfo As StreamWriter
-    Public Shared Sub Taxes()
         'Checks what difficulty the player is playing with, and calls the correct taxes.
-        If My.Computer.FileSystem.ReadAllText(Environment.CurrentDirectory + "/Data/DifficultyInfo.txt") = 0 Then
-            EasyTax()
+        If My.Computer.FileSystem.ReadAllText(Environment.CurrentDirectory + " / Data / DifficultyInfo.txt") = 0 Then
+            EasyTax(PlayerWealth)
         Else
-            HardTax()
+            HardTax(PlayerWealth)
         End If
-    End Sub
-    Private Shared Sub EasyTax()
+
+    End Function
+    Private Shared Function EasyTax(PlayerWealth As Double) As Double()
         Try
             'For easy difficulty: enforces 15% of taxes
             'This is necessary to know how much money the player has.
-            PlayerWealth = My.Computer.FileSystem.ReadAllText(PlayerWealthPath)
             NewPlayerWealth = PlayerWealth * EasyTaxesPercentage
             TaxTotal = PlayerWealth - NewPlayerWealth
 
-            'Write to disk the new playerwealth.
-            WritetoGameInfo = My.Computer.FileSystem.OpenTextFileWriter(PlayerWealthPath, False)
-            WritetoGameInfo.WriteLine(NewPlayerWealth)
-            WritetoGameInfo.Close()
-
-            'This is simply so the game knows how much tax were charged on player, if the developer wishes to disclose it..
-            WriteToGameInfo2 = My.Computer.FileSystem.OpenTextFileWriter(TaxInfo, False)
-            WriteToGameInfo2.WriteLine(TaxTotal)
-            WriteToGameInfo2.Close()
+            'Returns the new player money and how much was charged
+            Return {NewPlayerWealth, TaxTotal}
 
         Catch EasyTaxesException As Exception
             'If any problems happen while calling taxes (Usually lacking files), state it to the end-user.
             MsgBox(EasyTaxesException.ToString)
-            MsgBox("Failed to call taxes! Files must be missing from the Data folder!")
+            MsgBox("Failed To Call taxes! Files must be missing from the Data folder!")
         End Try
-    End Sub
-    Private Shared Sub HardTax()
+    End Function
+    Private Shared Function HardTax(PlayerWealth As Double) As Double()
         Try
-            'For hard difficulty: enforces 35% of Taxes.
-            'This is necessary to know how much money the player has.
-            PlayerWealth = My.Computer.FileSystem.ReadAllText(PlayerWealthPath)
+            'For hard difficulty: enforces 35% of taxes
+            'This calculates how much money the player has after being charged taxes.
             NewPlayerWealth = PlayerWealth * HardTaxesPercentage
             TaxTotal = PlayerWealth - NewPlayerWealth
 
-            'Write to disk the new playerwealth.
-            WritetoGameInfo = My.Computer.FileSystem.OpenTextFileWriter(PlayerWealthPath, False)
-            WritetoGameInfo.WriteLine(NewPlayerWealth)
-            WritetoGameInfo.Close()
-
-            'This is simply so the game knows how much tax were charged on player, if the developer wishes to disclose it..
-            WriteToGameInfo2 = My.Computer.FileSystem.OpenTextFileWriter(TaxInfo, False)
-            WriteToGameInfo2.WriteLine(TaxTotal)
-            WriteToGameInfo2.Close()
+            'Returns the new player money and how much was charged
+            Return {NewPlayerWealth, TaxTotal}
 
         Catch HardTaxesException As Exception
             'If any problems happen while calling taxes (Usually lacking files), state it to the end-user.
             MsgBox(HardTaxesException.ToString)
-            MsgBox("Failed to call taxes! Files must be missing from the Data folder!")
+            MsgBox("Failed To Call taxes! Files must be missing from the Data folder!")
         End Try
-    End Sub
-    Public Shared Sub Inflation()
+    End Function
+    Public Shared Function Inflation(PlayerWealth As Double) As Double
         'Checks what difficulty the player is playing with, and calls the correct inflation.
         If DifficultySettings = 0 Then
-            EasyInflation()
+            EasyInflation(PlayerWealth)
         Else
-            HardInflation()
+            HardInflation(PlayerWealth)
         End If
-    End Sub
-    Private Shared Sub EasyInflation()
+    End Function
+    Private Shared Function EasyInflation(PlayerWealth As Double) As Double
         Try
-            'This is necessary to know how much money the player has.
-            PlayerWealth = My.Computer.FileSystem.ReadAllText(PlayerWealthPath)
-
             'If the player has too much money, inflation will be more punishing
             If PlayerWealth > InflationPlayerWealth25000 Then
                 InflationCalculus = EasyInflationPercentage25000
                 InflationDifference = PlayerWealth * InflationCalculus
-                WriteToFinanceInfo = My.Computer.FileSystem.OpenTextFileWriter(PlayerWealthPath, False)
-                WriteToFinanceInfo.WriteLine(InflationDifference)
-                WriteToFinanceInfo.Close()
+
+                Return InflationDifference
+
             End If
             'If the player has a bit of money, inflation will be less punishing.
             If PlayerWealth < InflationPlayerWealth5000 And PlayerWealth > InflationPlayerWealth2500 Then
                 InflationCalculus = EasyInflationPercentage5000
                 InflationDifference = PlayerWealth * InflationCalculus
-                WriteToFinanceInfo = My.Computer.FileSystem.OpenTextFileWriter(PlayerWealthPath, False)
-                WriteToFinanceInfo.WriteLine(InflationDifference)
-                WriteToFinanceInfo.Close()
+
+                Return InflationDifference
+
             End If
             'If the player has a bit of money, inflation will be less punishing.
             If PlayerWealth < InflationPlayerWealth2500 Then
                 InflationCalculus = EasyInflationPercentage2500
                 InflationDifference = PlayerWealth * InflationCalculus
-                WriteToFinanceInfo = My.Computer.FileSystem.OpenTextFileWriter(PlayerWealthPath, False)
-                WriteToFinanceInfo.WriteLine(InflationDifference)
-                WriteToFinanceInfo.Close()
+
+                Return InflationDifference
+
             End If
 
         Catch EasyInflationException As Exception
             'If any problems happen while calling Inflation (Usually lacking files), state it to the end-user.
             MsgBox(EasyInflationException.ToString)
-            MsgBox("Failed to call Inflation! Files must be missing from the Data folder!")
+            MsgBox("Failed To Call Inflation! Files must be missing from the Data folder!")
         End Try
-    End Sub
-    Private Shared Sub HardInflation()
+    End Function
+    Private Shared Function HardInflation(PlayerWealth As Double) As Double
         Try
-            'This is necessary to know how much money the player has.
-            PlayerWealth = My.Computer.FileSystem.ReadAllText(PlayerWealthPath)
 
             'If the player has too much money, inflation will be more punishing
             If PlayerWealth > InflationPlayerWealth25000 Then
                 InflationCalculus = HardInflationPercentage25000
                 InflationDifference = PlayerWealth * InflationCalculus
-                WriteToFinanceInfo = My.Computer.FileSystem.OpenTextFileWriter(PlayerWealthPath, False)
-                WriteToFinanceInfo.WriteLine(InflationDifference)
-                WriteToFinanceInfo.Close()
+
+                Return InflationDifference
+
             End If
             'If the player has a bit of money, inflation will be less punishing.
             If PlayerWealth < InflationPlayerWealth5000 And PlayerWealth > InflationPlayerWealth2500 Then
                 InflationCalculus = HardInflationPercentage5000
                 InflationDifference = PlayerWealth * InflationCalculus
-                WriteToFinanceInfo = My.Computer.FileSystem.OpenTextFileWriter(PlayerWealthPath, False)
-                WriteToFinanceInfo.WriteLine(InflationDifference)
-                WriteToFinanceInfo.Close()
+
+                Return InflationDifference
+
             End If
             'If the player has a bit of money, inflation will be less punishing.
             If PlayerWealth < InflationPlayerWealth2500 Then
                 InflationCalculus = HardInflationPercentage2500
                 InflationDifference = PlayerWealth * InflationCalculus
-                WriteToFinanceInfo = My.Computer.FileSystem.OpenTextFileWriter(PlayerWealthPath, False)
-                WriteToFinanceInfo.WriteLine(InflationDifference)
-                WriteToFinanceInfo.Close()
+
+                Return InflationDifference
+
             End If
 
         Catch HardInflationException As Exception
             'If any problems happen while calling Inflation (Usually lacking files), state it to the end-user.
             MsgBox(HardInflationException.ToString)
-            MsgBox("Failed to call Inflation! Files must be missing from the Data folder!")
+            MsgBox("Failed To Call Inflation! Files must be missing from the Data folder!")
         End Try
-    End Sub
+    End Function
 
     Public Shared Sub SetDifficultyEasy()
         WriteToDifficultyInfo = My.Computer.FileSystem.OpenTextFileWriter(DifficultyPath, False)
