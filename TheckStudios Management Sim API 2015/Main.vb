@@ -10,14 +10,13 @@ Public Class Resources
     'This is necessary to find out how much workers the player has.
     Friend Shared WorkerAmount As String = My.Computer.FileSystem.ReadAllText(WorkerAmountPath)
     'This is necessary to know where the difficulty settings are.
-    Friend Shared DifficultyPath As String = MyLocation + "/Data/Difficulty.txt"
+    Friend Shared DifficultyPath As String = MyLocation + "/Data/DifficultyInfo.txt"
     'This is necessary to know what difficulty the player is playing on.
     Friend Shared DifficultySettings As String = My.Computer.FileSystem.ReadAllText(DifficultyPath)
     'This is necessary to save/read on the disk how much money the player now has.
     Private Shared PlayerWealthPath As String = MyLocation + "/Data/FinanceInfo.txt"
     'Other variables. self-explanatory
     Private Shared PlayerWealth, NewPlayerWealth, WorkForceGenerateProfitResult As String
-
 
     'Uses consts instead of static doubles
     Const EasyProfitPerWorkForceUnit As Double = 1.25
@@ -82,9 +81,13 @@ Public Class Mechanics
     Private Shared DifficultySettings As String = My.Computer.FileSystem.ReadAllText(DifficultyPath)
     'Other variables. self-explanatory
     Private Shared NewPlayerWealth, TaxTotal, InflationCalculus, InflationDifference As String
-
+    'WriteToDisk
+    Public Shared WriteToDifficultyInfo As StreamWriter
 
     'Uses consts instead of static doubles
+    Const Zero As Double = 0
+    Const One As Double = 1
+
     Const EasyTaxesPercentage As Double = 0.85
     Const HardTaxesPercentage As Double = 0.65
     Const EasyInflationPercentage25000 As Double = 0.89
@@ -97,13 +100,15 @@ Public Class Mechanics
     Const InflationPlayerWealth25000 As Double = 25000
     Const InflationPlayerWealth5000 As Double = 5000
     Const InflationPlayerWealth2500 As Double = 2500
-    Private Shared Function Taxes(PlayerWealth As Double) As Double
+    Public Shared Function Taxes(PlayerWealth As Double) As Double()
 
         'Checks what difficulty the player is playing with, and calls the correct taxes.
-        If My.Computer.FileSystem.ReadAllText(Environment.CurrentDirectory + " / Data / DifficultyInfo.txt") = 0 Then
+        If My.Computer.FileSystem.ReadAllText(DifficultyPath) = Zero Then
             EasyTax(PlayerWealth)
+            Return EasyTax(PlayerWealth)
         Else
             HardTax(PlayerWealth)
+            Return HardTax(PlayerWealth)
         End If
 
     End Function
@@ -118,7 +123,6 @@ Public Class Mechanics
             Return {NewPlayerWealth, TaxTotal}
 
         Catch EasyTaxesException As Exception
-            'If any problems happen while calling taxes (Usually lacking files), state it to the end-user.
             MsgBox(EasyTaxesException.ToString)
             MsgBox("Failed To Call taxes! Files must be missing from the Data folder!")
         End Try
@@ -134,7 +138,6 @@ Public Class Mechanics
             Return {NewPlayerWealth, TaxTotal}
 
         Catch HardTaxesException As Exception
-            'If any problems happen while calling taxes (Usually lacking files), state it to the end-user.
             MsgBox(HardTaxesException.ToString)
             MsgBox("Failed To Call taxes! Files must be missing from the Data folder!")
         End Try
@@ -143,8 +146,10 @@ Public Class Mechanics
         'Checks what difficulty the player is playing with, and calls the correct inflation.
         If DifficultySettings = 0 Then
             EasyInflation(PlayerWealth)
+            Return EasyInflation(PlayerWealth)
         Else
             HardInflation(PlayerWealth)
+            Return EasyInflation(PlayerWealth)
         End If
     End Function
     Private Shared Function EasyInflation(PlayerWealth As Double) As Double
@@ -213,16 +218,17 @@ Public Class Mechanics
             MsgBox(HardInflationException.ToString)
             MsgBox("Failed To Call Inflation! Files must be missing from the Data folder!")
         End Try
+
     End Function
 
     Public Shared Sub SetDifficultyEasy()
         WriteToDifficultyInfo = My.Computer.FileSystem.OpenTextFileWriter(DifficultyPath, False)
-        WriteToDifficultyInfo.WriteLine("0")
+        WriteToDifficultyInfo.WriteLine(Zero.ToString)
         WriteToDifficultyInfo.Close()
     End Sub
     Public Shared Sub SetDifficultyHard()
         WriteToDifficultyInfo = My.Computer.FileSystem.OpenTextFileWriter(DifficultyPath, False)
-        WriteToDifficultyInfo.WriteLine("1")
+        WriteToDifficultyInfo.WriteLine(One.ToString)
         WriteToDifficultyInfo.Close()
     End Sub
 End Class

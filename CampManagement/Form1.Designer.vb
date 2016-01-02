@@ -165,9 +165,9 @@ Partial Class CampManagement
         Me.MPInfoLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.MPInfoLabel.Location = New System.Drawing.Point(77, 55)
         Me.MPInfoLabel.Name = "MPInfoLabel"
-        Me.MPInfoLabel.Size = New System.Drawing.Size(92, 13)
+        Me.MPInfoLabel.Size = New System.Drawing.Size(19, 13)
         Me.MPInfoLabel.TabIndex = 7
-        Me.MPInfoLabel.Text = "/Data/MPInfo.txt"
+        Me.MPInfoLabel.Text = "12"
         '
         'WoodInfoLabel
         '
@@ -176,9 +176,9 @@ Partial Class CampManagement
         Me.WoodInfoLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.WoodInfoLabel.Location = New System.Drawing.Point(116, 40)
         Me.WoodInfoLabel.Name = "WoodInfoLabel"
-        Me.WoodInfoLabel.Size = New System.Drawing.Size(108, 13)
+        Me.WoodInfoLabel.Size = New System.Drawing.Size(19, 13)
         Me.WoodInfoLabel.TabIndex = 6
-        Me.WoodInfoLabel.Text = "/Data/WoodInfo.txt"
+        Me.WoodInfoLabel.Text = "10"
         '
         'RationInfoLabel
         '
@@ -187,9 +187,9 @@ Partial Class CampManagement
         Me.RationInfoLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.RationInfoLabel.Location = New System.Drawing.Point(114, 25)
         Me.RationInfoLabel.Name = "RationInfoLabel"
-        Me.RationInfoLabel.Size = New System.Drawing.Size(110, 13)
+        Me.RationInfoLabel.Size = New System.Drawing.Size(19, 13)
         Me.RationInfoLabel.TabIndex = 5
-        Me.RationInfoLabel.Text = "/Data/RationInfo.txt"
+        Me.RationInfoLabel.Text = "10"
         '
         'FinanceInfoLabel
         '
@@ -198,9 +198,9 @@ Partial Class CampManagement
         Me.FinanceInfoLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.FinanceInfoLabel.Location = New System.Drawing.Point(116, 10)
         Me.FinanceInfoLabel.Name = "FinanceInfoLabel"
-        Me.FinanceInfoLabel.Size = New System.Drawing.Size(116, 13)
+        Me.FinanceInfoLabel.Size = New System.Drawing.Size(25, 13)
         Me.FinanceInfoLabel.TabIndex = 4
-        Me.FinanceInfoLabel.Text = "/Data/FinanceInfo.txt"
+        Me.FinanceInfoLabel.Text = "100"
         '
         'Label4
         '
@@ -260,7 +260,6 @@ Partial Class CampManagement
         '
         'Timer1
         '
-        Me.Timer1.Enabled = True
         '
         'Timer2
         '

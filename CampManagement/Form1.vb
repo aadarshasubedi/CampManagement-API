@@ -2,30 +2,30 @@
 Public Class CampManagement
     'Month must be declared Class-wise to make sure all subs and functions can access it.
     Dim Month = "1"
+    Public MoneyInflationApplied, LostToTaxes, MoneyTaxesApplied, LostToTaxesAndMoneyTaxesApplied
+    Public PlayerWealth As Double
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        'Adds 7 days to the days counter
+        PlayerWealth = Convert.ToDouble(FinanceInfoLabel.Text)
+
         DayLabel.Text = DayLabel.Text + 7
-        'If we add over 30 days, correct it and increase Month by 1(Jump to the next month)
         If DayLabel.Text > 30 Then
             Month = Month + 1
-            'Example: If day is 36, 36 - 30 = 6. Day 6, then.
             DayLabel.Text = DayLabel.Text - 30
-            'This increases the year factor if the month counter breaks 12.
             If Month = 13 Then
                 Month = 1
-                YearLabel.Text = YearLabel.Text + 1
-                'Resets back to january.
                 MonthLabel.Text = "January"
+                YearLabel.Text = YearLabel.Text + 1
 
-                Mechanics.Inflation()
+                MoneyInflationApplied = Mechanics.Inflation(PlayerWealth)
+
                 HistoryLog.AppendText(Environment.NewLine + "Your treasury master comes running to your office to warn you that inflation destroyed a good portion of your money.")
-                Mechanics.Taxes()
-                'Reads TaxInfo to know how much will be debted
-                Dim TaxToBeDebted = My.Computer.FileSystem.ReadAllText(Environment.CurrentDirectory + "/Data/TaxInfo.txt")
-                HistoryLog.AppendText(Environment.NewLine + "The local government requires payment of taxes. You lost the following: $" + TaxToBeDebted)
-                'HistoryLog.AppendText(Environment.NewLine + "Your treasury master kicks the door open and, yelling, tells you that inflation has taken most of your money.")
 
+                LostToTaxesAndMoneyTaxesApplied = Mechanics.Taxes(PlayerWealth)
+                MoneyTaxesApplied = LostToTaxesAndMoneyTaxesApplied(0)
+                LostToTaxes = LostToTaxesAndMoneyTaxesApplied(1)
+
+                HistoryLog.AppendText("The local government requires payment of taxes. You lost the following: $" + LostToTaxes)
             End If
         End If
 
