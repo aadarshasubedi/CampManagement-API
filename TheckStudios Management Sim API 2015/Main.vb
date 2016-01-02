@@ -1,16 +1,20 @@
 ﻿Imports System.IO
 
 Public Class Resources
+    'Gets current directory and stores into object, as to not request it everytime.
+    Shared MyLocation = Environment.CurrentDirectory
+    'This is necessary to save on disk how much wood the player now has.
+    Private Shared WoodAmountPath As String = MyLocation + "/Data/WoodInfo.txt"
     'This is necessary to save on the disk how much workers the player now has.
-    Private Shared WorkerAmountPath As String = Environment.CurrentDirectory + "/Data/MPInfo.txt"
+    Private Shared WorkerAmountPath As String = MyLocation + "/Data/MPInfo.txt"
     'This is necessary to find out how much workers the player has.
     Private Shared WorkerAmount As String = My.Computer.FileSystem.ReadAllText(WorkerAmountPath)
     'This is necessary to know where the difficulty settings are.
-    Private Shared DifficultyPath As String = Environment.CurrentDirectory + "/Data/Difficulty.txt"
+    Private Shared DifficultyPath As String = MyLocation + "/Data/Difficulty.txt"
     'This is necessary to know what difficulty the player is playing on.
     Private Shared DifficultySettings As String = My.Computer.FileSystem.ReadAllText(DifficultyPath)
     'This is necessary to save/read on the disk how much money the player now has.
-    Private Shared PlayerWealthPath As String = Environment.CurrentDirectory + "/Data/FinanceInfo.txt"
+    Private Shared PlayerWealthPath As String = MyLocation + "/Data/FinanceInfo.txt"
     'Other variables. self-explanatory
     Private Shared PlayerWealth, NewPlayerWealth, WorkForceGenerateProfitResult As String
 
@@ -24,10 +28,10 @@ Public Class Resources
     Public Shared WriteToFinanceInfo As StreamWriter
 
     Public Shared Sub Wood()
-        ' ??
+        ' Coming soon
     End Sub
     Public Shared Sub Water()
-
+        ' Coming soon
     End Sub
     Public Shared Sub WorkForceGenerateProfits()
         'This is used to calculate profits from manpower (prisoners, workers, and others)
@@ -72,14 +76,16 @@ Public Class Resources
     End Sub
 End Class
 Public Class Mechanics
+    'Gets current directory and stores into object, as to not request it everytime.
+    Shared MyLocation = Environment.CurrentDirectory
     'This is necessary if the developer wishes to disclose how much was charged as taxes.
-    Private Shared TaxInfo As String = Environment.CurrentDirectory + "/Data/TaxInfo.txt"
+    Private Shared TaxInfo As String = MyLocation + "/Data/TaxInfo.txt"
     'This is necessary to know where the difficulty settings are.
-    Private Shared DifficultyPath As String = Environment.CurrentDirectory + "/Data/DifficultyInfo.txt"
+    Private Shared DifficultyPath As String = MyLocation + "/Data/DifficultyInfo.txt"
     'This is necessary to know what difficulty the player is playing on.
     Private Shared DifficultySettings As String = My.Computer.FileSystem.ReadAllText(DifficultyPath)
     'This is necessary to save/read on the disk how much money the player now has.
-    Private Shared PlayerWealthPath As String = Environment.CurrentDirectory + "/Data/FinanceInfo.txt"
+    Private Shared PlayerWealthPath As String = MyLocation + "/Data/FinanceInfo.txt"
     'Other variables. self-explanatory
     Private Shared PlayerWealth, NewPlayerWealth, TaxTotal, InflationCalculus, InflationDifference As String
 
