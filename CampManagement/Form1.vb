@@ -6,7 +6,7 @@ Public Class CampManagement
     Public PlayerWealth As Double
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        PlayerWealth = Convert.ToDouble(FinanceInfoLabel.Text)
+
 
         DayLabel.Text = DayLabel.Text + 7
         If DayLabel.Text > 30 Then
@@ -17,15 +17,17 @@ Public Class CampManagement
                 MonthLabel.Text = "January"
                 YearLabel.Text = YearLabel.Text + 1
 
+                PlayerWealth = Convert.ToDouble(FinanceInfoLabel.Text)
                 MoneyInflationApplied = Mechanics.Inflation(PlayerWealth)
+                PlayerWealth = Convert.ToDouble(FinanceInfoLabel.Text)
 
-                HistoryLog.AppendText(Environment.NewLine + "Your treasury master comes running to your office to warn you that inflation destroyed a good portion of your money.")
+                HistoryLog.AppendText("Your treasury master comes running to your office to warn you that inflation destroyed a good portion of your money.")
 
                 LostToTaxesAndMoneyTaxesApplied = Mechanics.Taxes(PlayerWealth)
                 MoneyTaxesApplied = LostToTaxesAndMoneyTaxesApplied(0)
                 LostToTaxes = LostToTaxesAndMoneyTaxesApplied(1)
 
-                HistoryLog.AppendText("The local government requires payment of taxes. You lost the following: $" + LostToTaxes)
+                HistoryLog.AppendText("The local government requires payment of taxes. You lost the following: $" + LostToTaxes.ToString)
             End If
         End If
 
