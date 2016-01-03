@@ -3,76 +3,56 @@
 Public Class Resources
     'Gets current directory and stores into object, as to not request it everytime.
     Friend Shared MyLocation = Environment.CurrentDirectory
-    'This is necessary to save on disk how much wood the player now has.
-    Friend Shared WoodAmountPath As String = MyLocation + "/Data/WoodInfo.txt"
-    'This is necessary to save on the disk how much workers the player now has.
-    Friend Shared WorkerAmountPath As String = MyLocation + "/Data/MPInfo.txt"
-    'This is necessary to find out how much workers the player has.
-    Friend Shared WorkerAmount As String = My.Computer.FileSystem.ReadAllText(WorkerAmountPath)
     'This is necessary to know where the difficulty settings are.
     Friend Shared DifficultyPath As String = MyLocation + "/Data/DifficultyInfo.txt"
     'This is necessary to know what difficulty the player is playing on.
     Friend Shared DifficultySettings As String = My.Computer.FileSystem.ReadAllText(DifficultyPath)
-    'This is necessary to save/read on the disk how much money the player now has.
-    Private Shared PlayerWealthPath As String = MyLocation + "/Data/FinanceInfo.txt"
     'Other variables. self-explanatory
-    Private Shared PlayerWealth, NewPlayerWealth, WorkForceGenerateProfitResult As String
+    Private Shared PlayerWealth, NewPlayerWealth, WorkForceGenerateProfitResult, WorkerAmount As String
 
     'Uses consts instead of static doubles
     Const EasyProfitPerWorkForceUnit As Double = 1.25
     Const HardProfitPerWorkForceUnit As Double = 1.1
 
-    'Opens Streamwriters
-    Public Shared WriteToMPInfo As StreamWriter
-    Public Shared WriteToFinanceInfo As StreamWriter
-
-    Public Shared Sub Wood()
+    Public Shared Function Wood()
         ' Coming soon
-    End Sub
-    Public Shared Sub Water()
+    End Function
+    Public Shared Function Water()
         ' Coming soon
-    End Sub
-    Public Shared Sub WorkForceGenerateProfits()
+    End Function
+    Public Shared Function WorkForceGenerateProfits(PlayerWealth As Double, WorkerAmount As Double) As Double()
         'This is used to calculate profits from manpower (prisoners, workers, and others)
         Try
             If DifficultySettings = 0 Then
-                EasyWPProfits()
+                EasyWPProfits(PlayerWealth, WorkerAmount)
+                Return EasyWPProfits(PlayerWealth, WorkerAmount)
             Else
-                HardWPProfits()
+                HardWPProfits(PlayerWealth, WorkerAmount)
+                Return HardWPProfits(PlayerWealth, WorkerAmount)
             End If
         Catch ex As Exception
             MsgBox(ex.ToString)
             MsgBox("Failed to call MP Profits! Files must be missing from the Data folder!")
         End Try
-    End Sub
-    Private Shared Sub EasyWPProfits()
+    End Function
+    Private Shared Function EasyWPProfits(PlayerWealth As Double, WorkerAmount As Double) As Double()
         'Profit = How Many Workers The Player Has * Profit Per Worker based on Difficulty
         WorkForceGenerateProfitResult = WorkerAmount * EasyProfitPerWorkForceUnit
-        'Finds how much money the player has on call-time to make sure the amount of money is not outdated.
-        PlayerWealth = My.Computer.FileSystem.ReadAllText(PlayerWealthPath)
         'PlayersMoney = Profit calculated above + old money quantity (as to not overwrite the money)
         NewPlayerWealth = WorkForceGenerateProfitResult + PlayerWealth
 
-        'Write to disk the new player information.
-        WriteToFinanceInfo = My.Computer.FileSystem.OpenTextFileWriter(PlayerWealthPath, False)
-        WriteToFinanceInfo.WriteLine(NewPlayerWealth)
-        WriteToFinanceInfo.Close()
+        Return {NewPlayerWealth, 0}
 
-    End Sub
-    Private Shared Sub HardWPProfits()
+    End Function
+    Private Shared Function HardWPProfits(PlayerWealth As Double, WorkerAmount As Double) As Double()
         'Profit = How Many Workers The Player Has * Profit Per Worker based on Difficulty
         WorkForceGenerateProfitResult = WorkerAmount * HardProfitPerWorkForceUnit
-        'Finds how much money the player has on call-time to make sure the amount of money is not outdated.
-        PlayerWealth = My.Computer.FileSystem.ReadAllText(PlayerWealthPath)
         'PlayersMoney = Profit calculated above + old money quantity (as to not overwrite the money)
         NewPlayerWealth = WorkForceGenerateProfitResult + PlayerWealth
 
-        'Write to disk the new player information.
-        WriteToFinanceInfo = My.Computer.FileSystem.OpenTextFileWriter(PlayerWealthPath, False)
-        WriteToFinanceInfo.WriteLine(NewPlayerWealth)
-        WriteToFinanceInfo.Close()
+        Return {NewPlayerWealth, 0}
 
-    End Sub
+    End Function
 End Class
 Public Class Mechanics
     'This is necessary to know where the difficulty settings are.

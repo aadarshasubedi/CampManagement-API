@@ -9,11 +9,11 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("Management Sim API 2015")>
-<Assembly: AssemblyDescription("Economics, Resources and others API.")>
+<Assembly: AssemblyTitle("Management Sim API 2016")>
+<Assembly: AssemblyDescription("Economics, Management and More API")>
 <Assembly: AssemblyCompany("TheckStudios")>
-<Assembly: AssemblyProduct("TheckStudios Management Sim API 2015")>
-<Assembly: AssemblyCopyright("TheckStudios ©  2015")>
+<Assembly: AssemblyProduct("TheckStudios Management Sim API 2016")>
+<Assembly: AssemblyCopyright("TheckStudios ©  2016")>
 <Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(False)>
@@ -32,6 +32,6 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")>
 
-<Assembly: AssemblyVersion("0.5.3.0")>
-<Assembly: AssemblyFileVersion("0.5.3.0")>
+<Assembly: AssemblyVersion("0.5.6.0")>
+<Assembly: AssemblyFileVersion("0.5.6.0")>
 <Assembly: NeutralResourcesLanguage("en")>
