@@ -24,10 +24,10 @@ Public Class Resources
         'This is used to calculate profits from manpower (prisoners, workers, and others)
         Try
             If DifficultySettings = 0 Then
-                EasyWPProfits(PlayerWealth, WorkerAmount)
+                '       EasyWPProfits(PlayerWealth, WorkerAmount)
                 Return EasyWPProfits(PlayerWealth, WorkerAmount)
             Else
-                HardWPProfits(PlayerWealth, WorkerAmount)
+                '      HardWPProfits(PlayerWealth, WorkerAmount)
                 Return HardWPProfits(PlayerWealth, WorkerAmount)
             End If
         Catch ex As Exception
@@ -84,10 +84,10 @@ Public Class Mechanics
 
         'Checks what difficulty the player is playing with, and calls the correct taxes.
         If My.Computer.FileSystem.ReadAllText(DifficultyPath) = Zero Then
-            EasyTax(PlayerWealth)
+            '    EasyTax(PlayerWealth)
             Return EasyTax(PlayerWealth)
         Else
-            HardTax(PlayerWealth)
+            '      HardTax(PlayerWealth)
             Return HardTax(PlayerWealth)
         End If
 
@@ -125,10 +125,10 @@ Public Class Mechanics
     Public Shared Function Inflation(PlayerWealth As Double) As Double
         'Checks what difficulty the player is playing with, and calls the correct inflation.
         If DifficultySettings = 0 Then
-            EasyInflation(PlayerWealth)
+            '  EasyInflation(PlayerWealth)
             Return EasyInflation(PlayerWealth)
         Else
-            HardInflation(PlayerWealth)
+            '    HardInflation(PlayerWealth)
             Return EasyInflation(PlayerWealth)
         End If
     End Function
