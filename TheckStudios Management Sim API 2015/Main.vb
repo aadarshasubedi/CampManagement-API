@@ -1,4 +1,4 @@
-﻿Imports System.IO
+﻿Imports System.Text
 
 Public Class Resources
     'Gets current directory and stores into object, as to not request it everytime.
@@ -55,14 +55,12 @@ Public Class Resources
     End Function
 End Class
 Public Class Mechanics
-    'This is necessary to know where the difficulty settings are.
-    Private Shared DifficultyPath As String = Resources.MyLocation + "/Data/DifficultyInfo.txt"
-    'This is necessary to know what difficulty the player is playing on.
-    Private Shared DifficultySettings As String = My.Computer.FileSystem.ReadAllText(DifficultyPath)
     'Other variables. self-explanatory
     Private Shared NewPlayerWealth, TaxTotal, InflationCalculus, InflationDifference As String
-    'WriteToDisk
-    Public Shared WriteToDifficultyInfo As StreamWriter
+    Private Shared IniString = New StringBuilder
+    Private Shared DifficultyLocation = Environment.CurrentDirectory + "/Data/GameStats.ini"
+    Shared ReceiveProfileString = GetPrivateProfileString("Stats", "Difficulty", "", IniString, IniString.Capacity, DifficultyLocation)
+    Private Shared DifficultyValue = ReceiveProfileString
 
     'Uses consts instead of static doubles
     Const Zero As Double = 0
@@ -80,6 +78,10 @@ Public Class Mechanics
     Const InflationPlayerWealth25000 As Double = 25000
     Const InflationPlayerWealth5000 As Double = 5000
     Const InflationPlayerWealth2500 As Double = 2500
+
+    Private Declare Auto Function GetPrivateProfileString Lib "kernel32" (ByVal lpAppName As String, ByVal lpKeyName As String, ByVal lpDefault As String, ByVal lpReturnedString As StringBuilder, ByVal nSize As Integer, ByVal lpFileName As String) As Integer
+    Private Declare Auto Function WritePrivateProfileString Lib "Kernel32" (ByVal lpAppName As String, ByVal lpKeyName As String, ByVal lpString As String, ByVal lpFileName As String) As Integer
+
     Public Shared Function GetDay(OldDay As Double) As Double
         'Old day = Itself + 7
         OldDay = OldDay + 7
@@ -135,7 +137,7 @@ Public Class Mechanics
     Public Shared Function Taxes(PlayerWealth As Double) As Double()
 
         'Checks what difficulty the player is playing with, and calls the correct taxes.
-        If My.Computer.FileSystem.ReadAllText(DifficultyPath) = Zero Then
+        If DifficultyValue = Zero Then
             '    EasyTax(PlayerWealth)
             Return EasyTax(PlayerWealth)
         Else
@@ -176,7 +178,7 @@ Public Class Mechanics
     End Function
     Public Shared Function Inflation(PlayerWealth As Double) As Double
         'Checks what difficulty the player is playing with, and calls the correct inflation.
-        If DifficultySettings = 0 Then
+        If DifficultyValue = 0 Then
             '  EasyInflation(PlayerWealth)
             Return EasyInflation(PlayerWealth)
         Else
@@ -254,14 +256,10 @@ Public Class Mechanics
     End Function
 
     Public Shared Sub SetDifficultyEasy()
-        WriteToDifficultyInfo = My.Computer.FileSystem.OpenTextFileWriter(DifficultyPath, False)
-        WriteToDifficultyInfo.WriteLine(Zero.ToString)
-        WriteToDifficultyInfo.Close()
+        WritePrivateProfileString("Stats", "Difficulty", 0, DifficultyLocation)
     End Sub
     Public Shared Sub SetDifficultyHard()
-        WriteToDifficultyInfo = My.Computer.FileSystem.OpenTextFileWriter(DifficultyPath, False)
-        WriteToDifficultyInfo.WriteLine(One.ToString)
-        WriteToDifficultyInfo.Close()
+        WritePrivateProfileString("Stats", "Difficulty", 1, DifficultyLocation)
     End Sub
 End Class
 Public Class Misc

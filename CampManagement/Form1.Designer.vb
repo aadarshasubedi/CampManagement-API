@@ -25,6 +25,8 @@ Partial Class CampManagement
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CampManagement))
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.WaterInfoLabel = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.TaxesLabel = New System.Windows.Forms.Label()
@@ -41,10 +43,11 @@ Partial Class CampManagement
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.NextWeekButton = New System.Windows.Forms.Button()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         Me.HistoryLog = New System.Windows.Forms.TextBox()
+        Me.SaveButton = New System.Windows.Forms.Button()
+        Me.LoadButton = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -52,6 +55,8 @@ Partial Class CampManagement
         '
         Me.Panel1.BackColor = System.Drawing.SystemColors.Desktop
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel1.Controls.Add(Me.WaterInfoLabel)
+        Me.Panel1.Controls.Add(Me.Label6)
         Me.Panel1.Controls.Add(Me.Label16)
         Me.Panel1.Controls.Add(Me.Label15)
         Me.Panel1.Controls.Add(Me.TaxesLabel)
@@ -72,6 +77,28 @@ Partial Class CampManagement
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(444, 112)
         Me.Panel1.TabIndex = 0
+        '
+        'WaterInfoLabel
+        '
+        Me.WaterInfoLabel.AutoSize = True
+        Me.WaterInfoLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.WaterInfoLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.WaterInfoLabel.Location = New System.Drawing.Point(109, 69)
+        Me.WaterInfoLabel.Name = "WaterInfoLabel"
+        Me.WaterInfoLabel.Size = New System.Drawing.Size(25, 13)
+        Me.WaterInfoLabel.TabIndex = 13
+        Me.WaterInfoLabel.Text = "150"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label6.Location = New System.Drawing.Point(13, 69)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(90, 13)
+        Me.Label6.TabIndex = 12
+        Me.Label6.Text = "Water (In Liters):"
         '
         'Label16
         '
@@ -246,24 +273,21 @@ Partial Class CampManagement
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Treasury (In USD):"
         '
-        'Button1
+        'NextWeekButton
         '
-        Me.Button1.BackColor = System.Drawing.SystemColors.ControlLight
-        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Location = New System.Drawing.Point(354, 365)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(102, 29)
-        Me.Button1.TabIndex = 1
-        Me.Button1.Text = "Next Week"
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.NextWeekButton.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.NextWeekButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.NextWeekButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.NextWeekButton.Location = New System.Drawing.Point(354, 365)
+        Me.NextWeekButton.Name = "NextWeekButton"
+        Me.NextWeekButton.Size = New System.Drawing.Size(102, 29)
+        Me.NextWeekButton.TabIndex = 1
+        Me.NextWeekButton.Text = "Next Week"
+        Me.NextWeekButton.UseVisualStyleBackColor = False
         '
         'Timer1
         '
-        '
-        'Timer2
-        '
-        Me.Timer2.Interval = 45
+        Me.Timer1.Enabled = True
         '
         'HistoryLog
         '
@@ -279,13 +303,39 @@ Partial Class CampManagement
         Me.HistoryLog.TabIndex = 7
         Me.HistoryLog.Text = resources.GetString("HistoryLog.Text")
         '
+        'SaveButton
+        '
+        Me.SaveButton.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.SaveButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.SaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.SaveButton.Location = New System.Drawing.Point(12, 330)
+        Me.SaveButton.Name = "SaveButton"
+        Me.SaveButton.Size = New System.Drawing.Size(55, 29)
+        Me.SaveButton.TabIndex = 8
+        Me.SaveButton.Text = "Save"
+        Me.SaveButton.UseVisualStyleBackColor = False
+        '
+        'LoadButton
+        '
+        Me.LoadButton.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.LoadButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.LoadButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.LoadButton.Location = New System.Drawing.Point(12, 365)
+        Me.LoadButton.Name = "LoadButton"
+        Me.LoadButton.Size = New System.Drawing.Size(55, 29)
+        Me.LoadButton.TabIndex = 9
+        Me.LoadButton.Text = "Load"
+        Me.LoadButton.UseVisualStyleBackColor = False
+        '
         'CampManagement
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.SystemColors.ControlText
         Me.ClientSize = New System.Drawing.Size(468, 406)
+        Me.Controls.Add(Me.LoadButton)
+        Me.Controls.Add(Me.SaveButton)
         Me.Controls.Add(Me.HistoryLog)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.NextWeekButton)
         Me.Controls.Add(Me.Panel1)
         Me.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -311,7 +361,7 @@ Partial Class CampManagement
     Friend WithEvents FinanceInfoLabel As Label
     Friend WithEvents TaxesLabel As Label
     Friend WithEvents Label9 As Label
-    Friend WithEvents Button1 As Button
+    Friend WithEvents NextWeekButton As Button
     Friend WithEvents CountryLabel As Label
     Friend WithEvents YearLabel As Label
     Friend WithEvents MonthLabel As Label
@@ -319,6 +369,9 @@ Partial Class CampManagement
     Friend WithEvents Label16 As Label
     Friend WithEvents Label15 As Label
     Friend WithEvents Timer1 As Timer
-    Friend WithEvents Timer2 As Timer
     Friend WithEvents HistoryLog As TextBox
+    Friend WithEvents WaterInfoLabel As Label
+    Friend WithEvents Label6 As Label
+    Friend WithEvents SaveButton As Button
+    Friend WithEvents LoadButton As Button
 End Class
