@@ -80,6 +80,58 @@ Public Class Mechanics
     Const InflationPlayerWealth25000 As Double = 25000
     Const InflationPlayerWealth5000 As Double = 5000
     Const InflationPlayerWealth2500 As Double = 2500
+    Public Shared Function GetDay(OldDay As Double) As Double
+        'Old day = Itself + 7
+        OldDay = OldDay + 7
+        Return OldDay
+        'It is possible for the days to go over 30, so be sure to state:
+        'If OldDay > 30 then
+        'OldDay = OldDay - 30
+        'end if
+
+    End Function
+    Public Shared Function GetMonth(Month As Double) As String
+        If Month = 0 Then
+            Return "Invalid Month"
+        End If
+        If Month = 1 Then
+            Return "January"
+        End If
+        If Month = 2 Then
+            Return "February"
+        End If
+        If Month = 3 Then
+            Return "March"
+        End If
+        If Month = 4 Then
+            Return "April"
+        End If
+        If Month = 5 Then
+            Return "May"
+        End If
+        If Month = 6 Then
+            Return "June"
+        End If
+        If Month = 7 Then
+            Return "July"
+        End If
+        If Month = 8 Then
+            Return "August"
+        End If
+        If Month = 9 Then
+            Return "September"
+        End If
+        If Month = 10 Then
+            Return "October"
+        End If
+        If Month = 11 Then
+            Return "November"
+        End If
+        If Month = 12 Then
+            Return "December"
+        End If
+
+    End Function
     Public Shared Function Taxes(PlayerWealth As Double) As Double()
 
         'Checks what difficulty the player is playing with, and calls the correct taxes.

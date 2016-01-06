@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{6332A213-8970-4E7C-9E9F-A71BC7D22795}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>TheckStudios_Management_Sim_API_2015</RootNamespace>
-    <AssemblyName>TheckStudios Management Sim API 2015</AssemblyName>
+    <RootNamespace>TheckStudios_Management_Sim_API_2016</RootNamespace>
+    <AssemblyName>TheckStudios Management Sim API 2016</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>Windows</MyType>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
@@ -19,7 +19,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>TheckStudios Management Sim API 2015.xml</DocumentationFile>
+    <DocumentationFile>TheckStudios Management Sim API 2016.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -28,7 +28,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>TheckStudios Management Sim API 2015.xml</DocumentationFile>
+    <DocumentationFile>TheckStudios Management Sim API 2016.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
