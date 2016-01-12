@@ -2,11 +2,14 @@
 Imports System.Text
 Public Class CampManagement
     'Month must be declared Class-wise to make sure all subs and functions can access it.
-    Public Month = 1
-    Public LostToTaxes, MoneyTaxesApplied, LostToTaxesAndMoneyTaxesApplied
-    Public PlayerWealth As Double
-    Public IniString = New StringBuilder(500)
-    Public IniFile = Application.StartupPath + "/Data/GameStats.ini"
+    Private Month = 1
+    Private LostToTaxes, MoneyTaxesApplied, LostToTaxesAndMoneyTaxesApplied, DifficultySettingsFromINI
+    Private PlayerWealth As Double
+    Private IniString = New StringBuilder(500)
+    Private IniFile = Application.StartupPath + "/Data/GameStats.ini"
+
+    Const Zero As Double = 0
+    Const One As Double = 1
 
     Private Declare Auto Function GetPrivateProfileString Lib "kernel32" (ByVal lpAppName As String, ByVal lpKeyName As String, ByVal lpDefault As String, ByVal lpReturnedString As StringBuilder, ByVal nSize As Integer, ByVal lpFileName As String) As Integer
     Private Declare Auto Function WritePrivateProfileString Lib "Kernel32" (ByVal lpAppName As String, ByVal lpKeyName As String, ByVal lpString As String, ByVal lpFileName As String) As Integer
@@ -30,7 +33,6 @@ Public Class CampManagement
             RationInfoLabel.Text = IniString.ToString
             GetPrivateProfileString("Stats", "ManpowerForce", "", IniString, IniString.Capacity, Application.StartupPath + "/Data/GameStats.ini")
             MPInfoLabel.Text = IniString.ToString
-
             MsgBox("Game Information loaded from GameStats.ini")
         Catch ex As Exception
             MsgBox(ex.ToString)
@@ -66,11 +68,9 @@ Public Class CampManagement
                 PlayerWealth = FinanceInfoLabel.Text
                 HistoryLog.AppendText(Environment.NewLine + "Your treasury master comes running to your office to warn you that inflation has destroyed a good portion of your money.")
 
-
                 LostToTaxesAndMoneyTaxesApplied = Mechanics.Taxes(PlayerWealth)
                 FinanceInfoLabel.Text = LostToTaxesAndMoneyTaxesApplied(0)
                 LostToTaxes = LostToTaxesAndMoneyTaxesApplied(1)
-
 
                 HistoryLog.AppendText(Environment.NewLine + "The local government requires payment of taxes. You lost the following: $" + LostToTaxes.ToString)
                 Month = 1
@@ -86,7 +86,8 @@ Public Class CampManagement
 
     End Sub
     Private Sub CampManagement_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        If GetPrivateProfileString("Stats", "Difficulty", "", IniString, IniString.Capacity, Application.StartupPath + "/Data/GameStats.ini") = 0 Then
+        DifficultySettingsFromINI = GetPrivateProfileString("Stats", "Difficulty", "", IniString, IniString.Capacity, Application.StartupPath + "/Data/GameStats.ini") = 0
+        If DifficultySettingsFromINI = Zero Then
             TaxesLabel.Text = "15%"
         Else
             TaxesLabel.Text = "35%"
