@@ -31,11 +31,11 @@ C:\Users\Miller\Source\Repos\CampManagement-API\CampManagement\bin\Debug\TheckSt
 C:\Users\Miller\Source\Repos\CampManagement-API\CampManagement\bin\Debug\TheckStudios Management Sim API 2016.pdb
 C:\Users\Miller\Source\Repos\CampManagement-API\CampManagement\bin\Debug\TheckStudios Management Sim API 2016.xml
 C:\Users\Miller\Source\Repos\CampManagement-API\CampManagement\obj\Debug\CampManagement.vbprojResolveAssemblyReference.cache
-C:\Users\Miller\Source\Repos\CampManagement-API\CampManagement\obj\Debug\CampManagement.CampManagement.resources
 C:\Users\Miller\Source\Repos\CampManagement-API\CampManagement\obj\Debug\CampManagement.Resources.resources
 C:\Users\Miller\Source\Repos\CampManagement-API\CampManagement\obj\Debug\CampManagement.vbproj.GenerateResource.Cache
 C:\Users\Miller\Source\Repos\CampManagement-API\CampManagement\obj\Debug\CampManagement.exe
 C:\Users\Miller\Source\Repos\CampManagement-API\CampManagement\obj\Debug\CampManagement.xml
 C:\Users\Miller\Source\Repos\CampManagement-API\CampManagement\obj\Debug\CampManagement.pdb
 C:\Users\Miller\Source\Repos\CampManagement-API\CampManagement\obj\Debug\CampManagement.CampManagementMainMenu.resources
-C:\Users\Miller\Source\Repos\CampManagement-API\CampManagement\obj\Debug\CampManagement.Beepaa.resources
+C:\Users\Miller\Source\Repos\CampManagement-API\CampManagement\obj\Debug\CampManagement.CampManagementMain.resources
+C:\Users\Miller\Source\Repos\CampManagement-API\CampManagement\obj\Debug\CampManagement.CampManagementNewGame.resources

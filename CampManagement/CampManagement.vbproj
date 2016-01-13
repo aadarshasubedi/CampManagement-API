@@ -144,6 +144,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="bin\Debug\Data\DLC_Modules\DLC_1.ini" />
+    <None Include="bin\Debug\Data\DLC_Modules\DLC_2.ini" />
+    <None Include="bin\Debug\Data\DLC_Modules\DLC_3.ini" />
+    <None Include="bin\Debug\Data\GameStats.ini" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -166,6 +170,13 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\Data\Music\" />
+    <Folder Include="bin\Debug\Data\Textures\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\CampManagement.exe" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
