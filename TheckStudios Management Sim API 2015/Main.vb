@@ -55,6 +55,7 @@ Public Class Resources
     End Function
 End Class
 Public Class Mechanics
+
     'Other variables. self-explanatory
     Private Shared NewPlayerWealth, TaxTotal, InflationCalculus, InflationDifference As String
     Private Shared IniString = New StringBuilder
@@ -144,6 +145,7 @@ Public Class Mechanics
             '      HardTax(PlayerWealth)
             Return HardTax(PlayerWealth)
         End If
+
 
     End Function
     Private Shared Function EasyTax(PlayerWealth As Double) As Double()

@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class CampManagementStartup
+Partial Class CampManagementNewGame
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -27,8 +27,8 @@ Partial Class CampManagementStartup
         Me.CampTextBox = New System.Windows.Forms.TextBox()
         Me.PlayerNameTextBox = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.EasyButton = New System.Windows.Forms.RadioButton()
-        Me.HardButton = New System.Windows.Forms.RadioButton()
+        Me.EasyDifficultyCheck = New System.Windows.Forms.RadioButton()
+        Me.HardDifficultyCheck = New System.Windows.Forms.RadioButton()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.ModuleSelectionDropBox = New System.Windows.Forms.ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -82,31 +82,31 @@ Partial Class CampManagementStartup
         Me.Label2.TabIndex = 3
         Me.Label2.Text = "Name yourself:"
         '
-        'EasyButton
+        'EasyDifficultyCheck
         '
-        Me.EasyButton.AutoSize = True
-        Me.EasyButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.EasyButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.EasyButton.Location = New System.Drawing.Point(15, 118)
-        Me.EasyButton.Name = "EasyButton"
-        Me.EasyButton.Size = New System.Drawing.Size(59, 17)
-        Me.EasyButton.TabIndex = 5
-        Me.EasyButton.TabStop = True
-        Me.EasyButton.Text = "Private"
-        Me.EasyButton.UseVisualStyleBackColor = False
+        Me.EasyDifficultyCheck.AutoSize = True
+        Me.EasyDifficultyCheck.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.EasyDifficultyCheck.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.EasyDifficultyCheck.Location = New System.Drawing.Point(15, 118)
+        Me.EasyDifficultyCheck.Name = "EasyDifficultyCheck"
+        Me.EasyDifficultyCheck.Size = New System.Drawing.Size(59, 17)
+        Me.EasyDifficultyCheck.TabIndex = 5
+        Me.EasyDifficultyCheck.TabStop = True
+        Me.EasyDifficultyCheck.Text = "Private"
+        Me.EasyDifficultyCheck.UseVisualStyleBackColor = False
         '
-        'HardButton
+        'HardDifficultyCheck
         '
-        Me.HardButton.AutoSize = True
-        Me.HardButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.HardButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.HardButton.Location = New System.Drawing.Point(15, 141)
-        Me.HardButton.Name = "HardButton"
-        Me.HardButton.Size = New System.Drawing.Size(65, 17)
-        Me.HardButton.TabIndex = 6
-        Me.HardButton.TabStop = True
-        Me.HardButton.Text = "Captain"
-        Me.HardButton.UseVisualStyleBackColor = False
+        Me.HardDifficultyCheck.AutoSize = True
+        Me.HardDifficultyCheck.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.HardDifficultyCheck.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.HardDifficultyCheck.Location = New System.Drawing.Point(15, 141)
+        Me.HardDifficultyCheck.Name = "HardDifficultyCheck"
+        Me.HardDifficultyCheck.Size = New System.Drawing.Size(65, 17)
+        Me.HardDifficultyCheck.TabIndex = 6
+        Me.HardDifficultyCheck.TabStop = True
+        Me.HardDifficultyCheck.Text = "Captain"
+        Me.HardDifficultyCheck.UseVisualStyleBackColor = False
         '
         'Label3
         '
@@ -159,8 +159,8 @@ Partial Class CampManagementStartup
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.ModuleSelectionDropBox)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.HardButton)
-        Me.Controls.Add(Me.EasyButton)
+        Me.Controls.Add(Me.HardDifficultyCheck)
+        Me.Controls.Add(Me.EasyDifficultyCheck)
         Me.Controls.Add(Me.PlayerNameTextBox)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.CampTextBox)
@@ -183,8 +183,8 @@ Partial Class CampManagementStartup
     Friend WithEvents CampTextBox As TextBox
     Friend WithEvents PlayerNameTextBox As TextBox
     Friend WithEvents Label2 As Label
-    Friend WithEvents EasyButton As RadioButton
-    Friend WithEvents HardButton As RadioButton
+    Friend WithEvents EasyDifficultyCheck As RadioButton
+    Friend WithEvents HardDifficultyCheck As RadioButton
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents ModuleSelectionDropBox As ComboBox

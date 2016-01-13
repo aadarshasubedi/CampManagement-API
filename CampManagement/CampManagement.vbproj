@@ -98,10 +98,16 @@
       <DependentUpon>CampManagementMain.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CampManagementStartup.Designer.vb">
-      <DependentUpon>CampManagementStartup.vb</DependentUpon>
+    <Compile Include="CampManagementMainMenu.Designer.vb">
+      <DependentUpon>CampManagementMainMenu.vb</DependentUpon>
     </Compile>
-    <Compile Include="CampManagementStartup.vb">
+    <Compile Include="CampManagementMainMenu.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CampManagementNewGame.Designer.vb">
+      <DependentUpon>CampManagementNewGame.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CampManagementNewGame.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -124,8 +130,11 @@
     <EmbeddedResource Include="CampManagementMain.resx">
       <DependentUpon>CampManagementMain.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CampManagementStartup.resx">
-      <DependentUpon>CampManagementStartup.vb</DependentUpon>
+    <EmbeddedResource Include="CampManagementMainMenu.resx">
+      <DependentUpon>CampManagementMainMenu.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CampManagementNewGame.resx">
+      <DependentUpon>CampManagementNewGame.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

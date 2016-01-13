@@ -1,9 +1,9 @@
 ﻿Imports TheckStudios_Management_Sim_API_2016
 Imports System.Text
-Public Class CampManagement
+Public Class CampManagementMain
     'Month must be declared Class-wise to make sure all subs and functions can access it.
     Private Month = 1
-    Private LostToTaxes, MoneyTaxesApplied, LostToTaxesAndMoneyTaxesApplied, DifficultySettingsFromINI
+    Private WhichModFile, WhichMod, IsModEnabled, ModuleDetector, LostToTaxes, MoneyTaxesApplied, LostToTaxesAndMoneyTaxesApplied, DifficultySettingsFromINI
     Private PlayerWealth As Double
     Private IniString = New StringBuilder(500)
     Private IniFile = Application.StartupPath + "/Data/GameStats.ini"
@@ -85,12 +85,30 @@ Public Class CampManagement
         HistoryLog.AppendText(Environment.NewLine + "You come back to your camp to check how it is going. It is " + DayLabel.Text + "th of " + MonthLabel.Text)
 
     End Sub
-    Private Sub CampManagement_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        DifficultySettingsFromINI = GetPrivateProfileString("Stats", "Difficulty", "", IniString, IniString.Capacity, Application.StartupPath + "/Data/GameStats.ini") = 0
-        If DifficultySettingsFromINI = Zero Then
-            TaxesLabel.Text = "15%"
-        Else
-            TaxesLabel.Text = "35%"
-        End If
+    Private Sub CampManagementMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Try
+            GetPrivateProfileString("Stats", "Difficulty", "", IniString, IniString.Capacity, Application.StartupPath + "/Data/GameStats.ini")
+            If IniString.ToString = Zero Then
+                TaxesLabel.Text = "15%"
+            Else
+                TaxesLabel.Text = "35%"
+            End If
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+            MsgBox("Failed to define taxes information on UI")
+        End Try
+
+        Try
+            GetPrivateProfileString("Stats", "IsModEnabled", "", IniString, IniString.Capacity, Application.StartupPath + "/Data/GameStats.ini")
+            If IniString.ToString = "True" Then
+
+            Else
+
+
+            End If
+        Catch ex As Exception
+
+        End Try
+
     End Sub
 End Class
