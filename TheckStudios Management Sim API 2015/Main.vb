@@ -62,7 +62,8 @@ Public Class Mechanics
     Private Shared IniStringModFilePath = New StringBuilder(500)
     Private Shared IniStringModRandomEventText = New StringBuilder(900)
     'Declares variables, self-explanatory
-    Private Shared NewPlayerWealth, TaxTotal, InflationCalculus, InflationDifference, RandomEventRandomNumber, RandomEventRandomNumberDrawn, ModuleSelected, RE1, RE2, RE3, RE4, RE5, RE6, RE7, RE8, RE9, RE10, RE11, RE12, RE13, RE14, RE15, RE16, RE17, RE18, RE19, RE20, RE21, RE22, RE23, RE24, RE25, RE26, RE27, RE28, RE29, RE30, RE31, RE32
+    Private Shared NewPlayerWealth, TaxTotal, InflationCalculus, InflationDifference, RandomEventRandomNumber, RandomEventRandomNumberDrawn, ModuleSelected, RE1, RE2, RE3, RE4, RE5, RE6, RE7, RE8, RE9, RE10, RE11, RE12, RE13, RE14, RE15, RE16, RE17, RE18, RE19, RE20, RE21, RE22, RE23, RE24, RE25, RE26, RE27, RE28, RE29, RE30, RE31, RE32,
+     NewPlayerWealthRandomEvent, NewPlayerWoodAmountRandomEvent, NewPlayerWaterAmountRandomEvent, NewPlayerWorkForceAmountRandomEvent, NewPlayerRationAmountRandomEvent
     'CurrentDirectory = Current Directory location
     Private Shared CurrentDirectory = Environment.CurrentDirectory
     'GameModuleData = Modules Folder location
@@ -78,8 +79,10 @@ Public Class Mechanics
     Const Zero As Double = 0
     Const One As Double = 1
 
+    'Declares Constants
     Const EasyTaxesPercentage As Double = 0.85
     Const HardTaxesPercentage As Double = 0.65
+
     Const EasyInflationPercentage25000 As Double = 0.89
     Const EasyInflationPercentage5000 As Double = 0.93
     Const EasyInflationPercentage2500 As Double = 0.98
@@ -146,7 +149,7 @@ Public Class Mechanics
         End If
 
     End Function
-    Public Shared Function RandomEvent(WorkForce As Double, PlayerWealth As Double, WoodAmount As Double, WaterAmount As Double) As Double
+    Public Shared Function RandomEvent(WorkForce As Double, PlayerWealth As Double, WoodAmount As Double, WaterAmount As Double) As Double()
         Dim RandomEventRandomNumber As Random = New Random
         RandomEventRandomNumberDrawn = (RandomEventRandomNumber.Next(1, 32))
 
@@ -283,6 +286,37 @@ Public Class Mechanics
             RE31 = IniStringModRandomEventText.ToString
             GetPrivateProfileString("RandomEvents", "RE32", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, GameStatsIni)
             RE32 = IniStringModRandomEventText.ToString
+        End If
+
+        'The following events are hardcoded into the API, thus the messages into the GameStats.ini or DLC_X.ini must be matching context-wise.
+        If RandomEventRandomNumberDrawn = 1 Then
+
+
+            Return {RE1, NewPlayerWealthRandomEvent}
+        End If
+
+        If RandomEventRandomNumberDrawn = 2 Then
+
+
+            Return {RE2, NewPlayerWaterAmountRandomEvent}
+        End If
+
+        If RandomEventRandomNumberDrawn = 3 Then
+
+
+            Return {RE3, NewPlayerWorkForceAmountRandomEvent}
+        End If
+
+        If RandomEventRandomNumberDrawn = 4 Then
+
+
+            Return {RE4, NewPlayerRationAmountRandomEvent}
+        End If
+
+        If RandomEventRandomNumberDrawn = 5 Then
+
+
+            Return {RE5, NewPlayerWoodAmountRandomEvent}
         End If
 
 
