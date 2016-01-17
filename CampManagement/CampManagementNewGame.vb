@@ -3,13 +3,16 @@ Imports System.Text
 Imports TheckStudios_Management_Sim_API_2016
 
 Public Class CampManagementNewGame
+    'Declares StringBuilders for .INI reading
+    Private IniString = New StringBuilder(500)
+    'Defines variables, self-explanatory
     Private CurrentDirectory = Application.StartupPath
     Private DLCFilesPath = CurrentDirectory + "/Data/DLC_Modules"
     Private DataFilesPath = CurrentDirectory + "/Data"
-    Private IniString = New StringBuilder(500)
     Private DLCModuleName As String
     Private DLCSelected, DLCQuantity, DLC1, DLC2, DLC3, DLC4, DLC5, DLC6
 
+    'Defines Constants
     Const MaxCharacter As Double = 12
     Const MinCharacter As Double = 4
 

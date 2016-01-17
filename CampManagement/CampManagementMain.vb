@@ -1,26 +1,33 @@
 ﻿Imports TheckStudios_Management_Sim_API_2016
 Imports System.Text
 Public Class CampManagementMain
-    'Month must be declared Class-wise to make sure all subs and functions can access it.
+    'Declares StringBuilders for .INI reading
+    Private IniString = New StringBuilder(500)
+
+    'Declares variables, self-explanatory
     Private Month = 1
     Private WhichModFile, WhichMod, IsModEnabled, ModuleDetector, LostToTaxes, MoneyTaxesApplied, LostToTaxesAndMoneyTaxesApplied, DifficultySettingsFromINI
     Private PlayerWealth As Double
-    Private IniString = New StringBuilder(500)
+    'CurrentDirectory = Current Directory location
+    Private CurrentDirectory = Environment.CurrentDirectory
+    'GameModuleData = Modules Folder location
+    Private GameModuleData = CurrentDirectory + "/Data/DLC_Modules/"
     Private IniFile = Application.StartupPath + "/Data/GameStats.ini"
 
+    'Yes, this is heresy, but I like it :(
     Const Zero As Double = 0
     Const One As Double = 1
 
     Private Declare Auto Function GetPrivateProfileString Lib "kernel32" (ByVal lpAppName As String, ByVal lpKeyName As String, ByVal lpDefault As String, ByVal lpReturnedString As StringBuilder, ByVal nSize As Integer, ByVal lpFileName As String) As Integer
     Private Declare Auto Function WritePrivateProfileString Lib "Kernel32" (ByVal lpAppName As String, ByVal lpKeyName As String, ByVal lpString As String, ByVal lpFileName As String) As Integer
-    Private Function SaveValuesToIni()
+    Private Sub SaveValuesToIni()
         Try
             MsgBox("You can't save values to the .ini yet.")
         Catch ex As Exception
             MsgBox(ex.ToString)
             MsgBox("Information synchronizer has crashed.")
         End Try
-    End Function
+    End Sub
     Private Function RefreshValuesFromIni()
         Try
             GetPrivateProfileString("Stats", "Wood", "", IniString, IniString.Capacity, Application.StartupPath + "/Data/GameStats.ini")
@@ -109,6 +116,7 @@ Public Class CampManagementMain
         Catch ex As Exception
 
         End Try
+
 
     End Sub
 End Class

@@ -22,14 +22,116 @@ Partial Class CampManagementMainMenu
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.QuitButton = New System.Windows.Forms.Button()
+        Me.ContinueGameButton = New System.Windows.Forms.Button()
+        Me.NewGameButton = New System.Windows.Forms.Button()
+        Me.CopyrightLabel = New System.Windows.Forms.Label()
+        Me.GameNameLabel = New System.Windows.Forms.Label()
+        Me.GameDescriptionLabel = New System.Windows.Forms.Label()
+        Me.GameVersionLabel = New System.Windows.Forms.Label()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
+        '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel1.Controls.Add(Me.QuitButton)
+        Me.Panel1.Controls.Add(Me.ContinueGameButton)
+        Me.Panel1.Controls.Add(Me.NewGameButton)
+        Me.Panel1.Location = New System.Drawing.Point(12, 12)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(181, 164)
+        Me.Panel1.TabIndex = 0
+        '
+        'QuitButton
+        '
+        Me.QuitButton.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.QuitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.QuitButton.Location = New System.Drawing.Point(32, 89)
+        Me.QuitButton.Name = "QuitButton"
+        Me.QuitButton.Size = New System.Drawing.Size(113, 29)
+        Me.QuitButton.TabIndex = 3
+        Me.QuitButton.Text = "Quit"
+        Me.QuitButton.UseVisualStyleBackColor = False
+        '
+        'ContinueGameButton
+        '
+        Me.ContinueGameButton.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.ContinueGameButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ContinueGameButton.Location = New System.Drawing.Point(32, 54)
+        Me.ContinueGameButton.Name = "ContinueGameButton"
+        Me.ContinueGameButton.Size = New System.Drawing.Size(113, 29)
+        Me.ContinueGameButton.TabIndex = 2
+        Me.ContinueGameButton.Text = "Continue"
+        Me.ContinueGameButton.UseVisualStyleBackColor = False
+        '
+        'NewGameButton
+        '
+        Me.NewGameButton.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.NewGameButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.NewGameButton.Location = New System.Drawing.Point(32, 14)
+        Me.NewGameButton.Name = "NewGameButton"
+        Me.NewGameButton.Size = New System.Drawing.Size(113, 34)
+        Me.NewGameButton.TabIndex = 1
+        Me.NewGameButton.Text = "New Game"
+        Me.NewGameButton.UseVisualStyleBackColor = False
+        '
+        'CopyrightLabel
+        '
+        Me.CopyrightLabel.AutoSize = True
+        Me.CopyrightLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.CopyrightLabel.Location = New System.Drawing.Point(239, 163)
+        Me.CopyrightLabel.Name = "CopyrightLabel"
+        Me.CopyrightLabel.Size = New System.Drawing.Size(184, 13)
+        Me.CopyrightLabel.TabIndex = 12
+        Me.CopyrightLabel.Text = "Miller Berto Simberg Anaia © 2016"
+        '
+        'GameNameLabel
+        '
+        Me.GameNameLabel.AutoSize = True
+        Me.GameNameLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GameNameLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.GameNameLabel.Location = New System.Drawing.Point(245, 12)
+        Me.GameNameLabel.Name = "GameNameLabel"
+        Me.GameNameLabel.Size = New System.Drawing.Size(178, 17)
+        Me.GameNameLabel.TabIndex = 13
+        Me.GameNameLabel.Text = "CampManagement Simulator"
+        '
+        'GameDescriptionLabel
+        '
+        Me.GameDescriptionLabel.AutoSize = True
+        Me.GameDescriptionLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GameDescriptionLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.GameDescriptionLabel.Location = New System.Drawing.Point(263, 32)
+        Me.GameDescriptionLabel.Name = "GameDescriptionLabel"
+        Me.GameDescriptionLabel.Size = New System.Drawing.Size(132, 13)
+        Me.GameDescriptionLabel.TabIndex = 14
+        Me.GameDescriptionLabel.Text = "A ""Game"" by Miller Berto"
+        '
+        'GameVersionLabel
+        '
+        Me.GameVersionLabel.AutoSize = True
+        Me.GameVersionLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GameVersionLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.GameVersionLabel.Location = New System.Drawing.Point(313, 48)
+        Me.GameVersionLabel.Name = "GameVersionLabel"
+        Me.GameVersionLabel.Size = New System.Drawing.Size(22, 13)
+        Me.GameVersionLabel.TabIndex = 15
+        Me.GameVersionLabel.Text = "1.0"
         '
         'CampManagementMainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.ClientSize = New System.Drawing.Size(456, 262)
+        Me.ClientSize = New System.Drawing.Size(456, 190)
+        Me.Controls.Add(Me.GameVersionLabel)
+        Me.Controls.Add(Me.GameDescriptionLabel)
+        Me.Controls.Add(Me.GameNameLabel)
+        Me.Controls.Add(Me.CopyrightLabel)
+        Me.Controls.Add(Me.Panel1)
         Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.MaximizeBox = False
@@ -38,7 +140,18 @@ Partial Class CampManagementMainMenu
         Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "CampManagementMainMenu"
+        Me.Panel1.ResumeLayout(False)
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
+
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents ContinueGameButton As Button
+    Friend WithEvents NewGameButton As Button
+    Friend WithEvents CopyrightLabel As Label
+    Friend WithEvents GameNameLabel As Label
+    Friend WithEvents GameDescriptionLabel As Label
+    Friend WithEvents QuitButton As Button
+    Friend WithEvents GameVersionLabel As Label
 End Class
