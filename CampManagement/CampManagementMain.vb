@@ -37,6 +37,8 @@ Public Class CampManagementMain
             WritePrivateProfileString("Stats", "CurrentYear", YearLabel.Text, GameStatsIni)
             WritePrivateProfileString("Stats", "CurrentMonth", MonthLabel.Text, GameStatsIni)
             WritePrivateProfileString("Stats", "CurrentDay", DayLabel.Text, GameStatsIni)
+            HistoryLog.AppendText(Environment.NewLine + "Game successfully saved.")
+
             MsgBox("Game Status saved.")
         Catch ex As Exception
             MsgBox(ex.ToString)
@@ -61,6 +63,7 @@ Public Class CampManagementMain
             MonthLabel.Text = IniString.ToString
             GetPrivateProfileString("Stats", "CurrentDay", "", IniString, IniString.Capacity, GameStatsIni)
             DayLabel.Text = IniString.ToString
+            HistoryLog.AppendText(Environment.NewLine + "Game successfully loaded.")
 
             MsgBox("Game Status loaded.")
         Catch ex As Exception
@@ -115,11 +118,6 @@ Public Class CampManagementMain
 
     End Sub
     Private Sub CampManagementMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        If
-                Else
-
-        End If
-
         Try
             If DifficultyValue = Zero Then
                 TaxesLabel.Text = "15%"

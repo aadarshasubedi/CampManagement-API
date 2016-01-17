@@ -20,19 +20,19 @@ Namespace My
     ' Solution Explorer), and make changes on the Application tab.
     '
     Partial Friend Class MyApplication
-
-        <DebuggerStepThrough()>
+        
+        <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Public Sub New()
             MyBase.New(Global.Microsoft.VisualBasic.ApplicationServices.AuthenticationMode.ApplicationDefined)
             Me.IsSingleInstance = false
             Me.EnableVisualStyles = true
-            Me.SaveMySettingsOnExit = True
-            Me.ShutdownStyle = ApplicationServices.ShutdownMode.AfterMainFormCloses
+            Me.SaveMySettingsOnExit = true
+            Me.ShutDownStyle = Global.Microsoft.VisualBasic.ApplicationServices.ShutdownMode.AfterMainFormCloses
         End Sub
-
-        <DebuggerStepThrough()>
+        
+        <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = CampManagementNewGame
+            Me.MainForm = Global.CampManagement.CampManagementMain
         End Sub
     End Class
 End Namespace
