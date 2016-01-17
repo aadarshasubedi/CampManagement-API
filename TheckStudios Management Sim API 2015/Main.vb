@@ -1,19 +1,28 @@
 ﻿Imports System.Text
 
 Public Class Resources
-    'Gets current directory and stores into object, as to not request it everytime.
-    Friend Shared MyLocation = Environment.CurrentDirectory
-    'This is necessary to know where the difficulty settings are.
-    Friend Shared DifficultyPath As String = MyLocation + "/Data/DifficultyInfo.txt"
-    'This is necessary to know what difficulty the player is playing on.
-    Friend Shared DifficultySettings As String = My.Computer.FileSystem.ReadAllText(DifficultyPath)
-    'Other variables. self-explanatory
-    Private Shared PlayerWealth, NewPlayerWealth, WorkForceGenerateProfitResult, WorkerAmount As String
 
-    'Uses consts instead of static doubles
+    'Declares StringBuilders for .INI reading
+    Private Shared IniString = New StringBuilder(500)
+
+    'Declares variables, self-explanatory
+    Private Shared PlayerWealth, NewPlayerWealth, WorkForceGenerateProfitResult, WorkerAmount
+    Private Shared CurrentDirectory = Environment.CurrentDirectory
+    Private Shared GameData = CurrentDirectory + "/Data/"
+    Private Shared GameStatsIni = GameData + "/GameStats.ini"
+    Shared ReceiveProfileString = GetPrivateProfileString("Stats", "Difficulty", "", IniString, IniString.Capacity, GameStatsIni)
+    Private Shared DifficultyValue = ReceiveProfileString
+
+
+    'Declares Constants
+    Const Null As VariantType = VariantType.Null
+
     Const EasyProfitPerWorkForceUnit As Double = 1.25
-    Const HardProfitPerWorkForceUnit As Double = 1.1
+    Const HardProfitPerWorkForceUnit As Double = 1.15
 
+
+    Private Declare Auto Function GetPrivateProfileString Lib "kernel32" (ByVal lpAppName As String, ByVal lpKeyName As String, ByVal lpDefault As String, ByVal lpReturnedString As StringBuilder, ByVal nSize As Integer, ByVal lpFileName As String) As Integer
+    Private Declare Auto Function WritePrivateProfileString Lib "Kernel32" (ByVal lpAppName As String, ByVal lpKeyName As String, ByVal lpString As String, ByVal lpFileName As String) As Integer
     Public Shared Function Wood()
         ' Coming soon
     End Function
@@ -21,13 +30,11 @@ Public Class Resources
         ' Coming soon
     End Function
     Public Shared Function WorkForceGenerateProfits(PlayerWealth As Double, WorkerAmount As Double) As Double()
-        'This is used to calculate profits from manpower (prisoners, workers, and others)
+        'This is used to calculate profits from manpower (prisoners, workers, etc)
         Try
-            If DifficultySettings = 0 Then
-                '       EasyWPProfits(PlayerWealth, WorkerAmount)
+            If DifficultyValue = 0 Then
                 Return EasyWPProfits(PlayerWealth, WorkerAmount)
             Else
-                '      HardWPProfits(PlayerWealth, WorkerAmount)
                 Return HardWPProfits(PlayerWealth, WorkerAmount)
             End If
         Catch ex As Exception
@@ -41,8 +48,8 @@ Public Class Resources
         'PlayersMoney = Profit calculated above + old money quantity (as to not overwrite the money)
         NewPlayerWealth = WorkForceGenerateProfitResult + PlayerWealth
 
-        Return {NewPlayerWealth, 0}
-
+        'Second value must be ignored.
+        Return {NewPlayerWealth, Null}
     End Function
     Private Shared Function HardWPProfits(PlayerWealth As Double, WorkerAmount As Double) As Double()
         'Profit = How Many Workers The Player Has * Profit Per Worker based on Difficulty
@@ -50,7 +57,7 @@ Public Class Resources
         'PlayersMoney = Profit calculated above + old money quantity (as to not overwrite the money)
         NewPlayerWealth = WorkForceGenerateProfitResult + PlayerWealth
 
-        Return {NewPlayerWealth, 0}
+        Return {NewPlayerWealth, Null}
 
     End Function
 End Class
@@ -80,6 +87,8 @@ Public Class Mechanics
     Const One As Double = 1
 
     'Declares Constants
+    Const Null As VariantType = VariantType.Null
+
     Const EasyTaxesPercentage As Double = 0.85
     Const HardTaxesPercentage As Double = 0.65
 
@@ -168,121 +177,101 @@ Public Class Mechanics
 
             Return {RandomEventType, RE1, NewPlayerWealthRandomEvent}
         End If
-
         If RandomEventRandomNumberDrawn = 2 Then
             RandomEventType = 3
 
             Return {RandomEventType, RE2, NewPlayerWaterAmountRandomEvent}
         End If
-
         If RandomEventRandomNumberDrawn = 3 Then
             RandomEventType = 5
 
             Return {RandomEventType, RE3, NewPlayerWorkForceAmountRandomEvent}
         End If
-
         If RandomEventRandomNumberDrawn = 4 Then
             RandomEventType = 4
 
             Return {RandomEventType, RE4, NewPlayerRationAmountRandomEvent}
         End If
-
         If RandomEventRandomNumberDrawn = 5 Then
             RandomEventType = 2
 
             Return {RandomEventType, RE5, NewPlayerWoodAmountRandomEvent}
         End If
-
         If RandomEventRandomNumberDrawn = 6 Then
 
 
             Return {RandomEventType, RE6, NewPlayerWoodAmountRandomEvent}
         End If
-
         If RandomEventRandomNumberDrawn = 7 Then
 
 
             Return {RandomEventType, RE7, NewPlayerWoodAmountRandomEvent}
         End If
-
         If RandomEventRandomNumberDrawn = 8 Then
 
 
             Return {RandomEventType, RE8, NewPlayerWoodAmountRandomEvent}
         End If
-
         If RandomEventRandomNumberDrawn = 9 Then
 
 
             Return {RandomEventType, RE9, NewPlayerWoodAmountRandomEvent}
         End If
-
         If RandomEventRandomNumberDrawn = 10 Then
 
 
             Return {RandomEventType, RE10, NewPlayerWoodAmountRandomEvent}
         End If
-
         If RandomEventRandomNumberDrawn = 11 Then
 
 
             Return {RandomEventType, RE11, NewPlayerWoodAmountRandomEvent}
         End If
-
         If RandomEventRandomNumberDrawn = 12 Then
 
 
             Return {RandomEventType, RE12, NewPlayerWoodAmountRandomEvent}
         End If
-
         If RandomEventRandomNumberDrawn = 13 Then
 
 
             Return {RandomEventType, RE13, NewPlayerWoodAmountRandomEvent}
         End If
-
         If RandomEventRandomNumberDrawn = 14 Then
 
 
             Return {RandomEventType, RE14, NewPlayerWoodAmountRandomEvent}
         End If
-
         If RandomEventRandomNumberDrawn = 15 Then
 
 
             Return {RandomEventType, RE15, NewPlayerWoodAmountRandomEvent}
         End If
-
         If RandomEventRandomNumberDrawn = 16 Then
 
 
             Return {RandomEventType, RE16, NewPlayerWoodAmountRandomEvent}
         End If
-
         If RandomEventRandomNumberDrawn = 17 Then
 
 
             Return {RandomEventType, RE17, NewPlayerWoodAmountRandomEvent}
         End If
-
         If RandomEventRandomNumberDrawn = 18 Then
 
 
             Return {RandomEventType, RE18, NewPlayerWoodAmountRandomEvent}
         End If
-
         If RandomEventRandomNumberDrawn = 19 Then
 
 
             Return {RandomEventType, RE19, NewPlayerWoodAmountRandomEvent}
         End If
-
         If RandomEventRandomNumberDrawn = 20 Then
 
 
             Return {RandomEventType, RE20, NewPlayerWoodAmountRandomEvent}
         End If
-
     End Function
     Private Shared Sub VanillaRandomEvents()
         GetPrivateProfileString("RandomEvents", "RE1", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, GameStatsIni)
@@ -423,10 +412,8 @@ Public Class Mechanics
 
         'Checks what difficulty the player is playing with, and calls the correct taxes.
         If DifficultyValue = Zero Then
-            '    EasyTax(PlayerWealth)
             Return EasyTax(PlayerWealth)
         Else
-            '      HardTax(PlayerWealth)
             Return HardTax(PlayerWealth)
         End If
 
@@ -434,11 +421,17 @@ Public Class Mechanics
     Private Shared Function EasyTax(PlayerWealth As Double) As Double()
         Try
             'For easy difficulty: enforces 15% of taxes
-            'This is necessary to know how much money the player has.
+            'NewPlayerWealth = CurrentWealth * Taxes
+            'HowMuchWasCharged = CurrentWealth - NewWealth
+
             NewPlayerWealth = PlayerWealth * EasyTaxesPercentage
             TaxTotal = PlayerWealth - NewPlayerWealth
 
             'Returns the new player money and how much was charged
+            'This returns an array, be sure to get it store the values accordingly.
+            '<Variable> = Taxes(PlayerMoney)
+            '<Variable>(0) = <Variable for NewPlayerWealth>
+            '<Variable>(1) = <Variable for TaxTotal>
             Return {NewPlayerWealth, TaxTotal}
 
         Catch EasyTaxesException As Exception
@@ -449,11 +442,17 @@ Public Class Mechanics
     Private Shared Function HardTax(PlayerWealth As Double) As Double()
         Try
             'For hard difficulty: enforces 35% of taxes
-            'This calculates how much money the player has after being charged taxes.
+            'NewPlayerWealth = CurrentWealth * Taxes
+            'HowMuchWasCharged = CurrentWealth - NewWealth
+
             NewPlayerWealth = PlayerWealth * HardTaxesPercentage
             TaxTotal = PlayerWealth - NewPlayerWealth
 
             'Returns the new player money and how much was charged
+            'This returns an array, be sure to get it store the values accordingly.
+            '<Variable> = Taxes(PlayerMoney)
+            '<Variable>(0) = <Variable for NewPlayerWealth>
+            '<Variable>(1) = <Variable for TaxTotal>
             Return {NewPlayerWealth, TaxTotal}
 
         Catch HardTaxesException As Exception
@@ -541,10 +540,10 @@ Public Class Mechanics
     End Function
 
     Public Shared Sub SetDifficultyEasy()
-        WritePrivateProfileString("Stats", "Difficulty", 0, GameStatsIni)
+        WritePrivateProfileString("Stats", "Difficulty", Zero, GameStatsIni)
     End Sub
     Public Shared Sub SetDifficultyHard()
-        WritePrivateProfileString("Stats", "Difficulty", 1, GameStatsIni)
+        WritePrivateProfileString("Stats", "Difficulty", One, GameStatsIni)
     End Sub
 End Class
 Public Class Misc

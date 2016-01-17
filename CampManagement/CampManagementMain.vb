@@ -3,16 +3,23 @@ Imports System.Text
 Public Class CampManagementMain
     'Declares StringBuilders for .INI reading
     Private IniString = New StringBuilder(500)
+    Private IniStringDifficulty = New StringBuilder(500)
+    Private IniStringIsModEnabled = New StringBuilder(500)
+    Private IniStringLoadGameStatsOnStartup = New StringBuilder(500)
 
     'Declares variables, self-explanatory
     Private Month = 1
-    Private WhichModFile, WhichMod, IsModEnabled, ModuleDetector, LostToTaxes, MoneyTaxesApplied, LostToTaxesAndMoneyTaxesApplied, DifficultySettingsFromINI
+    Private WhichModFile, WhichMod, ModuleDetector, LostToTaxes, MoneyTaxesApplied, LostToTaxesAndMoneyTaxesApplied, DifficultySettingsFromINI
     Private PlayerWealth As Double
     'CurrentDirectory = Current Directory location
     Private CurrentDirectory = Environment.CurrentDirectory
     'GameModuleData = Modules Folder location
     Private GameModuleData = CurrentDirectory + "/Data/DLC_Modules/"
-    Private IniFile = Application.StartupPath + "/Data/GameStats.ini"
+    Private GameStatsIni = CurrentDirectory + "/Data/GameStats.ini"
+
+    Friend DifficultyValue = GetPrivateProfileString("Stats", "Difficulty", "", IniStringDifficulty, IniStringDifficulty.Capacity, GameStatsIni)
+    Friend IsModEnabled = GetPrivateProfileString("Stats", "IsModEnabled", "", IniStringIsModEnabled, IniStringIsModEnabled.Capacity, GameStatsIni)
+    Friend LoadGameStatsOnStartup = GetPrivateProfileString("Stats", "LoadGameStatsOnStartup", "", IniStringLoadGameStatsOnStartup, IniStringLoadGameStatsOnStartup.Capacity, GameStatsIni)
 
     'Yes, this is heresy, but I like it :(
     Const Zero As Double = 0
@@ -22,30 +29,45 @@ Public Class CampManagementMain
     Private Declare Auto Function WritePrivateProfileString Lib "Kernel32" (ByVal lpAppName As String, ByVal lpKeyName As String, ByVal lpString As String, ByVal lpFileName As String) As Integer
     Private Sub SaveValuesToIni()
         Try
-            MsgBox("You can't save values to the .ini yet.")
+            WritePrivateProfileString("Stats", "Ration", RationInfoLabel.Text, GameStatsIni)
+            WritePrivateProfileString("Stats", "Water", WaterInfoLabel.Text, GameStatsIni)
+            WritePrivateProfileString("Stats", "Money", FinanceInfoLabel.Text, GameStatsIni)
+            WritePrivateProfileString("Stats", "Wood", WoodInfoLabel.Text, GameStatsIni)
+            WritePrivateProfileString("Stats", "ManpowerForce", MPInfoLabel.Text, GameStatsIni)
+            WritePrivateProfileString("Stats", "CurrentYear", YearLabel.Text, GameStatsIni)
+            WritePrivateProfileString("Stats", "CurrentMonth", MonthLabel.Text, GameStatsIni)
+            WritePrivateProfileString("Stats", "CurrentDay", DayLabel.Text, GameStatsIni)
+            MsgBox("Game Status saved.")
         Catch ex As Exception
             MsgBox(ex.ToString)
             MsgBox("Information synchronizer has crashed.")
         End Try
     End Sub
-    Private Function RefreshValuesFromIni()
+    Private Sub RefreshValuesFromIni()
         Try
-            GetPrivateProfileString("Stats", "Wood", "", IniString, IniString.Capacity, Application.StartupPath + "/Data/GameStats.ini")
+            GetPrivateProfileString("Stats", "Wood", "", IniString, IniString.Capacity, GameStatsIni)
             WoodInfoLabel.Text = IniString.ToString
-            GetPrivateProfileString("Stats", "Water", "", IniString, IniString.Capacity, Application.StartupPath + "/Data/GameStats.ini")
+            GetPrivateProfileString("Stats", "Water", "", IniString, IniString.Capacity, GameStatsIni)
             WaterInfoLabel.Text = IniString.ToString
-            GetPrivateProfileString("Stats", "Money", "", IniString, IniString.Capacity, Application.StartupPath + "/Data/GameStats.ini")
+            GetPrivateProfileString("Stats", "Money", "", IniString, IniString.Capacity, GameStatsIni)
             FinanceInfoLabel.Text = IniString.ToString
-            GetPrivateProfileString("Stats", "Ration", "", IniString, IniString.Capacity, Application.StartupPath + "/Data/GameStats.ini")
+            GetPrivateProfileString("Stats", "Ration", "", IniString, IniString.Capacity, GameStatsIni)
             RationInfoLabel.Text = IniString.ToString
-            GetPrivateProfileString("Stats", "ManpowerForce", "", IniString, IniString.Capacity, Application.StartupPath + "/Data/GameStats.ini")
+            GetPrivateProfileString("Stats", "ManpowerForce", "", IniString, IniString.Capacity, GameStatsIni)
             MPInfoLabel.Text = IniString.ToString
-            MsgBox("Game Information loaded from GameStats.ini")
+            GetPrivateProfileString("Stats", "CurrentYear", "", IniString, IniString.Capacity, GameStatsIni)
+            YearLabel.Text = IniString.ToString
+            GetPrivateProfileString("Stats", "CurrentMonth", "", IniString, IniString.Capacity, GameStatsIni)
+            MonthLabel.Text = IniString.ToString
+            GetPrivateProfileString("Stats", "CurrentDay", "", IniString, IniString.Capacity, GameStatsIni)
+            DayLabel.Text = IniString.ToString
+
+            MsgBox("Game Status loaded.")
         Catch ex As Exception
             MsgBox(ex.ToString)
             MsgBox("Information synchronizer has crashed.")
         End Try
-    End Function
+    End Sub
     Private Sub SaveButton_Click(sender As Object, e As EventArgs) Handles SaveButton.Click
         SaveValuesToIni()
     End Sub
@@ -93,9 +115,13 @@ Public Class CampManagementMain
 
     End Sub
     Private Sub CampManagementMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        If
+                Else
+
+        End If
+
         Try
-            GetPrivateProfileString("Stats", "Difficulty", "", IniString, IniString.Capacity, Application.StartupPath + "/Data/GameStats.ini")
-            If IniString.ToString = Zero Then
+            If DifficultyValue = Zero Then
                 TaxesLabel.Text = "15%"
             Else
                 TaxesLabel.Text = "35%"
@@ -105,9 +131,9 @@ Public Class CampManagementMain
             MsgBox("Failed to define taxes information on UI")
         End Try
 
+
         Try
-            GetPrivateProfileString("Stats", "IsModEnabled", "", IniString, IniString.Capacity, Application.StartupPath + "/Data/GameStats.ini")
-            If IniString.ToString = "True" Then
+            If IsModEnabled.ToString = "False" Then
 
             Else
 

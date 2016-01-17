@@ -24,7 +24,7 @@ Partial Class CampManagementMain
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CampManagementMain))
-        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.MainPanel = New System.Windows.Forms.Panel()
         Me.WaterInfoLabel = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
@@ -49,35 +49,35 @@ Partial Class CampManagementMain
         Me.SaveButton = New System.Windows.Forms.Button()
         Me.LoadButton = New System.Windows.Forms.Button()
         Me.CopyrightLabel = New System.Windows.Forms.Label()
-        Me.Panel1.SuspendLayout()
+        Me.MainPanel.SuspendLayout()
         Me.SuspendLayout()
         '
-        'Panel1
+        'MainPanel
         '
-        Me.Panel1.BackColor = System.Drawing.SystemColors.Desktop
-        Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel1.Controls.Add(Me.WaterInfoLabel)
-        Me.Panel1.Controls.Add(Me.Label6)
-        Me.Panel1.Controls.Add(Me.Label16)
-        Me.Panel1.Controls.Add(Me.Label15)
-        Me.Panel1.Controls.Add(Me.TaxesLabel)
-        Me.Panel1.Controls.Add(Me.CountryLabel)
-        Me.Panel1.Controls.Add(Me.DayLabel)
-        Me.Panel1.Controls.Add(Me.YearLabel)
-        Me.Panel1.Controls.Add(Me.TaxesDescriptionLabel)
-        Me.Panel1.Controls.Add(Me.MonthLabel)
-        Me.Panel1.Controls.Add(Me.MPInfoLabel)
-        Me.Panel1.Controls.Add(Me.WoodInfoLabel)
-        Me.Panel1.Controls.Add(Me.RationInfoLabel)
-        Me.Panel1.Controls.Add(Me.FinanceInfoLabel)
-        Me.Panel1.Controls.Add(Me.Label4)
-        Me.Panel1.Controls.Add(Me.Label3)
-        Me.Panel1.Controls.Add(Me.Label2)
-        Me.Panel1.Controls.Add(Me.Label1)
-        Me.Panel1.Location = New System.Drawing.Point(12, 12)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(336, 112)
-        Me.Panel1.TabIndex = 0
+        Me.MainPanel.BackColor = System.Drawing.SystemColors.Desktop
+        Me.MainPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.MainPanel.Controls.Add(Me.WaterInfoLabel)
+        Me.MainPanel.Controls.Add(Me.Label6)
+        Me.MainPanel.Controls.Add(Me.Label16)
+        Me.MainPanel.Controls.Add(Me.Label15)
+        Me.MainPanel.Controls.Add(Me.TaxesLabel)
+        Me.MainPanel.Controls.Add(Me.CountryLabel)
+        Me.MainPanel.Controls.Add(Me.DayLabel)
+        Me.MainPanel.Controls.Add(Me.YearLabel)
+        Me.MainPanel.Controls.Add(Me.TaxesDescriptionLabel)
+        Me.MainPanel.Controls.Add(Me.MonthLabel)
+        Me.MainPanel.Controls.Add(Me.MPInfoLabel)
+        Me.MainPanel.Controls.Add(Me.WoodInfoLabel)
+        Me.MainPanel.Controls.Add(Me.RationInfoLabel)
+        Me.MainPanel.Controls.Add(Me.FinanceInfoLabel)
+        Me.MainPanel.Controls.Add(Me.Label4)
+        Me.MainPanel.Controls.Add(Me.Label3)
+        Me.MainPanel.Controls.Add(Me.Label2)
+        Me.MainPanel.Controls.Add(Me.Label1)
+        Me.MainPanel.Location = New System.Drawing.Point(12, 12)
+        Me.MainPanel.Name = "MainPanel"
+        Me.MainPanel.Size = New System.Drawing.Size(336, 112)
+        Me.MainPanel.TabIndex = 0
         '
         'WaterInfoLabel
         '
@@ -348,21 +348,21 @@ Partial Class CampManagementMain
         Me.Controls.Add(Me.SaveButton)
         Me.Controls.Add(Me.HistoryLog)
         Me.Controls.Add(Me.NextWeekButton)
-        Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.MainPanel)
         Me.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "CampManagementMain"
         Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "CampManagement"
-        Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
+        Me.MainPanel.ResumeLayout(False)
+        Me.MainPanel.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents Panel1 As Panel
+    Friend WithEvents MainPanel As Panel
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
