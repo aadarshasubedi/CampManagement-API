@@ -9,7 +9,8 @@ Public Class CampManagementMain
 
     'Declares variables, self-explanatory
     Private Month = 1
-    Private WhichModFile, WhichMod, ModuleDetector, LostToTaxes, MoneyTaxesApplied, LostToTaxesAndMoneyTaxesApplied, DifficultySettingsFromINI
+    Private WhichModFile, WhichMod, ModuleDetector, LostToTaxes, MoneyTaxesApplied, LostToTaxesAndMoneyTaxesApplied
+    Private DifficultyValue As Double
     Private PlayerWealth As Double
     'CurrentDirectory = Current Directory location
     Private CurrentDirectory = Environment.CurrentDirectory
@@ -17,7 +18,6 @@ Public Class CampManagementMain
     Private GameModuleData = CurrentDirectory + "/Data/DLC_Modules/"
     Private GameStatsIni = CurrentDirectory + "/Data/GameStats.ini"
 
-    Friend DifficultyValue As Double = GetPrivateProfileString("Stats", "Difficulty", "", IniStringDifficulty, IniStringDifficulty.Capacity, GameStatsIni)
     Friend IsModEnabled As String = GetPrivateProfileString("Stats", "IsModEnabled", "", IniStringIsModEnabled, IniStringIsModEnabled.Capacity, GameStatsIni)
     Friend LoadGameStatsOnStartup As Boolean = GetPrivateProfileString("Stats", "LoadGameStatsOnStartup", "", IniStringLoadGameStatsOnStartup, IniStringLoadGameStatsOnStartup.Capacity, GameStatsIni)
 
@@ -119,6 +119,9 @@ Public Class CampManagementMain
     End Sub
     Private Sub CampManagementMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
+            GetPrivateProfileString("Stats", "Difficulty", "", IniStringDifficulty, IniStringDifficulty.Capacity, GameStatsIni)
+            DifficultyValue = Convert.ToDouble(IniStringDifficulty.ToString)
+
             If DifficultyValue = Zero Then
                 TaxesLabel.Text = "15%"
             Else

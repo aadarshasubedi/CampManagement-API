@@ -70,7 +70,7 @@ Public Class Mechanics
     Private Shared IniStringModRandomEventText = New StringBuilder(900)
     'Declares variables, self-explanatory
     Private Shared NewPlayerWealth, TaxTotal, InflationCalculus, InflationDifference, RandomEventRandomNumber, RandomEventRandomNumberDrawn, ModuleSelected,
-     RandomEventType, NewPlayerWealthRandomEvent, NewPlayerWoodAmountRandomEvent, NewPlayerWaterAmountRandomEvent, NewPlayerWorkForceAmountRandomEvent, NewPlayerRationAmountRandomEvent
+    RandomEventSelect, NewPlayerWealthRandomEvent, NewPlayerWoodAmountRandomEvent, NewPlayerWaterAmountRandomEvent, NewPlayerWorkForceAmountRandomEvent, NewPlayerRationAmountRandomEvent
     'CurrentDirectory = Current Directory location
     Private Shared CurrentDirectory = Environment.CurrentDirectory
     'GameModuleData = Modules Folder location
@@ -108,6 +108,13 @@ Public Class Mechanics
 
     Private Declare Auto Function GetPrivateProfileString Lib "kernel32" (ByVal lpAppName As String, ByVal lpKeyName As String, ByVal lpDefault As String, ByVal lpReturnedString As StringBuilder, ByVal nSize As Integer, ByVal lpFileName As String) As Integer
     Private Declare Auto Function WritePrivateProfileString Lib "Kernel32" (ByVal lpAppName As String, ByVal lpKeyName As String, ByVal lpString As String, ByVal lpFileName As String) As Integer
+    Enum RandomEventType
+        Wealth = 1
+        Wood = 2
+        Water = 3
+        Food = 4
+        WorkForce = 5
+    End Enum
 
     Public Shared Function GetDay(OldDay As Double) As Double
         'Old day = Itself + 7
@@ -162,118 +169,108 @@ Public Class Mechanics
 
     End Function
     Public Shared Function RandomEvent(WorkForce As Double, PlayerWealth As Double, WoodAmount As Double, WaterAmount As Double) As Double()
+        'This Function draws a RandomEvent using a loop, apply a custom or pre-defined message to it
+        'and return the EventType (0), Message(1), and NewPlayerResource(2)
         Dim RandomEventRandomNumber As Random = New Random
         RandomEventRandomNumberDrawn = (RandomEventRandomNumber.Next(1, 20))
 
+        'If using a Mod, use RandomEvents from Mod and store to Array. 
+        'If Not, use RandomEvents from Vanilla and store to Array.
         GetPrivateProfileString("Stats", "IsModEnabled", "", IniStringIsModEnabled, IniStringIsModEnabled.Capacity, GameStatsIni)
-        If IniStringIsModEnabled.ToString = "True" Then
+        If IniStringIsModEnabled = "True" Then
             DLCRandomEvents()
         Else
             VanillaRandomEvents()
         End If
 
+        'The following events are hardcoded into the API, thus the messages on the GameStats.ini or DLC_X.ini must be matching context-wise.
+        For i = 1 To 20
+            Select Case RandomEventSelect
+                Case RandomEventRandomNumberDrawn = i
+                    Exit For
 
-        'RandomEventType(1) = Wealth, RandomEventType(2) = Wood, RandomEventType(3) = Water, RandomEventType(4) = Food, RandomEventType(5) = WorkForce
-        'The following events are hardcoded into the API, thus the messages into the GameStats.ini or DLC_X.ini must be matching context-wise.
+            End Select
+        Next
+
         If RandomEventRandomNumberDrawn = 1 Then
-            RandomEventType = 1
 
-            Return {RandomEventType, ArrayRE(1), NewPlayerWealthRandomEvent}
+            Return {RandomEventType.Wealth, ArrayRE(1), NewPlayerWealthRandomEvent}
         End If
         If RandomEventRandomNumberDrawn = 2 Then
-            RandomEventType = 3
 
-            Return {RandomEventType, ArrayRE(2), NewPlayerWaterAmountRandomEvent}
+            Return {RandomEventType.Wood, ArrayRE(2), NewPlayerWaterAmountRandomEvent}
         End If
         If RandomEventRandomNumberDrawn = 3 Then
-            RandomEventType = 5
 
-            Return {RandomEventType, ArrayRE(3), NewPlayerWorkForceAmountRandomEvent}
+            Return {RandomEventType.WorkForce, ArrayRE(3), NewPlayerWorkForceAmountRandomEvent}
         End If
         If RandomEventRandomNumberDrawn = 4 Then
-            RandomEventType = 4
 
-            Return {RandomEventType, ArrayRE(4), NewPlayerRationAmountRandomEvent}
+            Return {RandomEventType.Food, ArrayRE(4), NewPlayerRationAmountRandomEvent}
         End If
         If RandomEventRandomNumberDrawn = 5 Then
-            RandomEventType = 2
 
-            Return {RandomEventType, ArrayRE(5), NewPlayerWoodAmountRandomEvent}
+            Return {RandomEventType.Wood, ArrayRE(5), NewPlayerWoodAmountRandomEvent}
         End If
         If RandomEventRandomNumberDrawn = 6 Then
 
-
-            Return {RandomEventType, ArrayRE(6), NewPlayerWoodAmountRandomEvent}
+            Return {RandomEventType.Wealth, ArrayRE(6), NewPlayerWoodAmountRandomEvent}
         End If
         If RandomEventRandomNumberDrawn = 7 Then
 
-
-            Return {RandomEventType, ArrayRE(7), NewPlayerWoodAmountRandomEvent}
+            Return {RandomEventType.Wood, ArrayRE(7), NewPlayerWoodAmountRandomEvent}
         End If
         If RandomEventRandomNumberDrawn = 8 Then
 
-
-            Return {RandomEventType, ArrayRE(8), NewPlayerWoodAmountRandomEvent}
+            Return {RandomEventType.Water, ArrayRE(8), NewPlayerWoodAmountRandomEvent}
         End If
         If RandomEventRandomNumberDrawn = 9 Then
 
-
-            Return {RandomEventType, ArrayRE(9), NewPlayerWoodAmountRandomEvent}
+            Return {RandomEventType.Food, ArrayRE(9), NewPlayerWoodAmountRandomEvent}
         End If
         If RandomEventRandomNumberDrawn = 10 Then
 
-
-            Return {RandomEventType, ArrayRE(10), NewPlayerWoodAmountRandomEvent}
+            Return {RandomEventType.WorkForce, ArrayRE(10), NewPlayerWoodAmountRandomEvent}
         End If
         If RandomEventRandomNumberDrawn = 11 Then
 
-
-            Return {RandomEventType, ArrayRE(11), NewPlayerWoodAmountRandomEvent}
+            Return {RandomEventType.Wealth, ArrayRE(11), NewPlayerWoodAmountRandomEvent}
         End If
         If RandomEventRandomNumberDrawn = 12 Then
 
-
-            Return {RandomEventType, ArrayRE(12), NewPlayerWoodAmountRandomEvent}
+            Return {RandomEventType.Wood, ArrayRE(12), NewPlayerWoodAmountRandomEvent}
         End If
         If RandomEventRandomNumberDrawn = 13 Then
 
-
-            Return {RandomEventType, ArrayRE(13), NewPlayerWoodAmountRandomEvent}
+            Return {RandomEventType.Water, ArrayRE(13), NewPlayerWoodAmountRandomEvent}
         End If
         If RandomEventRandomNumberDrawn = 14 Then
 
-
-            Return {RandomEventType, ArrayRE(14), NewPlayerWoodAmountRandomEvent}
+            Return {RandomEventType.Food, ArrayRE(14), NewPlayerWoodAmountRandomEvent}
         End If
         If RandomEventRandomNumberDrawn = 15 Then
 
-
-            Return {RandomEventType, ArrayRE(15), NewPlayerWoodAmountRandomEvent}
+            Return {RandomEventType.WorkForce, ArrayRE(15), NewPlayerWoodAmountRandomEvent}
         End If
         If RandomEventRandomNumberDrawn = 16 Then
 
-
-            Return {RandomEventType, ArrayRE(16), NewPlayerWoodAmountRandomEvent}
+            Return {RandomEventType.Wealth, ArrayRE(16), NewPlayerWoodAmountRandomEvent}
         End If
         If RandomEventRandomNumberDrawn = 17 Then
 
-
-            Return {RandomEventType, ArrayRE(17), NewPlayerWoodAmountRandomEvent}
+            Return {RandomEventType.Wood, ArrayRE(17), NewPlayerWoodAmountRandomEvent}
         End If
         If RandomEventRandomNumberDrawn = 18 Then
 
-
-            Return {RandomEventType, ArrayRE(18), NewPlayerWoodAmountRandomEvent}
+            Return {RandomEventType.Water, ArrayRE(18), NewPlayerWoodAmountRandomEvent}
         End If
         If RandomEventRandomNumberDrawn = 19 Then
 
-
-            Return {RandomEventType, ArrayRE(19), NewPlayerWoodAmountRandomEvent}
+            Return {RandomEventType.Food, ArrayRE(19), NewPlayerWoodAmountRandomEvent}
         End If
         If RandomEventRandomNumberDrawn = 20 Then
 
-
-            Return {RandomEventType, ArrayRE(20), NewPlayerWoodAmountRandomEvent}
+            Return {RandomEventType.WorkForce, ArrayRE(20), NewPlayerWoodAmountRandomEvent}
         End If
     End Function
     Private Shared Sub VanillaRandomEvents()
