@@ -83,7 +83,7 @@ Public Class Mechanics
     Private Shared DifficultyValue = ReceiveProfileString
 
     'Declares Arrays
-    Shared ArrayRE As Array = ArrayRE(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20)
+    Shared ArrayRE = {{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20}}
 
     'Yes, this is heresy, but I like it :(
     Const Zero As Double = 0

@@ -17,9 +17,9 @@ Public Class CampManagementMain
     Private GameModuleData = CurrentDirectory + "/Data/DLC_Modules/"
     Private GameStatsIni = CurrentDirectory + "/Data/GameStats.ini"
 
-    Friend DifficultyValue = GetPrivateProfileString("Stats", "Difficulty", "", IniStringDifficulty, IniStringDifficulty.Capacity, GameStatsIni)
-    Friend IsModEnabled = GetPrivateProfileString("Stats", "IsModEnabled", "", IniStringIsModEnabled, IniStringIsModEnabled.Capacity, GameStatsIni)
-    Friend LoadGameStatsOnStartup = GetPrivateProfileString("Stats", "LoadGameStatsOnStartup", "", IniStringLoadGameStatsOnStartup, IniStringLoadGameStatsOnStartup.Capacity, GameStatsIni)
+    Friend DifficultyValue As Double = GetPrivateProfileString("Stats", "Difficulty", "", IniStringDifficulty, IniStringDifficulty.Capacity, GameStatsIni)
+    Friend IsModEnabled As String = GetPrivateProfileString("Stats", "IsModEnabled", "", IniStringIsModEnabled, IniStringIsModEnabled.Capacity, GameStatsIni)
+    Friend LoadGameStatsOnStartup As Boolean = GetPrivateProfileString("Stats", "LoadGameStatsOnStartup", "", IniStringLoadGameStatsOnStartup, IniStringLoadGameStatsOnStartup.Capacity, GameStatsIni)
 
     'Yes, this is heresy, but I like it :(
     Const Zero As Double = 0
