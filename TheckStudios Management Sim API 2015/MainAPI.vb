@@ -69,7 +69,7 @@ Public Class Mechanics
     Private Shared IniStringModFilePath = New StringBuilder(500)
     Private Shared IniStringModRandomEventText = New StringBuilder(900)
     'Declares variables, self-explanatory
-    Private Shared NewPlayerWealth, TaxTotal, InflationCalculus, InflationDifference, RandomEventRandomNumber, RandomEventRandomNumberDrawn, ModuleSelected, RE1, RE2, RE3, RE4, RE5, RE6, RE7, RE8, RE9, RE10, RE11, RE12, RE13, RE14, RE15, RE16, RE17, RE18, RE19, RE20, RE21, RE22, RE23, RE24, RE25, RE26, RE27, RE28, RE29, RE30, RE31, RE32,
+    Private Shared NewPlayerWealth, TaxTotal, InflationCalculus, InflationDifference, RandomEventRandomNumber, RandomEventRandomNumberDrawn, ModuleSelected,
      RandomEventType, NewPlayerWealthRandomEvent, NewPlayerWoodAmountRandomEvent, NewPlayerWaterAmountRandomEvent, NewPlayerWorkForceAmountRandomEvent, NewPlayerRationAmountRandomEvent
     'CurrentDirectory = Current Directory location
     Private Shared CurrentDirectory = Environment.CurrentDirectory
@@ -81,6 +81,9 @@ Public Class Mechanics
     Private Shared GameStatsIni = GameData + "/GameStats.ini"
     Shared ReceiveProfileString = GetPrivateProfileString("Stats", "Difficulty", "", IniString, IniString.Capacity, GameStatsIni)
     Private Shared DifficultyValue = ReceiveProfileString
+
+    'Declares Arrays
+    Shared ArrayRE As Array = ArrayRE(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20)
 
     'Yes, this is heresy, but I like it :(
     Const Zero As Double = 0
@@ -175,238 +178,117 @@ Public Class Mechanics
         If RandomEventRandomNumberDrawn = 1 Then
             RandomEventType = 1
 
-            Return {RandomEventType, RE1, NewPlayerWealthRandomEvent}
+            Return {RandomEventType, ArrayRE(1), NewPlayerWealthRandomEvent}
         End If
         If RandomEventRandomNumberDrawn = 2 Then
             RandomEventType = 3
 
-            Return {RandomEventType, RE2, NewPlayerWaterAmountRandomEvent}
+            Return {RandomEventType, ArrayRE(2), NewPlayerWaterAmountRandomEvent}
         End If
         If RandomEventRandomNumberDrawn = 3 Then
             RandomEventType = 5
 
-            Return {RandomEventType, RE3, NewPlayerWorkForceAmountRandomEvent}
+            Return {RandomEventType, ArrayRE(3), NewPlayerWorkForceAmountRandomEvent}
         End If
         If RandomEventRandomNumberDrawn = 4 Then
             RandomEventType = 4
 
-            Return {RandomEventType, RE4, NewPlayerRationAmountRandomEvent}
+            Return {RandomEventType, ArrayRE(4), NewPlayerRationAmountRandomEvent}
         End If
         If RandomEventRandomNumberDrawn = 5 Then
             RandomEventType = 2
 
-            Return {RandomEventType, RE5, NewPlayerWoodAmountRandomEvent}
+            Return {RandomEventType, ArrayRE(5), NewPlayerWoodAmountRandomEvent}
         End If
         If RandomEventRandomNumberDrawn = 6 Then
 
 
-            Return {RandomEventType, RE6, NewPlayerWoodAmountRandomEvent}
+            Return {RandomEventType, ArrayRE(6), NewPlayerWoodAmountRandomEvent}
         End If
         If RandomEventRandomNumberDrawn = 7 Then
 
 
-            Return {RandomEventType, RE7, NewPlayerWoodAmountRandomEvent}
+            Return {RandomEventType, ArrayRE(7), NewPlayerWoodAmountRandomEvent}
         End If
         If RandomEventRandomNumberDrawn = 8 Then
 
 
-            Return {RandomEventType, RE8, NewPlayerWoodAmountRandomEvent}
+            Return {RandomEventType, ArrayRE(8), NewPlayerWoodAmountRandomEvent}
         End If
         If RandomEventRandomNumberDrawn = 9 Then
 
 
-            Return {RandomEventType, RE9, NewPlayerWoodAmountRandomEvent}
+            Return {RandomEventType, ArrayRE(9), NewPlayerWoodAmountRandomEvent}
         End If
         If RandomEventRandomNumberDrawn = 10 Then
 
 
-            Return {RandomEventType, RE10, NewPlayerWoodAmountRandomEvent}
+            Return {RandomEventType, ArrayRE(10), NewPlayerWoodAmountRandomEvent}
         End If
         If RandomEventRandomNumberDrawn = 11 Then
 
 
-            Return {RandomEventType, RE11, NewPlayerWoodAmountRandomEvent}
+            Return {RandomEventType, ArrayRE(11), NewPlayerWoodAmountRandomEvent}
         End If
         If RandomEventRandomNumberDrawn = 12 Then
 
 
-            Return {RandomEventType, RE12, NewPlayerWoodAmountRandomEvent}
+            Return {RandomEventType, ArrayRE(12), NewPlayerWoodAmountRandomEvent}
         End If
         If RandomEventRandomNumberDrawn = 13 Then
 
 
-            Return {RandomEventType, RE13, NewPlayerWoodAmountRandomEvent}
+            Return {RandomEventType, ArrayRE(13), NewPlayerWoodAmountRandomEvent}
         End If
         If RandomEventRandomNumberDrawn = 14 Then
 
 
-            Return {RandomEventType, RE14, NewPlayerWoodAmountRandomEvent}
+            Return {RandomEventType, ArrayRE(14), NewPlayerWoodAmountRandomEvent}
         End If
         If RandomEventRandomNumberDrawn = 15 Then
 
 
-            Return {RandomEventType, RE15, NewPlayerWoodAmountRandomEvent}
+            Return {RandomEventType, ArrayRE(15), NewPlayerWoodAmountRandomEvent}
         End If
         If RandomEventRandomNumberDrawn = 16 Then
 
 
-            Return {RandomEventType, RE16, NewPlayerWoodAmountRandomEvent}
+            Return {RandomEventType, ArrayRE(16), NewPlayerWoodAmountRandomEvent}
         End If
         If RandomEventRandomNumberDrawn = 17 Then
 
 
-            Return {RandomEventType, RE17, NewPlayerWoodAmountRandomEvent}
+            Return {RandomEventType, ArrayRE(17), NewPlayerWoodAmountRandomEvent}
         End If
         If RandomEventRandomNumberDrawn = 18 Then
 
 
-            Return {RandomEventType, RE18, NewPlayerWoodAmountRandomEvent}
+            Return {RandomEventType, ArrayRE(18), NewPlayerWoodAmountRandomEvent}
         End If
         If RandomEventRandomNumberDrawn = 19 Then
 
 
-            Return {RandomEventType, RE19, NewPlayerWoodAmountRandomEvent}
+            Return {RandomEventType, ArrayRE(19), NewPlayerWoodAmountRandomEvent}
         End If
         If RandomEventRandomNumberDrawn = 20 Then
 
 
-            Return {RandomEventType, RE20, NewPlayerWoodAmountRandomEvent}
+            Return {RandomEventType, ArrayRE(20), NewPlayerWoodAmountRandomEvent}
         End If
     End Function
     Private Shared Sub VanillaRandomEvents()
-        GetPrivateProfileString("RandomEvents", "RE1", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, GameStatsIni)
-        RE1 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE2", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, GameStatsIni)
-        RE2 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE3", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, GameStatsIni)
-        RE3 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE4", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, GameStatsIni)
-        RE4 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE5", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, GameStatsIni)
-        RE5 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE6", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, GameStatsIni)
-        RE6 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE7", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, GameStatsIni)
-        RE7 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE8", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, GameStatsIni)
-        RE8 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE9", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, GameStatsIni)
-        RE9 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE10", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, GameStatsIni)
-        RE10 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE11", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, GameStatsIni)
-        RE11 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE12", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, GameStatsIni)
-        RE12 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE13", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, GameStatsIni)
-        RE13 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE14", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, GameStatsIni)
-        RE14 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE15", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, GameStatsIni)
-        RE15 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE16", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, GameStatsIni)
-        RE16 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE17", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, GameStatsIni)
-        RE17 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE18", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, GameStatsIni)
-        RE18 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE19", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, GameStatsIni)
-        RE19 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE20", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, GameStatsIni)
-        RE20 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE21", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, GameStatsIni)
-        RE21 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE22", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, GameStatsIni)
-        RE22 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE23", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, GameStatsIni)
-        RE23 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE24", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, GameStatsIni)
-        RE24 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE25", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, GameStatsIni)
-        RE25 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE26", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, GameStatsIni)
-        RE26 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE27", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, GameStatsIni)
-        RE27 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE28", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, GameStatsIni)
-        RE28 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE29", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, GameStatsIni)
-        RE29 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE30", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, GameStatsIni)
-        RE30 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE31", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, GameStatsIni)
-        RE31 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE32", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, GameStatsIni)
-        RE32 = IniStringModRandomEventText.ToString
+        For RandomEventNumber As Double = 1 To 20
+            GetPrivateProfileString("RandomEvents", "RE" + RandomEventNumber, "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, GameStatsIni)
+            ArrayRE(RandomEventNumber) = IniStringModRandomEventText
+        Next
     End Sub
     Private Shared Sub DLCRandomEvents()
         GetPrivateProfileString("Stats", "WhichModFile", "", IniStringModFilePath, IniStringModFilePath.Capacity, GameStatsIni)
         ModuleSelected = GameModuleData + IniStringModFilePath
-        GetPrivateProfileString("RandomEvents", "RE1", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, ModuleSelected)
-        RE1 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE2", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, ModuleSelected)
-        RE2 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE3", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, ModuleSelected)
-        RE3 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE4", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, ModuleSelected)
-        RE4 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE5", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, ModuleSelected)
-        RE5 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE6", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, ModuleSelected)
-        RE6 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE7", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, ModuleSelected)
-        RE7 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE8", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, ModuleSelected)
-        RE8 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE9", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, ModuleSelected)
-        RE9 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE10", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, ModuleSelected)
-        RE10 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE11", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, ModuleSelected)
-        RE11 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE12", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, ModuleSelected)
-        RE12 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE13", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, ModuleSelected)
-        RE13 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE14", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, ModuleSelected)
-        RE14 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE15", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, ModuleSelected)
-        RE15 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE16", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, ModuleSelected)
-        RE16 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE17", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, ModuleSelected)
-        RE17 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE18", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, ModuleSelected)
-        RE18 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE19", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, ModuleSelected)
-        RE19 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE20", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, ModuleSelected)
-        RE20 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE21", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, ModuleSelected)
-        RE21 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE22", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, ModuleSelected)
-        RE22 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE23", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, ModuleSelected)
-        RE23 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE24", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, ModuleSelected)
-        RE24 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE25", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, ModuleSelected)
-        RE25 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE26", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, ModuleSelected)
-        RE26 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE27", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, ModuleSelected)
-        RE27 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE28", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, ModuleSelected)
-        RE28 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE29", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, ModuleSelected)
-        RE29 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE30", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, ModuleSelected)
-        RE30 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE31", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, ModuleSelected)
-        RE31 = IniStringModRandomEventText.ToString
-        GetPrivateProfileString("RandomEvents", "RE32", "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, ModuleSelected)
-        RE32 = IniStringModRandomEventText.ToString
-
+        For RandomEventNumber As Double = 1 To 20
+            GetPrivateProfileString("RandomEvents", "RE" + RandomEventNumber, "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, ModuleSelected)
+            ArrayRE(RandomEventNumber) = IniStringModRandomEventText
+        Next
     End Sub
     Public Shared Function Taxes(PlayerWealth As Double) As Double()
 
