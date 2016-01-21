@@ -21,6 +21,8 @@ Public Class CampManagementNewGame
     Private Declare Auto Function WritePrivateProfileString Lib "Kernel32" (ByVal lpAppName As String, ByVal lpKeyName As String, ByVal lpString As String, ByVal lpFileName As String) As Integer
 
     Private Sub CampManagementNewGame_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ModuleSelectionDropBox.SelectedIndex = 0
+
         For DLCNumber As Double = 1 To 999
             If My.Computer.FileSystem.FileExists(DLCFilesPath + "/DLC_" + DLCNumber.ToString + ".ini") Then
                 GetPrivateProfileString("MOD", "ModName", "", IniString, IniString.Capacity, DLCFilesPath + "/DLC_" + DLCNumber.ToString + ".ini")

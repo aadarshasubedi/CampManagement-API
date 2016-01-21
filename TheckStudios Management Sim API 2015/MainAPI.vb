@@ -108,7 +108,7 @@ Public Class Mechanics
 
     Private Declare Auto Function GetPrivateProfileString Lib "kernel32" (ByVal lpAppName As String, ByVal lpKeyName As String, ByVal lpDefault As String, ByVal lpReturnedString As StringBuilder, ByVal nSize As Integer, ByVal lpFileName As String) As Integer
     Private Declare Auto Function WritePrivateProfileString Lib "Kernel32" (ByVal lpAppName As String, ByVal lpKeyName As String, ByVal lpString As String, ByVal lpFileName As String) As Integer
-    Enum RandomEventType
+    Enum RandomEventType As Integer
         Wealth = 1
         Wood = 2
         Water = 3
@@ -187,6 +187,7 @@ Public Class Mechanics
         For i = 1 To 20
             Select Case RandomEventSelect
                 Case RandomEventRandomNumberDrawn = i
+
                     Exit For
 
             End Select
