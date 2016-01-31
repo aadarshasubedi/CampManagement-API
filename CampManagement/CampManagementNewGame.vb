@@ -9,8 +9,7 @@ Public Class CampManagementNewGame
     Private CurrentDirectory = Application.StartupPath
     Private DLCFilesPath = CurrentDirectory + "/Data/DLC_Modules"
     Private DataFilesPath = CurrentDirectory + "/Data"
-    Private DLCModuleName As String
-    Private DLCSelected, DLCQuantity, DLC1, DLC2, DLC3, DLC4, DLC5, DLC6
+    Private DLCModuleName, DLCSelected, DLCQuantity
 
     'Defines Constants
     Const MaxCharacter As Double = 12
@@ -30,19 +29,22 @@ Public Class CampManagementNewGame
 
             End If
         Next
+
+        'The amount of modules available in the dropbox is the DLC quantity.
+        DLCQuantity = ModuleSelectionDropBox.Items.Count
+        DLCQuantityLabel.Text = DLCQuantity
+
     End Sub
     Private Sub StartButton_Click(sender As Object, e As EventArgs) Handles StartButton.Click
-        DLCQuantity = ModuleSelectionDropBox.Items.Count
         Try
             If ModuleSelectionDropBox.SelectedIndex = 0 Then
-                WritePrivateProfileString("Stats", "IsModEnabled", "False", DataFilesPath + "/GameStats.ini")
+                WritePrivateProfileString("Stats", "IsModEnabled", False, DataFilesPath + "/GameStats.ini")
                 WritePrivateProfileString("Stats", "WhichMod", ModuleSelectionDropBox.Text, DataFilesPath + "/GameStats.ini")
                 WritePrivateProfileString("Stats", "WhichModFile", "", DataFilesPath + "/GameStats.ini")
-
             Else
                 For DLCNumber As Double = 1 To 999
                     If ModuleSelectionDropBox.SelectedIndex = DLCNumber Then 'Finds which Module is selected.
-                        WritePrivateProfileString("Stats", "IsModEnabled", "True", DataFilesPath + "/GameStats.ini")
+                        WritePrivateProfileString("Stats", "IsModEnabled", True, DataFilesPath + "/GameStats.ini")
                         WritePrivateProfileString("Stats", "WhichMod", ModuleSelectionDropBox.Text, DataFilesPath + "/GameStats.ini")
                         WritePrivateProfileString("Stats", "WhichModFile", "DLC_" + DLCNumber.ToString + ".ini", DataFilesPath + "/GameStats.ini")
 
@@ -56,6 +58,7 @@ Public Class CampManagementNewGame
 
 
         Try
+            'If a campname has been chosen, and it is not above the max characters, but above minimum.. Create entry on Profile and Save to File.
             If Not CampTextBox.Text = "" And CampTextBox.Text.Length > MaxCharacter And CampTextBox.Text.Length < MinCharacter Then
                 WritePrivateProfileString("Stats", "CampName", CampTextBox.Text, DataFilesPath + "/GameStats.ini")
             End If
@@ -64,7 +67,9 @@ Public Class CampManagementNewGame
             MsgBox("An exception occured while writing Camp Name to disk.")
         End Try
 
+
         Try
+            'If a playername has been chosen, and it is not above the max characters, but above the minimum.. Create Profile and Save to File.
             If Not PlayerNameTextBox.Text = "" And PlayerNameTextBox.Text.Length > MaxCharacter And CampTextBox.Text.Length < MinCharacter Then
                 WritePrivateProfileString("Stats", "CEOName", CampTextBox.Text, DataFilesPath + "/GameStats.ini")
             End If
@@ -73,8 +78,10 @@ Public Class CampManagementNewGame
             MsgBox("An exception occured while writing Player Name to disk.")
         End Try
 
+
         Try
-            If EasyDifficultyCheck.Checked = True Then
+            'If Easy is Checked and Difficulty is not, assume Easy Difficulty. If the inverse happens, assume Hard Difficulty. This does work properly.
+            If EasyDifficultyCheck.Checked = True And HardDifficultyCheck.Checked = False Then
                 Mechanics.SetDifficultyEasy()
             Else
                 Mechanics.SetDifficultyHard()
@@ -84,13 +91,15 @@ Public Class CampManagementNewGame
             MsgBox("An exception occured while interpreting difficulty settings.")
         End Try
 
+        'Hides NewGame Window
         Me.Hide()
+        CampManagementMain.Show()
 
     End Sub
 End Class
-Public Class BeepSpecial
-    <DllImport("KERNEL32.DLL", EntryPoint:="Beep", SetLastError:=True, CharSet:=CharSet.Unicode, ExactSpelling:=True, CallingConvention:=CallingConvention.StdCall)>
-    Public Shared Function aBeep(ByVal dwFreq As Integer, ByVal dwDuration As Integer) As Boolean
+'Public Class BeepSpecial
+'    <DllImport("KERNEL32.DLL", EntryPoint:="Beep", SetLastError:=True, CharSet:=CharSet.Unicode, ExactSpelling:=True, CallingConvention:=CallingConvention.StdCall)>
+'   Public Shared Function aBeep(ByVal dwFreq As Integer, ByVal dwDuration As Integer) As Boolean
 
-    End Function
-End Class
+'   End Function
+'End Class

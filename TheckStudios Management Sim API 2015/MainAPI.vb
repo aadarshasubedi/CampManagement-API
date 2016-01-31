@@ -79,22 +79,25 @@ Public Class Mechanics
     Private Shared GameData = CurrentDirectory + "/Data/"
     'GameStatsIni = GameStats.ini location
     Private Shared GameStatsIni = GameData + "/GameStats.ini"
+    'Gets current game difficulty settings.
     Shared ReceiveProfileString = GetPrivateProfileString("Stats", "Difficulty", "", IniString, IniString.Capacity, GameStatsIni)
     Private Shared DifficultyValue = ReceiveProfileString
 
-    'Declares Arrays
+    'Declares Arrays which randomevents are stored into.
     Shared ArrayRE = {{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20}}
 
     'Yes, this is heresy, but I like it :(
-    Const Zero As Double = 0
-    Const One As Double = 1
+    Const Zero = 0
+    Const One = 1
 
-    'Declares Constants
+    'Declares Null as a way of returning Null instead of 0 on Double(). A cheap workaround.
     Const Null As VariantType = VariantType.Null
 
+    'Declares the lion's share of the total money amount.
     Const EasyTaxesPercentage As Double = 0.85
     Const HardTaxesPercentage As Double = 0.65
 
+    'Declares the inflation used to decrease money.
     Const EasyInflationPercentage25000 As Double = 0.89
     Const EasyInflationPercentage5000 As Double = 0.93
     Const EasyInflationPercentage2500 As Double = 0.98
@@ -102,6 +105,10 @@ Public Class Mechanics
     Const HardInflationPercentage5000 As Double = 0.8
     Const HardInflationPercentage2500 As Double = 0.85
 
+    'Declares the deflation used to increase money.
+    Const AustrianEconomicsDeflation As Double = 1.1
+
+    'Declares different inflation for different player wealth
     Const InflationPlayerWealth25000 As Double = 25000
     Const InflationPlayerWealth5000 As Double = 5000
     Const InflationPlayerWealth2500 As Double = 2500
@@ -170,29 +177,23 @@ Public Class Mechanics
     End Function
     Public Shared Function RandomEvent(WorkForce As Double, PlayerWealth As Double, WoodAmount As Double, WaterAmount As Double) As Double()
         'This Function draws a RandomEvent using a loop, apply a custom or pre-defined message to it
-        'and return the EventType (0), Message(1), and NewPlayerResource(2)
+        'and return a Double() containing:
+        'EventType(0)
+        'Message(1)
+        'And NewPlayerResource(2)
         Dim RandomEventRandomNumber As Random = New Random
         RandomEventRandomNumberDrawn = (RandomEventRandomNumber.Next(1, 20))
 
-        'If using a Mod, use RandomEvents from Mod and store to Array. 
-        'If Not, use RandomEvents from Vanilla and store to Array.
+        'If using a Mod, use RandomEvents from Mod store into arrays. 
+        'If Not, use RandomEvents from Vanilla and store into arrays.
         GetPrivateProfileString("Stats", "IsModEnabled", "", IniStringIsModEnabled, IniStringIsModEnabled.Capacity, GameStatsIni)
-        If IniStringIsModEnabled = "True" Then
+        If IniStringIsModEnabled = True Then
             DLCRandomEvents()
         Else
             VanillaRandomEvents()
         End If
 
         'The following events are hardcoded into the API, thus the messages on the GameStats.ini or DLC_X.ini must be matching context-wise.
-        For i = 1 To 20
-            Select Case RandomEventSelect
-                Case RandomEventRandomNumberDrawn = i
-
-                    Exit For
-
-            End Select
-        Next
-
         If RandomEventRandomNumberDrawn = 1 Then
 
             Return {RandomEventType.Wealth, ArrayRE(1), NewPlayerWealthRandomEvent}
@@ -281,7 +282,9 @@ Public Class Mechanics
         Next
     End Sub
     Private Shared Sub DLCRandomEvents()
+        'Searches for mod location.
         GetPrivateProfileString("Stats", "WhichModFile", "", IniStringModFilePath, IniStringModFilePath.Capacity, GameStatsIni)
+        'Creates a path to the current selected mod.
         ModuleSelected = GameModuleData + IniStringModFilePath
         For RandomEventNumber As Double = 1 To 20
             GetPrivateProfileString("RandomEvents", "RE" + RandomEventNumber, "", IniStringModRandomEventText, IniStringModRandomEventText.Capacity, ModuleSelected)
@@ -289,8 +292,7 @@ Public Class Mechanics
         Next
     End Sub
     Public Shared Function Taxes(PlayerWealth As Double) As Double()
-
-        'Checks what difficulty the player is playing with, and calls the correct taxes.
+        'Checks what difficulty the player is playing with, and calls the appropriate taxes.
         If DifficultyValue = Zero Then
             Return EasyTax(PlayerWealth)
         Else
@@ -308,10 +310,10 @@ Public Class Mechanics
             TaxTotal = PlayerWealth - NewPlayerWealth
 
             'Returns the new player money and how much was charged
-            'This returns an array, be sure to get it store the values accordingly.
-            '<Variable> = Taxes(PlayerMoney)
-            '<Variable>(0) = <Variable for NewPlayerWealth>
-            '<Variable>(1) = <Variable for TaxTotal>
+            'Return must be treated as an array, store properly.
+            '<Variable X> = Taxes(PlayerMoney)
+            '<Variable X>(0) = <Variable for NewPlayerWealth>
+            '<Variable X>(1) = <Variable for TaxTotal>
             Return {NewPlayerWealth, TaxTotal}
 
         Catch EasyTaxesException As Exception
@@ -329,10 +331,10 @@ Public Class Mechanics
             TaxTotal = PlayerWealth - NewPlayerWealth
 
             'Returns the new player money and how much was charged
-            'This returns an array, be sure to get it store the values accordingly.
-            '<Variable> = Taxes(PlayerMoney)
-            '<Variable>(0) = <Variable for NewPlayerWealth>
-            '<Variable>(1) = <Variable for TaxTotal>
+            'Return must be treated as an array, store properly.
+            '<Variable X> = Taxes(PlayerMoney)
+            '<Variable X>(0) = <Variable for NewPlayerWealth>
+            '<Variable X>(1) = <Variable for TaxTotal>
             Return {NewPlayerWealth, TaxTotal}
 
         Catch HardTaxesException As Exception
@@ -343,10 +345,8 @@ Public Class Mechanics
     Public Shared Function Inflation(PlayerWealth As Double) As Double
         'Checks what difficulty the player is playing with, and calls the correct inflation.
         If DifficultyValue = 0 Then
-            '  EasyInflation(PlayerWealth)
             Return EasyInflation(PlayerWealth)
         Else
-            '    HardInflation(PlayerWealth)
             Return EasyInflation(PlayerWealth)
         End If
     End Function

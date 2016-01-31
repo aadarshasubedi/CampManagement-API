@@ -29,10 +29,12 @@ Partial Class CampManagementNewGame
         Me.Label2 = New System.Windows.Forms.Label()
         Me.EasyDifficultyCheck = New System.Windows.Forms.RadioButton()
         Me.HardDifficultyCheck = New System.Windows.Forms.RadioButton()
-        Me.Label3 = New System.Windows.Forms.Label()
+        Me.ChooseaDifficulty = New System.Windows.Forms.Label()
         Me.ModuleSelectionDropBox = New System.Windows.Forms.ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
+        Me.CopyrightLabelNewGame = New System.Windows.Forms.Label()
+        Me.InstalledModules = New System.Windows.Forms.Label()
+        Me.DLCQuantityLabel = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'StartButton
@@ -108,16 +110,16 @@ Partial Class CampManagementNewGame
         Me.HardDifficultyCheck.Text = "Captain"
         Me.HardDifficultyCheck.UseVisualStyleBackColor = False
         '
-        'Label3
+        'ChooseaDifficulty
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.BackColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label3.Location = New System.Drawing.Point(12, 102)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(106, 13)
-        Me.Label3.TabIndex = 7
-        Me.Label3.Text = "Choose a difficulty:"
+        Me.ChooseaDifficulty.AutoSize = True
+        Me.ChooseaDifficulty.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.ChooseaDifficulty.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.ChooseaDifficulty.Location = New System.Drawing.Point(12, 102)
+        Me.ChooseaDifficulty.Name = "ChooseaDifficulty"
+        Me.ChooseaDifficulty.Size = New System.Drawing.Size(106, 13)
+        Me.ChooseaDifficulty.TabIndex = 7
+        Me.ChooseaDifficulty.Text = "Choose a difficulty:"
         '
         'ModuleSelectionDropBox
         '
@@ -139,26 +141,48 @@ Partial Class CampManagementNewGame
         Me.Label4.TabIndex = 9
         Me.Label4.Text = "Select Module:"
         '
-        'Label5
+        'CopyrightLabelNewGame
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label5.Location = New System.Drawing.Point(320, 179)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(99, 13)
-        Me.Label5.TabIndex = 10
-        Me.Label5.Text = "Miller BSA © 2016"
+        Me.CopyrightLabelNewGame.AutoSize = True
+        Me.CopyrightLabelNewGame.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.CopyrightLabelNewGame.Location = New System.Drawing.Point(320, 179)
+        Me.CopyrightLabelNewGame.Name = "CopyrightLabelNewGame"
+        Me.CopyrightLabelNewGame.Size = New System.Drawing.Size(99, 13)
+        Me.CopyrightLabelNewGame.TabIndex = 10
+        Me.CopyrightLabelNewGame.Text = "Miller BSA © 2016"
         '
-        'CampManagementStartup
+        'InstalledModules
+        '
+        Me.InstalledModules.AutoSize = True
+        Me.InstalledModules.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.InstalledModules.Location = New System.Drawing.Point(284, 49)
+        Me.InstalledModules.Name = "InstalledModules"
+        Me.InstalledModules.Size = New System.Drawing.Size(102, 13)
+        Me.InstalledModules.TabIndex = 11
+        Me.InstalledModules.Text = "Installed Modules:"
+        '
+        'DLCQuantityLabel
+        '
+        Me.DLCQuantityLabel.AutoSize = True
+        Me.DLCQuantityLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.DLCQuantityLabel.Location = New System.Drawing.Point(406, 49)
+        Me.DLCQuantityLabel.Name = "DLCQuantityLabel"
+        Me.DLCQuantityLabel.Size = New System.Drawing.Size(13, 13)
+        Me.DLCQuantityLabel.TabIndex = 12
+        Me.DLCQuantityLabel.Text = "1"
+        '
+        'CampManagementNewGame
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.ClientSize = New System.Drawing.Size(431, 201)
-        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.DLCQuantityLabel)
+        Me.Controls.Add(Me.InstalledModules)
+        Me.Controls.Add(Me.CopyrightLabelNewGame)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.ModuleSelectionDropBox)
-        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.ChooseaDifficulty)
         Me.Controls.Add(Me.HardDifficultyCheck)
         Me.Controls.Add(Me.EasyDifficultyCheck)
         Me.Controls.Add(Me.PlayerNameTextBox)
@@ -170,7 +194,7 @@ Partial Class CampManagementNewGame
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "CampManagementStartup"
+        Me.Name = "CampManagementNewGame"
         Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.ResumeLayout(False)
@@ -185,8 +209,10 @@ Partial Class CampManagementNewGame
     Friend WithEvents Label2 As Label
     Friend WithEvents EasyDifficultyCheck As RadioButton
     Friend WithEvents HardDifficultyCheck As RadioButton
-    Friend WithEvents Label3 As Label
+    Friend WithEvents ChooseaDifficulty As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents ModuleSelectionDropBox As ComboBox
-    Friend WithEvents Label5 As Label
+    Friend WithEvents CopyrightLabelNewGame As Label
+    Friend WithEvents InstalledModules As Label
+    Friend WithEvents DLCQuantityLabel As Label
 End Class
