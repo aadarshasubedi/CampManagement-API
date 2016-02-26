@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class CampManagementMainMenu
+﻿<CompilerServices.DesignerGenerated()>
+Partial Class CampManagementFirstMenu
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,9 +20,10 @@ Partial Class CampManagementMainMenu
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.HelpButton = New System.Windows.Forms.Button()
         Me.QuitButton = New System.Windows.Forms.Button()
         Me.ContinueGameButton = New System.Windows.Forms.Button()
         Me.NewGameButton = New System.Windows.Forms.Button()
@@ -37,19 +38,31 @@ Partial Class CampManagementMainMenu
         '
         Me.Panel1.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel1.Controls.Add(Me.HelpButton)
         Me.Panel1.Controls.Add(Me.QuitButton)
         Me.Panel1.Controls.Add(Me.ContinueGameButton)
         Me.Panel1.Controls.Add(Me.NewGameButton)
         Me.Panel1.Location = New System.Drawing.Point(12, 12)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(181, 164)
+        Me.Panel1.Size = New System.Drawing.Size(181, 215)
         Me.Panel1.TabIndex = 0
+        '
+        'HelpButton
+        '
+        Me.HelpButton.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.HelpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.HelpButton.Location = New System.Drawing.Point(32, 94)
+        Me.HelpButton.Name = "HelpButton"
+        Me.HelpButton.Size = New System.Drawing.Size(113, 31)
+        Me.HelpButton.TabIndex = 4
+        Me.HelpButton.Text = "Help"
+        Me.HelpButton.UseVisualStyleBackColor = False
         '
         'QuitButton
         '
         Me.QuitButton.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.QuitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.QuitButton.Location = New System.Drawing.Point(32, 89)
+        Me.QuitButton.Location = New System.Drawing.Point(32, 177)
         Me.QuitButton.Name = "QuitButton"
         Me.QuitButton.Size = New System.Drawing.Size(113, 29)
         Me.QuitButton.TabIndex = 3
@@ -60,9 +73,9 @@ Partial Class CampManagementMainMenu
         '
         Me.ContinueGameButton.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.ContinueGameButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ContinueGameButton.Location = New System.Drawing.Point(32, 54)
+        Me.ContinueGameButton.Location = New System.Drawing.Point(32, 11)
         Me.ContinueGameButton.Name = "ContinueGameButton"
-        Me.ContinueGameButton.Size = New System.Drawing.Size(113, 29)
+        Me.ContinueGameButton.Size = New System.Drawing.Size(113, 40)
         Me.ContinueGameButton.TabIndex = 2
         Me.ContinueGameButton.Text = "Continue"
         Me.ContinueGameButton.UseVisualStyleBackColor = False
@@ -71,9 +84,9 @@ Partial Class CampManagementMainMenu
         '
         Me.NewGameButton.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.NewGameButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.NewGameButton.Location = New System.Drawing.Point(32, 14)
+        Me.NewGameButton.Location = New System.Drawing.Point(32, 57)
         Me.NewGameButton.Name = "NewGameButton"
-        Me.NewGameButton.Size = New System.Drawing.Size(113, 34)
+        Me.NewGameButton.Size = New System.Drawing.Size(113, 31)
         Me.NewGameButton.TabIndex = 1
         Me.NewGameButton.Text = "New Game"
         Me.NewGameButton.UseVisualStyleBackColor = False
@@ -82,7 +95,7 @@ Partial Class CampManagementMainMenu
         '
         Me.CopyrightLabel.AutoSize = True
         Me.CopyrightLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.CopyrightLabel.Location = New System.Drawing.Point(239, 163)
+        Me.CopyrightLabel.Location = New System.Drawing.Point(9, 237)
         Me.CopyrightLabel.Name = "CopyrightLabel"
         Me.CopyrightLabel.Size = New System.Drawing.Size(184, 13)
         Me.CopyrightLabel.TabIndex = 12
@@ -106,27 +119,27 @@ Partial Class CampManagementMainMenu
         Me.GameDescriptionLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.GameDescriptionLabel.Location = New System.Drawing.Point(263, 32)
         Me.GameDescriptionLabel.Name = "GameDescriptionLabel"
-        Me.GameDescriptionLabel.Size = New System.Drawing.Size(132, 13)
+        Me.GameDescriptionLabel.Size = New System.Drawing.Size(132, 39)
         Me.GameDescriptionLabel.TabIndex = 14
-        Me.GameDescriptionLabel.Text = "A ""Game"" by Miller Berto"
+        Me.GameDescriptionLabel.Text = "A ""Game"" by Miller Berto" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Made with Visual Basic" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
         'GameVersionLabel
         '
         Me.GameVersionLabel.AutoSize = True
         Me.GameVersionLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GameVersionLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.GameVersionLabel.Location = New System.Drawing.Point(313, 48)
+        Me.GameVersionLabel.Location = New System.Drawing.Point(422, 237)
         Me.GameVersionLabel.Name = "GameVersionLabel"
         Me.GameVersionLabel.Size = New System.Drawing.Size(22, 13)
         Me.GameVersionLabel.TabIndex = 15
-        Me.GameVersionLabel.Text = "1.0"
+        Me.GameVersionLabel.Text = "1.1"
         '
-        'CampManagementMainMenu
+        'CampManagementFirstMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.ClientSize = New System.Drawing.Size(456, 190)
+        Me.ClientSize = New System.Drawing.Size(456, 259)
         Me.Controls.Add(Me.GameVersionLabel)
         Me.Controls.Add(Me.GameDescriptionLabel)
         Me.Controls.Add(Me.GameNameLabel)
@@ -136,7 +149,7 @@ Partial Class CampManagementMainMenu
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "CampManagementMainMenu"
+        Me.Name = "CampManagementFirstMenu"
         Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "CampManagementMainMenu"
@@ -154,4 +167,5 @@ Partial Class CampManagementMainMenu
     Friend WithEvents GameDescriptionLabel As Label
     Friend WithEvents QuitButton As Button
     Friend WithEvents GameVersionLabel As Label
+    Friend WithEvents HelpButton As Button
 End Class

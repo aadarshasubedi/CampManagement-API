@@ -9,11 +9,17 @@ Public Class CampManagementNewGame
     Private CurrentDirectory = Application.StartupPath
     Private DLCFilesPath = CurrentDirectory + "/Data/DLC_Modules"
     Private DataFilesPath = CurrentDirectory + "/Data"
-    Private DLCModuleName, DLCSelected, DLCQuantity
+    Private DLCModuleName, DLCSelected, DLCQuantity, ReadyToLaunchA, ReadyToLaunchB, ReadyToLaunchC
 
     'Defines Constants
-    Const MaxCharacter As Double = 12
-    Const MinCharacter As Double = 4
+    Const MaxCharacter = 12
+
+    Private Sub BackButton_Click(sender As Object, e As EventArgs) Handles BackButton.Click
+        CampManagementFirstMenu.Show()
+        Me.Close()
+    End Sub
+
+    Const MinCharacter = 4
 
 
     Private Declare Auto Function GetPrivateProfileString Lib "kernel32" (ByVal lpAppName As String, ByVal lpKeyName As String, ByVal lpDefault As String, ByVal lpReturnedString As StringBuilder, ByVal nSize As Integer, ByVal lpFileName As String) As Integer
@@ -59,8 +65,12 @@ Public Class CampManagementNewGame
 
         Try
             'If a campname has been chosen, and it is not above the max characters, but above minimum.. Create entry on Profile and Save to File.
-            If Not CampTextBox.Text = "" And CampTextBox.Text.Length > MaxCharacter And CampTextBox.Text.Length < MinCharacter Then
+            If CampTextBox.Text.Length < MaxCharacter And CampTextBox.Text.Length > MinCharacter Then
                 WritePrivateProfileString("Stats", "CampName", CampTextBox.Text, DataFilesPath + "/GameStats.ini")
+                ReadyToLaunchA = True
+            Else
+                MsgBox("Your camp's name must be above " + MinCharacter.ToString + " and lower than " + MaxCharacter.ToString)
+
             End If
         Catch ex As Exception
             MsgBox(ex.ToString)
@@ -70,8 +80,11 @@ Public Class CampManagementNewGame
 
         Try
             'If a playername has been chosen, and it is not above the max characters, but above the minimum.. Create Profile and Save to File.
-            If Not PlayerNameTextBox.Text = "" And PlayerNameTextBox.Text.Length > MaxCharacter And CampTextBox.Text.Length < MinCharacter Then
+            If PlayerNameTextBox.Text.Length < MaxCharacter And PlayerNameTextBox.Text.Length > MinCharacter Then
                 WritePrivateProfileString("Stats", "CEOName", CampTextBox.Text, DataFilesPath + "/GameStats.ini")
+                ReadyToLaunchB = True
+            Else
+                MsgBox("Your name must be above " + MinCharacter.ToString + " and lower than " + MaxCharacter.ToString)
             End If
         Catch ex As Exception
             MsgBox(ex.ToString)
@@ -83,17 +96,29 @@ Public Class CampManagementNewGame
             'If Easy is Checked and Difficulty is not, assume Easy Difficulty. If the inverse happens, assume Hard Difficulty. This does work properly.
             If EasyDifficultyCheck.Checked = True And HardDifficultyCheck.Checked = False Then
                 Mechanics.SetDifficultyEasy()
+                ReadyToLaunchC = True
             Else
                 Mechanics.SetDifficultyHard()
+                ReadyToLaunchC = True
             End If
         Catch ex As Exception
             MsgBox(ex.ToString)
             MsgBox("An exception occured while interpreting difficulty settings.")
         End Try
 
-        'Hides NewGame Window
-        Me.Hide()
-        CampManagementMain.Show()
+
+        Try
+            If ReadyToLaunchA = True And ReadyToLaunchB = True And ReadyToLaunchC = True Then
+                Me.Hide()
+                CampManagementMain.Show()
+            Else
+                MsgBox("Please, check if all information is entered.")
+            End If
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+            MsgBox("An exception occured while starting the game.")
+        End Try
+
 
     End Sub
 End Class

@@ -36,6 +36,6 @@ C:\Users\Miller\Source\Repos\CampManagement-API\CampManagement\obj\Debug\CampMan
 C:\Users\Miller\Source\Repos\CampManagement-API\CampManagement\obj\Debug\CampManagement.exe
 C:\Users\Miller\Source\Repos\CampManagement-API\CampManagement\obj\Debug\CampManagement.xml
 C:\Users\Miller\Source\Repos\CampManagement-API\CampManagement\obj\Debug\CampManagement.pdb
-C:\Users\Miller\Source\Repos\CampManagement-API\CampManagement\obj\Debug\CampManagement.CampManagementMainMenu.resources
 C:\Users\Miller\Source\Repos\CampManagement-API\CampManagement\obj\Debug\CampManagement.CampManagementMain.resources
 C:\Users\Miller\Source\Repos\CampManagement-API\CampManagement\obj\Debug\CampManagement.CampManagementNewGame.resources
+C:\Users\Miller\Source\Repos\CampManagement-API\CampManagement\obj\Debug\CampManagement.CampManagementFirstMenu.resources

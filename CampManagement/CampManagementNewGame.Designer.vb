@@ -35,13 +35,14 @@ Partial Class CampManagementNewGame
         Me.CopyrightLabelNewGame = New System.Windows.Forms.Label()
         Me.InstalledModules = New System.Windows.Forms.Label()
         Me.DLCQuantityLabel = New System.Windows.Forms.Label()
+        Me.BackButton = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'StartButton
         '
         Me.StartButton.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.StartButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.StartButton.Location = New System.Drawing.Point(177, 164)
+        Me.StartButton.Location = New System.Drawing.Point(15, 167)
         Me.StartButton.Name = "StartButton"
         Me.StartButton.Size = New System.Drawing.Size(75, 25)
         Me.StartButton.TabIndex = 0
@@ -145,11 +146,11 @@ Partial Class CampManagementNewGame
         '
         Me.CopyrightLabelNewGame.AutoSize = True
         Me.CopyrightLabelNewGame.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.CopyrightLabelNewGame.Location = New System.Drawing.Point(320, 179)
+        Me.CopyrightLabelNewGame.Location = New System.Drawing.Point(235, 179)
         Me.CopyrightLabelNewGame.Name = "CopyrightLabelNewGame"
-        Me.CopyrightLabelNewGame.Size = New System.Drawing.Size(99, 13)
+        Me.CopyrightLabelNewGame.Size = New System.Drawing.Size(184, 13)
         Me.CopyrightLabelNewGame.TabIndex = 10
-        Me.CopyrightLabelNewGame.Text = "Miller BSA © 2016"
+        Me.CopyrightLabelNewGame.Text = "Miller Berto Simberg Anaia © 2016"
         '
         'InstalledModules
         '
@@ -171,12 +172,24 @@ Partial Class CampManagementNewGame
         Me.DLCQuantityLabel.TabIndex = 12
         Me.DLCQuantityLabel.Text = "1"
         '
+        'BackButton
+        '
+        Me.BackButton.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.BackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BackButton.Location = New System.Drawing.Point(96, 167)
+        Me.BackButton.Name = "BackButton"
+        Me.BackButton.Size = New System.Drawing.Size(75, 25)
+        Me.BackButton.TabIndex = 13
+        Me.BackButton.Text = "Go Back"
+        Me.BackButton.UseVisualStyleBackColor = False
+        '
         'CampManagementNewGame
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.ClientSize = New System.Drawing.Size(431, 201)
+        Me.Controls.Add(Me.BackButton)
         Me.Controls.Add(Me.DLCQuantityLabel)
         Me.Controls.Add(Me.InstalledModules)
         Me.Controls.Add(Me.CopyrightLabelNewGame)
@@ -215,4 +228,5 @@ Partial Class CampManagementNewGame
     Friend WithEvents CopyrightLabelNewGame As Label
     Friend WithEvents InstalledModules As Label
     Friend WithEvents DLCQuantityLabel As Label
+    Friend WithEvents BackButton As Button
 End Class

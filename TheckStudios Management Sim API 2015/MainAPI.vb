@@ -25,9 +25,14 @@ Public Class Resources
     Private Declare Auto Function WritePrivateProfileString Lib "Kernel32" (ByVal lpAppName As String, ByVal lpKeyName As String, ByVal lpString As String, ByVal lpFileName As String) As Integer
     Public Shared Function Wood()
         ' Coming soon
+        Wood = Null
+
+        Return Wood
     End Function
     Public Shared Function Water()
         ' Coming soon
+        Water = Null
+        Return Water
     End Function
     Public Shared Function WorkForceGenerateProfits(PlayerWealth As Double, WorkerAmount As Double) As Double()
         'This is used to calculate profits from manpower (prisoners, workers, etc)
@@ -41,6 +46,7 @@ Public Class Resources
             MsgBox(ex.ToString)
             MsgBox("Failed to call MP Profits! Files must be missing from the Data folder!")
         End Try
+
     End Function
     Private Shared Function EasyWPProfits(PlayerWealth As Double, WorkerAmount As Double) As Double()
         'Profit = How Many Workers The Player Has * Profit Per Worker based on Difficulty
@@ -89,6 +95,7 @@ Public Class Mechanics
     'Yes, this is heresy, but I like it :(
     Const Zero = 0
     Const One = 1
+
 
     'Declares Null as a way of returning Null instead of 0 on Double(). A cheap workaround.
     Const Null As VariantType = VariantType.Null
@@ -426,6 +433,8 @@ Public Class Mechanics
         WritePrivateProfileString("Stats", "Difficulty", One, GameStatsIni)
     End Sub
 End Class
+
+
 Public Class Misc
 
 End Class

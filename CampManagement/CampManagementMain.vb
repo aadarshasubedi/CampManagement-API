@@ -5,6 +5,7 @@ Public Class CampManagementMain
     Private IniString = New StringBuilder(500)
     Private IniStringDifficulty = New StringBuilder(500)
     Private IniStringIsModEnabled = New StringBuilder(500)
+    Private IniStringContinueGame = New StringBuilder(500)
     Private IniStringLoadGameStatsOnStartup = New StringBuilder(500)
 
     'Declares variables, self-explanatory
@@ -132,18 +133,11 @@ Public Class CampManagementMain
             MsgBox("Failed to define taxes information on UI")
         End Try
 
-
-        Try
-            If IsModEnabled.ToString = "False" Then
-
-            Else
-
-
-            End If
-        Catch ex As Exception
-
-        End Try
-
+        'Checks if the game is being loaded through Continue.
+        GetPrivateProfileString("Stats", "LoadGameStatsOnStartup", "", IniStringContinueGame, IniStringContinueGame.Capacity, GameStatsIni)
+        If IniStringContinueGame.ToString = "True" Then
+            RefreshValuesFromIni()
+        End If
 
     End Sub
 End Class

@@ -1,4 +1,5 @@
-﻿Imports System
+﻿Imports System.Resources
+
 Imports System.Reflection
 Imports System.Runtime.InteropServices
 
@@ -12,10 +13,10 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyDescription("")>
 <Assembly: AssemblyCompany("")>
 <Assembly: AssemblyProduct("CampManagement")>
-<Assembly: AssemblyCopyright("Copyright ©  2015")>
+<Assembly: AssemblyCopyright("Miller Berto ©  2016")>
 <Assembly: AssemblyTrademark("")>
 
-<Assembly: ComVisible(False)>
+<Assembly: ComVisible(True)>
 
 'The following GUID is for the ID of the typelib if this project is exposed to COM
 <Assembly: Guid("3e9f217e-6e4f-4218-8a70-898d0341c267")>
@@ -31,5 +32,6 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")>
 
-<Assembly: AssemblyVersion("1.0.0.0")>
-<Assembly: AssemblyFileVersion("1.0.0.0")>
+<Assembly: AssemblyVersion("1.1.0.0")>
+<Assembly: AssemblyFileVersion("1.1.0.0")>
+<Assembly: NeutralResourcesLanguage("en-US")>

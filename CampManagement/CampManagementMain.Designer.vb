@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<CompilerServices.DesignerGenerated()>
 Partial Class CampManagementMain
-    Inherits System.Windows.Forms.Form
+    Inherits Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class CampManagementMain
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CampManagementMain))
@@ -49,6 +49,8 @@ Partial Class CampManagementMain
         Me.SaveButton = New System.Windows.Forms.Button()
         Me.LoadButton = New System.Windows.Forms.Button()
         Me.CopyrightLabel = New System.Windows.Forms.Label()
+        Me.MarketButton = New System.Windows.Forms.Button()
+        Me.PolicyButton = New System.Windows.Forms.Button()
         Me.MainPanel.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -279,11 +281,11 @@ Partial Class CampManagementMain
         Me.NextWeekButton.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.NextWeekButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.NextWeekButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.NextWeekButton.Location = New System.Drawing.Point(255, 365)
+        Me.NextWeekButton.Location = New System.Drawing.Point(246, 365)
         Me.NextWeekButton.Name = "NextWeekButton"
         Me.NextWeekButton.Size = New System.Drawing.Size(102, 29)
         Me.NextWeekButton.TabIndex = 1
-        Me.NextWeekButton.Text = "Next Week"
+        Me.NextWeekButton.Text = "Go forth a week"
         Me.NextWeekButton.UseVisualStyleBackColor = False
         '
         'Timer1
@@ -338,11 +340,37 @@ Partial Class CampManagementMain
         Me.CopyrightLabel.TabIndex = 11
         Me.CopyrightLabel.Text = "Miller Berto Simberg Anaia © 2016"
         '
+        'MarketButton
+        '
+        Me.MarketButton.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.MarketButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.MarketButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.MarketButton.Location = New System.Drawing.Point(12, 130)
+        Me.MarketButton.Name = "MarketButton"
+        Me.MarketButton.Size = New System.Drawing.Size(71, 25)
+        Me.MarketButton.TabIndex = 12
+        Me.MarketButton.Text = "Market"
+        Me.MarketButton.UseVisualStyleBackColor = False
+        '
+        'PolicyButton
+        '
+        Me.PolicyButton.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.PolicyButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.PolicyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.PolicyButton.Location = New System.Drawing.Point(89, 130)
+        Me.PolicyButton.Name = "PolicyButton"
+        Me.PolicyButton.Size = New System.Drawing.Size(71, 25)
+        Me.PolicyButton.TabIndex = 13
+        Me.PolicyButton.Text = "Policies"
+        Me.PolicyButton.UseVisualStyleBackColor = False
+        '
         'CampManagementMain
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.SystemColors.ControlText
         Me.ClientSize = New System.Drawing.Size(821, 422)
+        Me.Controls.Add(Me.PolicyButton)
+        Me.Controls.Add(Me.MarketButton)
         Me.Controls.Add(Me.CopyrightLabel)
         Me.Controls.Add(Me.LoadButton)
         Me.Controls.Add(Me.SaveButton)
@@ -387,4 +415,6 @@ Partial Class CampManagementMain
     Friend WithEvents SaveButton As Button
     Friend WithEvents LoadButton As Button
     Friend WithEvents CopyrightLabel As Label
+    Friend WithEvents MarketButton As Button
+    Friend WithEvents PolicyButton As Button
 End Class

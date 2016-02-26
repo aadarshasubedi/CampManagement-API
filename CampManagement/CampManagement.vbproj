@@ -13,6 +13,8 @@
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -25,10 +27,8 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -61,6 +61,9 @@
   </PropertyGroup>
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -98,10 +101,10 @@
       <DependentUpon>CampManagementMain.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CampManagementMainMenu.Designer.vb">
-      <DependentUpon>CampManagementMainMenu.vb</DependentUpon>
+    <Compile Include="CampManagementFirstMenu.Designer.vb">
+      <DependentUpon>CampManagementFirstMenu.vb</DependentUpon>
     </Compile>
-    <Compile Include="CampManagementMainMenu.vb">
+    <Compile Include="CampManagementFirstMenu.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CampManagementNewGame.Designer.vb">
@@ -130,8 +133,8 @@
     <EmbeddedResource Include="CampManagementMain.resx">
       <DependentUpon>CampManagementMain.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CampManagementMainMenu.resx">
-      <DependentUpon>CampManagementMainMenu.vb</DependentUpon>
+    <EmbeddedResource Include="CampManagementFirstMenu.resx">
+      <DependentUpon>CampManagementFirstMenu.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CampManagementNewGame.resx">
       <DependentUpon>CampManagementNewGame.vb</DependentUpon>
@@ -149,6 +152,7 @@
     <None Include="bin\Debug\Data\DLC_Modules\DLC_3.ini" />
     <None Include="bin\Debug\Data\DLC_Modules\DLC_4.ini" />
     <None Include="bin\Debug\Data\GameStats.ini" />
+    <None Include="My Project\app.manifest" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
