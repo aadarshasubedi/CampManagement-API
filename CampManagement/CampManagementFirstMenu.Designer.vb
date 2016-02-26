@@ -51,9 +51,9 @@ Partial Class CampManagementFirstMenu
         '
         Me.HelpButton.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.HelpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.HelpButton.Location = New System.Drawing.Point(32, 94)
+        Me.HelpButton.Location = New System.Drawing.Point(32, 87)
         Me.HelpButton.Name = "HelpButton"
-        Me.HelpButton.Size = New System.Drawing.Size(113, 31)
+        Me.HelpButton.Size = New System.Drawing.Size(113, 24)
         Me.HelpButton.TabIndex = 4
         Me.HelpButton.Text = "Help"
         Me.HelpButton.UseVisualStyleBackColor = False
@@ -62,7 +62,7 @@ Partial Class CampManagementFirstMenu
         '
         Me.QuitButton.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.QuitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.QuitButton.Location = New System.Drawing.Point(32, 177)
+        Me.QuitButton.Location = New System.Drawing.Point(32, 169)
         Me.QuitButton.Name = "QuitButton"
         Me.QuitButton.Size = New System.Drawing.Size(113, 29)
         Me.QuitButton.TabIndex = 3
@@ -86,7 +86,7 @@ Partial Class CampManagementFirstMenu
         Me.NewGameButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.NewGameButton.Location = New System.Drawing.Point(32, 57)
         Me.NewGameButton.Name = "NewGameButton"
-        Me.NewGameButton.Size = New System.Drawing.Size(113, 31)
+        Me.NewGameButton.Size = New System.Drawing.Size(113, 24)
         Me.NewGameButton.TabIndex = 1
         Me.NewGameButton.Text = "New Game"
         Me.NewGameButton.UseVisualStyleBackColor = False

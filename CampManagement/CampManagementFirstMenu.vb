@@ -18,12 +18,8 @@ Public Class CampManagementFirstMenu
     End Sub
 
     Private Sub NewGameButton_Click(sender As Object, e As EventArgs) Handles NewGameButton.Click
-        MsgBox("Be careful! If you open a New Game, you'll end up corrupting the previous save files.", MsgBoxStyle.Critical)
         CampManagementNewGame.Show()
         Me.Close()
-    End Sub
-    Private Sub CampManagementMainMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
     End Sub
     Private Sub ContinueGameButton_Click(sender As Object, e As EventArgs) Handles ContinueGameButton.Click
         WritePrivateProfileString("Stats", "LoadGameStatsOnStartup", "True", DataFilesPath + "/GameStats.ini")

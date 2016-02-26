@@ -49,8 +49,8 @@ Partial Class CampManagementMain
         Me.SaveButton = New System.Windows.Forms.Button()
         Me.LoadButton = New System.Windows.Forms.Button()
         Me.CopyrightLabel = New System.Windows.Forms.Label()
-        Me.MarketButton = New System.Windows.Forms.Button()
         Me.PolicyButton = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.MainPanel.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -129,7 +129,7 @@ Partial Class CampManagementMain
         '
         Me.TaxesLabel.AutoSize = True
         Me.TaxesLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.TaxesLabel.Location = New System.Drawing.Point(289, 9)
+        Me.TaxesLabel.Location = New System.Drawing.Point(284, 9)
         Me.TaxesLabel.Name = "TaxesLabel"
         Me.TaxesLabel.Size = New System.Drawing.Size(29, 15)
         Me.TaxesLabel.TabIndex = 9
@@ -150,7 +150,7 @@ Partial Class CampManagementMain
         Me.DayLabel.AutoSize = True
         Me.DayLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DayLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.DayLabel.Location = New System.Drawing.Point(289, 43)
+        Me.DayLabel.Location = New System.Drawing.Point(300, 43)
         Me.DayLabel.Name = "DayLabel"
         Me.DayLabel.Size = New System.Drawing.Size(13, 13)
         Me.DayLabel.TabIndex = 5
@@ -197,7 +197,7 @@ Partial Class CampManagementMain
         Me.MPInfoLabel.Name = "MPInfoLabel"
         Me.MPInfoLabel.Size = New System.Drawing.Size(19, 13)
         Me.MPInfoLabel.TabIndex = 7
-        Me.MPInfoLabel.Text = "12"
+        Me.MPInfoLabel.Text = "10"
         '
         'WoodInfoLabel
         '
@@ -281,9 +281,9 @@ Partial Class CampManagementMain
         Me.NextWeekButton.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.NextWeekButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.NextWeekButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.NextWeekButton.Location = New System.Drawing.Point(246, 365)
+        Me.NextWeekButton.Location = New System.Drawing.Point(237, 365)
         Me.NextWeekButton.Name = "NextWeekButton"
-        Me.NextWeekButton.Size = New System.Drawing.Size(102, 29)
+        Me.NextWeekButton.Size = New System.Drawing.Size(111, 29)
         Me.NextWeekButton.TabIndex = 1
         Me.NextWeekButton.Text = "Go forth a week"
         Me.NextWeekButton.UseVisualStyleBackColor = False
@@ -311,7 +311,7 @@ Partial Class CampManagementMain
         Me.SaveButton.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.SaveButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.SaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.SaveButton.Location = New System.Drawing.Point(12, 330)
+        Me.SaveButton.Location = New System.Drawing.Point(12, 314)
         Me.SaveButton.Name = "SaveButton"
         Me.SaveButton.Size = New System.Drawing.Size(71, 29)
         Me.SaveButton.TabIndex = 8
@@ -323,7 +323,7 @@ Partial Class CampManagementMain
         Me.LoadButton.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.LoadButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.LoadButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.LoadButton.Location = New System.Drawing.Point(12, 365)
+        Me.LoadButton.Location = New System.Drawing.Point(12, 349)
         Me.LoadButton.Name = "LoadButton"
         Me.LoadButton.Size = New System.Drawing.Size(71, 29)
         Me.LoadButton.TabIndex = 9
@@ -340,37 +340,37 @@ Partial Class CampManagementMain
         Me.CopyrightLabel.TabIndex = 11
         Me.CopyrightLabel.Text = "Miller Berto Simberg Anaia © 2016"
         '
-        'MarketButton
-        '
-        Me.MarketButton.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.MarketButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.MarketButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.MarketButton.Location = New System.Drawing.Point(12, 130)
-        Me.MarketButton.Name = "MarketButton"
-        Me.MarketButton.Size = New System.Drawing.Size(71, 25)
-        Me.MarketButton.TabIndex = 12
-        Me.MarketButton.Text = "Market"
-        Me.MarketButton.UseVisualStyleBackColor = False
-        '
         'PolicyButton
         '
         Me.PolicyButton.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.PolicyButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.PolicyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.PolicyButton.Location = New System.Drawing.Point(89, 130)
+        Me.PolicyButton.Location = New System.Drawing.Point(12, 130)
         Me.PolicyButton.Name = "PolicyButton"
-        Me.PolicyButton.Size = New System.Drawing.Size(71, 25)
+        Me.PolicyButton.Size = New System.Drawing.Size(113, 25)
         Me.PolicyButton.TabIndex = 13
-        Me.PolicyButton.Text = "Policies"
+        Me.PolicyButton.Text = "Management"
         Me.PolicyButton.UseVisualStyleBackColor = False
+        '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Location = New System.Drawing.Point(12, 384)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(71, 29)
+        Me.Button1.TabIndex = 14
+        Me.Button1.Text = "Exit"
+        Me.Button1.UseVisualStyleBackColor = False
         '
         'CampManagementMain
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.SystemColors.ControlText
         Me.ClientSize = New System.Drawing.Size(821, 422)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.PolicyButton)
-        Me.Controls.Add(Me.MarketButton)
         Me.Controls.Add(Me.CopyrightLabel)
         Me.Controls.Add(Me.LoadButton)
         Me.Controls.Add(Me.SaveButton)
@@ -415,6 +415,6 @@ Partial Class CampManagementMain
     Friend WithEvents SaveButton As Button
     Friend WithEvents LoadButton As Button
     Friend WithEvents CopyrightLabel As Label
-    Friend WithEvents MarketButton As Button
     Friend WithEvents PolicyButton As Button
+    Friend WithEvents Button1 As Button
 End Class

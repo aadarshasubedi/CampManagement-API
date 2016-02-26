@@ -46,6 +46,17 @@ Public Class CampManagementMain
             MsgBox("Information synchronizer has crashed.")
         End Try
     End Sub
+
+    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
+        Me.Close()
+
+    End Sub
+
+    Private Sub PolicyButton_Click(sender As Object, e As EventArgs) Handles PolicyButton.Click
+        CampManagementPolicies.Show()
+
+    End Sub
+
     Private Sub RefreshValuesFromIni()
         Try
             GetPrivateProfileString("Stats", "Wood", "", IniString, IniString.Capacity, GameStatsIni)
@@ -122,7 +133,6 @@ Public Class CampManagementMain
         Try
             GetPrivateProfileString("Stats", "Difficulty", "", IniStringDifficulty, IniStringDifficulty.Capacity, GameStatsIni)
             DifficultyValue = Convert.ToDouble(IniStringDifficulty.ToString)
-
             If DifficultyValue = Zero Then
                 TaxesLabel.Text = "15%"
             Else
@@ -135,6 +145,8 @@ Public Class CampManagementMain
 
         'Checks if the game is being loaded through Continue.
         GetPrivateProfileString("Stats", "LoadGameStatsOnStartup", "", IniStringContinueGame, IniStringContinueGame.Capacity, GameStatsIni)
+        WritePrivateProfileString("Stats", "LoadGameStatsOnStartup", "False", GameStatsIni)
+
         If IniStringContinueGame.ToString = "True" Then
             RefreshValuesFromIni()
         End If
