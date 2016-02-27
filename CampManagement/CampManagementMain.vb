@@ -24,9 +24,74 @@ Public Class CampManagementMain
     'Yes, this is heresy, but I like it :(
     Const Zero As Double = 0
     Const One As Double = 1
-
+    
     Private Declare Auto Function GetPrivateProfileString Lib "kernel32" (ByVal lpAppName As String, ByVal lpKeyName As String, ByVal lpDefault As String, ByVal lpReturnedString As StringBuilder, ByVal nSize As Integer, ByVal lpFileName As String) As Integer
     Private Declare Auto Function WritePrivateProfileString Lib "Kernel32" (ByVal lpAppName As String, ByVal lpKeyName As String, ByVal lpString As String, ByVal lpFileName As String) As Integer
+
+
+    Private Sub BuyWoodLabel_Click(sender As Object, e As EventArgs) Handles BuyWoodLabel.Click
+        WoodInfoLabel.Text = WoodInfoLabel.Text + 10
+        FinanceInfoLabel.Text = FinanceInfoLabel.Text - 20
+        CheckFailure()
+    End Sub
+
+    Private Sub SellWoodLabel_Click(sender As Object, e As EventArgs) Handles SellWoodLabel.Click
+        If WaterInfoLabel.Text > 0 And WaterInfoLabel.Text < 40 Then
+            HistoryLog.AppendText(Environment.NewLine + "You do not have enough resources to sell safely.")
+        Else
+            WoodInfoLabel.Text = WoodInfoLabel.Text - 10
+            FinanceInfoLabel.Text = FinanceInfoLabel.Text + 10
+        End If
+    End Sub
+
+    Private Sub SellWaterLabel_Click(sender As Object, e As EventArgs) Handles SellWaterLabel.Click
+        If WaterInfoLabel.Text > 0 And WaterInfoLabel.Text < 40 Then
+            HistoryLog.AppendText(Environment.NewLine + "You do not have enough resources to sell safely.")
+        Else
+            WaterInfoLabel.Text = WaterInfoLabel.Text - 10
+            FinanceInfoLabel.Text = FinanceInfoLabel.Text + 5
+        End If
+    End Sub
+
+    Private Sub SellFoodLabel_Click(sender As Object, e As EventArgs) Handles SellFoodLabel.Click
+        If RationInfoLabel.Text > 0 And RationInfoLabel.Text < 40 Then
+            HistoryLog.AppendText(Environment.NewLine + "You do not have enough resources to sell safely.")
+        Else
+            RationInfoLabel.Text = RationInfoLabel.Text - 10
+            FinanceInfoLabel.Text = FinanceInfoLabel.Text + 3
+        End If
+    End Sub
+
+    Private Sub BuyWaterLabel_Click(sender As Object, e As EventArgs) Handles BuyWaterLabel.Click
+        WaterInfoLabel.Text = WaterInfoLabel.Text + 10
+        FinanceInfoLabel.Text = FinanceInfoLabel.Text - 10
+        CheckFailure()
+    End Sub
+
+    Private Sub BuyFoodLabel_Click(sender As Object, e As EventArgs) Handles BuyFoodLabel.Click
+        RationInfoLabel.Text = RationInfoLabel.Text + 10
+        FinanceInfoLabel.Text = FinanceInfoLabel.Text - 5
+        CheckFailure()
+    End Sub
+    Private Sub CheckFailure()
+        Try
+            If MPInfoLabel.Text < 0 Then
+                HistoryLog.AppendText(Environment.NewLine + "You have failed. All your prisoners are dead, and, by order of the High Command, you are to be court-martialed for incompetence.")
+                GameOver = True
+            End If
+            If RationInfoLabel.Text < 0 Then
+                HistoryLog.AppendText(Environment.NewLine + "You have failed. All your prisoners died due to starvation, and, by order of the High Command, you are to be court-martialed for incompetence.")
+                GameOver = True
+            End If
+            If FinanceInfoLabel.Text < 0 Then
+                HistoryLog.AppendText(Environment.NewLine + "You have failed. You have gone bankrupt, and, by order of the High Command, you are to be court-martialed for incompetence.")
+                GameOver = True
+            End If
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+            MsgBox("Error while checking if Camp is still working.")
+        End Try
+    End Sub
     Private Sub SaveValuesToIni()
         Try
             WritePrivateProfileString("Stats", "Ration", RationInfoLabel.Text, GameStatsIni)
@@ -184,20 +249,7 @@ Public Class CampManagementMain
             End Try
 
             'Checks if there are any values below the necessary for the camp to survive, and issue a Game Over.
-            Try
-                If MPInfoLabel.Text < 0 Then
-                    HistoryLog.AppendText(Environment.NewLine + "You have failed. All your prisoners are dead, and, by order of the High Command, you are to be court-martialed.")
-                    GameOver = True
-                End If
-                If RationInfoLabel.Text < 0 Then
-                    HistoryLog.AppendText(Environment.NewLine + "You have failed. All your prisoners died due to starvation, and, by order of the High Command, you are to be court-martialed.")
-                    GameOver = True
-                End If
-
-            Catch ex As Exception
-                MsgBox(ex.ToString)
-                MsgBox("Error while checking if Camp is still working.")
-            End Try
+            CheckFailure()
 
 
 

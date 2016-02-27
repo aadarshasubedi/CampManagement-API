@@ -51,7 +51,19 @@ Partial Class CampManagementMain
         Me.CopyrightLabel = New System.Windows.Forms.Label()
         Me.PolicyButton = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.SellFoodLabel = New System.Windows.Forms.Label()
+        Me.SellWaterLabel = New System.Windows.Forms.Label()
+        Me.SellWoodLabel = New System.Windows.Forms.Label()
+        Me.BuyFoodLabel = New System.Windows.Forms.Label()
+        Me.BuyWaterLabel = New System.Windows.Forms.Label()
+        Me.BuyWoodLabel = New System.Windows.Forms.Label()
+        Me.FoodLabel = New System.Windows.Forms.Label()
+        Me.WaterLabel = New System.Windows.Forms.Label()
+        Me.WoodLabel = New System.Windows.Forms.Label()
+        Me.MarketPanelLabel = New System.Windows.Forms.Label()
         Me.MainPanel.SuspendLayout()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'MainPanel
@@ -219,7 +231,7 @@ Partial Class CampManagementMain
         Me.RationInfoLabel.Name = "RationInfoLabel"
         Me.RationInfoLabel.Size = New System.Drawing.Size(25, 13)
         Me.RationInfoLabel.TabIndex = 5
-        Me.RationInfoLabel.Text = "100"
+        Me.RationInfoLabel.Text = "200"
         '
         'FinanceInfoLabel
         '
@@ -347,7 +359,7 @@ Partial Class CampManagementMain
         Me.PolicyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.PolicyButton.Location = New System.Drawing.Point(12, 130)
         Me.PolicyButton.Name = "PolicyButton"
-        Me.PolicyButton.Size = New System.Drawing.Size(113, 25)
+        Me.PolicyButton.Size = New System.Drawing.Size(88, 25)
         Me.PolicyButton.TabIndex = 13
         Me.PolicyButton.Text = "Management"
         Me.PolicyButton.UseVisualStyleBackColor = False
@@ -364,11 +376,141 @@ Partial Class CampManagementMain
         Me.Button1.Text = "Exit"
         Me.Button1.UseVisualStyleBackColor = False
         '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel1.Controls.Add(Me.SellFoodLabel)
+        Me.Panel1.Controls.Add(Me.SellWaterLabel)
+        Me.Panel1.Controls.Add(Me.SellWoodLabel)
+        Me.Panel1.Controls.Add(Me.BuyFoodLabel)
+        Me.Panel1.Controls.Add(Me.BuyWaterLabel)
+        Me.Panel1.Controls.Add(Me.BuyWoodLabel)
+        Me.Panel1.Controls.Add(Me.FoodLabel)
+        Me.Panel1.Controls.Add(Me.WaterLabel)
+        Me.Panel1.Controls.Add(Me.WoodLabel)
+        Me.Panel1.Controls.Add(Me.MarketPanelLabel)
+        Me.Panel1.Location = New System.Drawing.Point(106, 130)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(242, 86)
+        Me.Panel1.TabIndex = 19
+        '
+        'SellFoodLabel
+        '
+        Me.SellFoodLabel.AutoSize = True
+        Me.SellFoodLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SellFoodLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.SellFoodLabel.Location = New System.Drawing.Point(142, 60)
+        Me.SellFoodLabel.Name = "SellFoodLabel"
+        Me.SellFoodLabel.Size = New System.Drawing.Size(87, 13)
+        Me.SellFoodLabel.TabIndex = 24
+        Me.SellFoodLabel.Text = "SELL  - 10 for $3"
+        '
+        'SellWaterLabel
+        '
+        Me.SellWaterLabel.AutoSize = True
+        Me.SellWaterLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SellWaterLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.SellWaterLabel.Location = New System.Drawing.Point(142, 44)
+        Me.SellWaterLabel.Name = "SellWaterLabel"
+        Me.SellWaterLabel.Size = New System.Drawing.Size(87, 13)
+        Me.SellWaterLabel.TabIndex = 23
+        Me.SellWaterLabel.Text = "SELL  - 10 for $5"
+        '
+        'SellWoodLabel
+        '
+        Me.SellWoodLabel.AutoSize = True
+        Me.SellWoodLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SellWoodLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.SellWoodLabel.Location = New System.Drawing.Point(142, 28)
+        Me.SellWoodLabel.Name = "SellWoodLabel"
+        Me.SellWoodLabel.Size = New System.Drawing.Size(93, 13)
+        Me.SellWoodLabel.TabIndex = 22
+        Me.SellWoodLabel.Text = "SELL  - 10 for $10"
+        '
+        'BuyFoodLabel
+        '
+        Me.BuyFoodLabel.AutoSize = True
+        Me.BuyFoodLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BuyFoodLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.BuyFoodLabel.Location = New System.Drawing.Point(44, 60)
+        Me.BuyFoodLabel.Name = "BuyFoodLabel"
+        Me.BuyFoodLabel.Size = New System.Drawing.Size(85, 13)
+        Me.BuyFoodLabel.TabIndex = 21
+        Me.BuyFoodLabel.Text = "BUY  - 10 for $5"
+        '
+        'BuyWaterLabel
+        '
+        Me.BuyWaterLabel.AutoSize = True
+        Me.BuyWaterLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BuyWaterLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.BuyWaterLabel.Location = New System.Drawing.Point(44, 44)
+        Me.BuyWaterLabel.Name = "BuyWaterLabel"
+        Me.BuyWaterLabel.Size = New System.Drawing.Size(91, 13)
+        Me.BuyWaterLabel.TabIndex = 20
+        Me.BuyWaterLabel.Text = "BUY  - 10 for $10"
+        '
+        'BuyWoodLabel
+        '
+        Me.BuyWoodLabel.AutoSize = True
+        Me.BuyWoodLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BuyWoodLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.BuyWoodLabel.Location = New System.Drawing.Point(44, 27)
+        Me.BuyWoodLabel.Name = "BuyWoodLabel"
+        Me.BuyWoodLabel.Size = New System.Drawing.Size(91, 13)
+        Me.BuyWoodLabel.TabIndex = 17
+        Me.BuyWoodLabel.Text = "BUY  - 10 for $20"
+        '
+        'FoodLabel
+        '
+        Me.FoodLabel.AutoSize = True
+        Me.FoodLabel.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FoodLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.FoodLabel.Location = New System.Drawing.Point(3, 59)
+        Me.FoodLabel.Name = "FoodLabel"
+        Me.FoodLabel.Size = New System.Drawing.Size(37, 15)
+        Me.FoodLabel.TabIndex = 19
+        Me.FoodLabel.Text = "Food:"
+        '
+        'WaterLabel
+        '
+        Me.WaterLabel.AutoSize = True
+        Me.WaterLabel.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.WaterLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.WaterLabel.Location = New System.Drawing.Point(3, 43)
+        Me.WaterLabel.Name = "WaterLabel"
+        Me.WaterLabel.Size = New System.Drawing.Size(41, 15)
+        Me.WaterLabel.TabIndex = 18
+        Me.WaterLabel.Text = "Water:"
+        '
+        'WoodLabel
+        '
+        Me.WoodLabel.AutoSize = True
+        Me.WoodLabel.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.WoodLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.WoodLabel.Location = New System.Drawing.Point(3, 26)
+        Me.WoodLabel.Name = "WoodLabel"
+        Me.WoodLabel.Size = New System.Drawing.Size(42, 15)
+        Me.WoodLabel.TabIndex = 17
+        Me.WoodLabel.Text = "Wood:"
+        '
+        'MarketPanelLabel
+        '
+        Me.MarketPanelLabel.AutoSize = True
+        Me.MarketPanelLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MarketPanelLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.MarketPanelLabel.Location = New System.Drawing.Point(3, 5)
+        Me.MarketPanelLabel.Name = "MarketPanelLabel"
+        Me.MarketPanelLabel.Size = New System.Drawing.Size(58, 17)
+        Me.MarketPanelLabel.TabIndex = 15
+        Me.MarketPanelLabel.Text = "MARKET" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        '
         'CampManagementMain
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.SystemColors.ControlText
         Me.ClientSize = New System.Drawing.Size(821, 422)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.PolicyButton)
         Me.Controls.Add(Me.CopyrightLabel)
@@ -385,6 +527,8 @@ Partial Class CampManagementMain
         Me.Text = "CampManagement"
         Me.MainPanel.ResumeLayout(False)
         Me.MainPanel.PerformLayout()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -417,4 +561,15 @@ Partial Class CampManagementMain
     Friend WithEvents CopyrightLabel As Label
     Friend WithEvents PolicyButton As Button
     Friend WithEvents Button1 As Button
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents SellFoodLabel As Label
+    Friend WithEvents SellWaterLabel As Label
+    Friend WithEvents SellWoodLabel As Label
+    Friend WithEvents BuyFoodLabel As Label
+    Friend WithEvents BuyWaterLabel As Label
+    Friend WithEvents BuyWoodLabel As Label
+    Friend WithEvents FoodLabel As Label
+    Friend WithEvents WaterLabel As Label
+    Friend WithEvents WoodLabel As Label
+    Friend WithEvents MarketPanelLabel As Label
 End Class

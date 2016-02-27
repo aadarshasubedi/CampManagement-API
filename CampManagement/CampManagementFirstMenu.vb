@@ -26,4 +26,8 @@ Public Class CampManagementFirstMenu
         CampManagementMain.Show()
         Me.Close()
     End Sub
+
+    Private Sub HelpButton_Click(sender As Object, e As EventArgs) Handles HelpButtonTutorial.Click
+
+    End Sub
 End Class

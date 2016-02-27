@@ -12,14 +12,14 @@ Public Class CampManagementNewGame
     Private DLCModuleName, DLCSelected, DLCQuantity, ReadyToLaunchA, ReadyToLaunchB, ReadyToLaunchC
 
     'Defines Constants
-    Const MaxCharacter = 12
+    Const MinCharacter = 4
+    Const MaxCharacter = 18
 
     Private Sub BackButton_Click(sender As Object, e As EventArgs) Handles BackButton.Click
         CampManagementFirstMenu.Show()
         Me.Close()
     End Sub
 
-    Const MinCharacter = 4
 
 
     Private Declare Auto Function GetPrivateProfileString Lib "kernel32" (ByVal lpAppName As String, ByVal lpKeyName As String, ByVal lpDefault As String, ByVal lpReturnedString As StringBuilder, ByVal nSize As Integer, ByVal lpFileName As String) As Integer
@@ -122,9 +122,3 @@ Public Class CampManagementNewGame
 
     End Sub
 End Class
-'Public Class BeepSpecial
-'    <DllImport("KERNEL32.DLL", EntryPoint:="Beep", SetLastError:=True, CharSet:=CharSet.Unicode, ExactSpelling:=True, CallingConvention:=CallingConvention.StdCall)>
-'   Public Shared Function aBeep(ByVal dwFreq As Integer, ByVal dwDuration As Integer) As Boolean
-
-'   End Function
-'End Class

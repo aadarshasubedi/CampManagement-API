@@ -23,7 +23,7 @@ Partial Class CampManagementFirstMenu
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.HelpButton = New System.Windows.Forms.Button()
+        Me.HelpButtonTutorial = New System.Windows.Forms.Button()
         Me.QuitButton = New System.Windows.Forms.Button()
         Me.ContinueGameButton = New System.Windows.Forms.Button()
         Me.NewGameButton = New System.Windows.Forms.Button()
@@ -38,7 +38,7 @@ Partial Class CampManagementFirstMenu
         '
         Me.Panel1.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel1.Controls.Add(Me.HelpButton)
+        Me.Panel1.Controls.Add(Me.HelpButtonTutorial)
         Me.Panel1.Controls.Add(Me.QuitButton)
         Me.Panel1.Controls.Add(Me.ContinueGameButton)
         Me.Panel1.Controls.Add(Me.NewGameButton)
@@ -47,16 +47,16 @@ Partial Class CampManagementFirstMenu
         Me.Panel1.Size = New System.Drawing.Size(181, 215)
         Me.Panel1.TabIndex = 0
         '
-        'HelpButton
+        'HelpButtonTutorial
         '
-        Me.HelpButton.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.HelpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.HelpButton.Location = New System.Drawing.Point(32, 87)
-        Me.HelpButton.Name = "HelpButton"
-        Me.HelpButton.Size = New System.Drawing.Size(113, 24)
-        Me.HelpButton.TabIndex = 4
-        Me.HelpButton.Text = "Help"
-        Me.HelpButton.UseVisualStyleBackColor = False
+        Me.HelpButtonTutorial.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.HelpButtonTutorial.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.HelpButtonTutorial.Location = New System.Drawing.Point(32, 87)
+        Me.HelpButtonTutorial.Name = "HelpButtonTutorial"
+        Me.HelpButtonTutorial.Size = New System.Drawing.Size(113, 24)
+        Me.HelpButtonTutorial.TabIndex = 4
+        Me.HelpButtonTutorial.Text = "Help"
+        Me.HelpButtonTutorial.UseVisualStyleBackColor = False
         '
         'QuitButton
         '
@@ -128,11 +128,11 @@ Partial Class CampManagementFirstMenu
         Me.GameVersionLabel.AutoSize = True
         Me.GameVersionLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GameVersionLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.GameVersionLabel.Location = New System.Drawing.Point(422, 237)
+        Me.GameVersionLabel.Location = New System.Drawing.Point(413, 237)
         Me.GameVersionLabel.Name = "GameVersionLabel"
-        Me.GameVersionLabel.Size = New System.Drawing.Size(22, 13)
+        Me.GameVersionLabel.Size = New System.Drawing.Size(31, 13)
         Me.GameVersionLabel.TabIndex = 15
-        Me.GameVersionLabel.Text = "1.1"
+        Me.GameVersionLabel.Text = "1.2.5"
         '
         'CampManagementFirstMenu
         '
@@ -167,5 +167,5 @@ Partial Class CampManagementFirstMenu
     Friend WithEvents GameDescriptionLabel As Label
     Friend WithEvents QuitButton As Button
     Friend WithEvents GameVersionLabel As Label
-    Friend WithEvents HelpButton As Button
+    Friend WithEvents HelpButtonTutorial As Button
 End Class

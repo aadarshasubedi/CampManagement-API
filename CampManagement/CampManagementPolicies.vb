@@ -32,12 +32,10 @@
     End Sub
     Private Sub ExecutePrisonersCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles ExecutePrisonersCheckBox.CheckedChanged
         RequestPrisonersCheckBox.Checked = False
-        ExecutePrisonersCheckBox.Checked = True
         ExecutePrisoners = True
     End Sub
     Private Sub RequestPrisonersCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles RequestPrisonersCheckBox.CheckedChanged
         ExecutePrisonersCheckBox.Checked = False
-        RequestPrisonersCheckBox.Checked = True
         RequestPrisoner = True
 
     End Sub
@@ -48,7 +46,6 @@
     Private Sub TenHourInfo_Click(sender As Object, e As EventArgs) Handles TenHourInfo.Click
         MsgBox("All profits from workforce receive a 1.15x multiplier, but 2 prisoners die per week")
     End Sub
-
     Private Sub EatAllYouWantInfo_Click(sender As Object, e As EventArgs) Handles EatAllYouWantInfo.Click
         MsgBox("All profits from workforce receive 1.25x multiplier, but you lose 5 rations per prisoner per week.")
     End Sub
