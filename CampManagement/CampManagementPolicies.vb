@@ -5,32 +5,41 @@
     End Sub
     Private Sub ExhaustionPolicyCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles ExhaustionPolicyCheckBox.CheckedChanged
         EasierWorkPolicyCheckBox.Checked = False
+        ExhaustionPolicyCheckBox.Checked = True
         EasierWorkPolicy = False
         ExhaustionPolicy = True
     End Sub
 
     Private Sub EasierWorkPolicyCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles EasierWorkPolicyCheckBox.CheckedChanged
         ExhaustionPolicyCheckBox.Checked = False
+        EasierWorkPolicyCheckBox.Checked = True
         EasierWorkPolicy = True
         ExhaustionPolicy = False
     End Sub
 
     Private Sub EatAllYouCanPolicyCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles EatAllYouCanPolicyCheckBox.CheckedChanged
         FourMealsPolicyCheckBox.Checked = False
+        EatAllYouCanPolicyCheckBox.Checked = True
         EatAllYouCanPolicy = True
         FourMealsPolicy = False
     End Sub
 
     Private Sub FourMealsPolicyCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles FourMealsPolicyCheckBox.CheckedChanged
         EatAllYouCanPolicyCheckBox.Checked = False
+        FourMealsPolicyCheckBox.Checked = True
         EatAllYouCanPolicy = False
         FourMealsPolicy = True
     End Sub
     Private Sub ExecutePrisonersCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles ExecutePrisonersCheckBox.CheckedChanged
         RequestPrisonersCheckBox.Checked = False
+        ExecutePrisonersCheckBox.Checked = True
+        ExecutePrisoners = True
     End Sub
     Private Sub RequestPrisonersCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles RequestPrisonersCheckBox.CheckedChanged
         ExecutePrisonersCheckBox.Checked = False
+        RequestPrisonersCheckBox.Checked = True
+        RequestPrisoner = True
+
     End Sub
     Private Sub WorkToDeathInfo_Click(sender As Object, e As EventArgs) Handles WorkToDeathInfo.Click
         MsgBox("All profits from workforce receive a 1.25x multiplier, but 6 prisoners die per week.")
@@ -55,8 +64,12 @@
     Private Sub RequestPrisonersInfo_Click(sender As Object, e As EventArgs) Handles RequestPrisonersInfo.Click
         MsgBox("Request 5 prisoners, and pay a small sum ($20) from your finances.")
     End Sub
-
     Private Sub CampManagementPolicies_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        If RequestPrisoner = False Then
+            RequestPrisonersCheckBox.Checked = False
+        End If
+        If ExecutePrisoners = False Then
+            ExecutePrisonersCheckBox.Checked = False
+        End If
     End Sub
 End Class

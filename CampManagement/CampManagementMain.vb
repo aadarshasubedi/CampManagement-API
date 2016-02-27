@@ -186,13 +186,11 @@ Public Class CampManagementMain
             'Checks if there are any values below the necessary for the camp to survive, and issue a Game Over.
             Try
                 If MPInfoLabel.Text < 0 Then
-                    HistoryLog.AppendText(Environment.NewLine)
-                    HistoryLog.AppendText(Environment.NewLine + "You have failed. All your prisoners are dead, And, by order Of the High Command, you are to be court-martialed.")
+                    HistoryLog.AppendText(Environment.NewLine + "You have failed. All your prisoners are dead, and, by order of the High Command, you are to be court-martialed.")
                     GameOver = True
                 End If
                 If RationInfoLabel.Text < 0 Then
-                    HistoryLog.AppendText(Environment.NewLine)
-                    HistoryLog.AppendText(Environment.NewLine + "You have failed. All your prisoners died due to starvation, And, by order Of the High Command, you are to be court-martialed.")
+                    HistoryLog.AppendText(Environment.NewLine + "You have failed. All your prisoners died due to starvation, and, by order of the High Command, you are to be court-martialed.")
                     GameOver = True
                 End If
 
