@@ -92,6 +92,7 @@ Public Class CampManagementMain
                 MsgBox(ex.ToString)
                 MsgBox("Failed to increase day count.", MsgBoxStyle.Critical)
             End Try
+            'Checks and handles the variables to keep the correct --and current-- year in check.
             Try
                 If Not Month = 13 Then
                     MonthLabel.Text = Mechanics.GetMonth(Month)
@@ -119,6 +120,7 @@ Public Class CampManagementMain
             HistoryLog.AppendText(Environment.NewLine)
             HistoryLog.AppendText(Environment.NewLine + "You come back to your camp to check how it is going. It is " + DayLabel.Text + "th of " + MonthLabel.Text)
 
+            'Checks what will be the values used to handle food consumption, and apply them to a variable.
             Try
                 If CampManagementPoliciesForm.EatAllYouCanPolicy = True Then
                     WeekFoodProfitMultiplier = 1.25
@@ -140,38 +142,73 @@ Public Class CampManagementMain
                 MsgBox("Failed to calculate food consumption by workers.")
             End Try
 
+            'Checks what will be the values used to handle worker profit, and apply them to a variable. Also uses the food consumption variable multipliers.
             Try
                 NewPlayerWealthAfterWorkForceProfits = Resources.WorkForceGenerateProfits(PlayerWealth, TotalWorkForce)
                 If CampManagementPoliciesForm.ExhaustionPolicy = True Then
-                    FinanceInfoLabel.Text = NewPlayerWealthAfterWorkForceProfits(0) * 1.25
+                    FinanceInfoLabel.Text = NewPlayerWealthAfterWorkForceProfits(0) * 1.25 * WeekFoodProfitMultiplier
                     HistoryLog.AppendText(Environment.NewLine + "The smell of death is strong. 6 prisoners died due to exhaustion while working to death, but you received twice as much profit.")
                     MPInfoLabel.Text = MPInfoLabel.Text - 6
                 End If
                 If CampManagementPoliciesForm.EasierWorkPolicy = True Then
-                    FinanceInfoLabel.Text = NewPlayerWealthAfterWorkForceProfits(0) * 1.15
+                    FinanceInfoLabel.Text = NewPlayerWealthAfterWorkForceProfits(0) * 1.15 * WeekFoodProfitMultiplier
                     HistoryLog.AppendText(Environment.NewLine + "2 prisoners died due to exhaustion while working to death, but you received a bit more profit.")
                     MPInfoLabel.Text = MPInfoLabel.Text - 2
                 End If
                 If CampManagementPoliciesForm.EasierWorkPolicy = False And CampManagementPoliciesForm.ExhaustionPolicy = False Then
-                    FinanceInfoLabel.Text = NewPlayerWealthAfterWorkForceProfits(0) * 1
+                    FinanceInfoLabel.Text = NewPlayerWealthAfterWorkForceProfits(0) * 1 * WeekFoodProfitMultiplier
                     HistoryLog.AppendText(Environment.NewLine + "The prisoners have been working hard under the military police.")
-                End If
-                If MPInfoLabel.Text < 0 Then
-                    HistoryLog.AppendText(Environment.NewLine)
-                    HistoryLog.AppendText(Environment.NewLine + "You have failed. All your prisoners are dead, And, by order Of the High Command, you are to be court-martialed.")
-                    GameOver = True
                 End If
             Catch ex As Exception
                 MsgBox(ex.ToString)
                 MsgBox("Error while working prisoners to death.")
             End Try
 
+            'Checks what will be the new values to handle worker numbers, if extra policies were issued.
+            Try
+                If CampManagementPoliciesForm.RequestPrisoner = True Then
+                    CampManagementPoliciesForm.RequestPrisoner = False
+                    MPInfoLabel.Text = MPInfoLabel.Text + 5
+                    FinanceInfoLabel.Text = FinanceInfoLabel.Text - 20
+                    HistoryLog.AppendText(Environment.NewLine + "A military truck just arrived, with 5 new POWs. For this extra shipment, High Command charged you $20")
+                End If
+                If CampManagementPoliciesForm.ExecutePrisoners = True Then
+                    CampManagementPoliciesForm.ExecutePrisoners = False
+                    MPInfoLabel.Text = MPInfoLabel.Text - 5
+                    FinanceInfoLabel.Text = FinanceInfoLabel.Text + 20
+                    HistoryLog.AppendText(Environment.NewLine + "A military truck just left the camp with 5 dead POWs. For taking care of german conscripts, High Command awarded you $20")
+                End If
+            Catch ex As Exception
+                MsgBox(ex.ToString)
+                MsgBox("Error while greeting POWs from new shipment")
+            End Try
+
+            'Checks if there are any values below the necessary for the camp to survive, and issue a Game Over.
+            Try
+                If MPInfoLabel.Text < 0 Then
+                    HistoryLog.AppendText(Environment.NewLine)
+                    HistoryLog.AppendText(Environment.NewLine + "You have failed. All your prisoners are dead, And, by order Of the High Command, you are to be court-martialed.")
+                    GameOver = True
+                End If
+                If RationInfoLabel.Text < 0 Then
+                    HistoryLog.AppendText(Environment.NewLine)
+                    HistoryLog.AppendText(Environment.NewLine + "You have failed. All your prisoners died due to starvation, And, by order Of the High Command, you are to be court-martialed.")
+                    GameOver = True
+                End If
+
+            Catch ex As Exception
+                MsgBox(ex.ToString)
+                MsgBox("Error while checking if Camp is still working.")
+            End Try
+
+
 
         Else
-            MsgBox("Re-open the game, and start a new game.")
+            MsgBox("You have lost the game, please, re-open the game, and start a new game.")
         End If
     End Sub
     Private Sub CampManagementMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'Checks what difficulty settings the player is running on.
         Try
             GetPrivateProfileString("Stats", "Difficulty", "", IniStringDifficulty, IniStringDifficulty.Capacity, GameStatsIni)
             DifficultyValue = Convert.ToDouble(IniStringDifficulty.ToString)
