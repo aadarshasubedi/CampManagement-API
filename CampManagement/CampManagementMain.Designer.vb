@@ -197,7 +197,7 @@ Partial Class CampManagementMain
         Me.MPInfoLabel.Name = "MPInfoLabel"
         Me.MPInfoLabel.Size = New System.Drawing.Size(19, 13)
         Me.MPInfoLabel.TabIndex = 7
-        Me.MPInfoLabel.Text = "10"
+        Me.MPInfoLabel.Text = "20"
         '
         'WoodInfoLabel
         '
@@ -206,9 +206,9 @@ Partial Class CampManagementMain
         Me.WoodInfoLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.WoodInfoLabel.Location = New System.Drawing.Point(127, 43)
         Me.WoodInfoLabel.Name = "WoodInfoLabel"
-        Me.WoodInfoLabel.Size = New System.Drawing.Size(19, 13)
+        Me.WoodInfoLabel.Size = New System.Drawing.Size(25, 13)
         Me.WoodInfoLabel.TabIndex = 6
-        Me.WoodInfoLabel.Text = "10"
+        Me.WoodInfoLabel.Text = "100"
         '
         'RationInfoLabel
         '
@@ -217,9 +217,9 @@ Partial Class CampManagementMain
         Me.RationInfoLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.RationInfoLabel.Location = New System.Drawing.Point(127, 27)
         Me.RationInfoLabel.Name = "RationInfoLabel"
-        Me.RationInfoLabel.Size = New System.Drawing.Size(19, 13)
+        Me.RationInfoLabel.Size = New System.Drawing.Size(25, 13)
         Me.RationInfoLabel.TabIndex = 5
-        Me.RationInfoLabel.Text = "10"
+        Me.RationInfoLabel.Text = "100"
         '
         'FinanceInfoLabel
         '

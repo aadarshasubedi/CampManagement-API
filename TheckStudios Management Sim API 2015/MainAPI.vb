@@ -17,8 +17,8 @@ Public Class Resources
     'Declares Constants
     Const Null As VariantType = VariantType.Null
 
-    Const EasyProfitPerWorkForceUnit As Double = 1.25
-    Const HardProfitPerWorkForceUnit As Double = 1.15
+    Const EasyProfitPerWorkForceUnit As Double = 1.15
+    Const HardProfitPerWorkForceUnit As Double = 1.1
 
 
     Private Declare Auto Function GetPrivateProfileString Lib "kernel32" (ByVal lpAppName As String, ByVal lpKeyName As String, ByVal lpDefault As String, ByVal lpReturnedString As StringBuilder, ByVal nSize As Integer, ByVal lpFileName As String) As Integer
@@ -389,6 +389,8 @@ Public Class Mechanics
             MsgBox(EasyInflationException.ToString)
             MsgBox("Failed To Call Inflation! Files must be missing from the Data folder!")
         End Try
+
+        Return EasyInflation
     End Function
     Private Shared Function HardInflation(PlayerWealth As Double) As Double
         Try

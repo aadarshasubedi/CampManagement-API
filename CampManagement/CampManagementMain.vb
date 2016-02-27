@@ -10,9 +10,8 @@ Public Class CampManagementMain
 
     'Declares variables, self-explanatory
     Private Month = 1
-    Private WhichModFile, WhichMod, ModuleDetector, LostToTaxes, MoneyTaxesApplied, LostToTaxesAndMoneyTaxesApplied
-    Private DifficultyValue As Double
-    Private PlayerWealth As Double
+    Private GameOver, WhichModFile, WhichMod, ModuleDetector, LostToTaxes, MoneyTaxesApplied, LostToTaxesAndMoneyTaxesApplied, WeekFoodProfitMultiplier, NewPlayerWealthAfterWorkForceProfits, NewFoodAfterWorkersEat
+    Private DifficultyValue, PlayerWealth, TotalWorkForce As Double
     'CurrentDirectory = Current Directory location
     Private CurrentDirectory = Environment.CurrentDirectory
     'GameModuleData = Modules Folder location
@@ -46,17 +45,6 @@ Public Class CampManagementMain
             MsgBox("Information synchronizer has crashed.")
         End Try
     End Sub
-
-    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
-        Me.Close()
-
-    End Sub
-
-    Private Sub PolicyButton_Click(sender As Object, e As EventArgs) Handles PolicyButton.Click
-        CampManagementPolicies.Show()
-
-    End Sub
-
     Private Sub RefreshValuesFromIni()
         Try
             GetPrivateProfileString("Stats", "Wood", "", IniString, IniString.Capacity, GameStatsIni)
@@ -90,44 +78,98 @@ Public Class CampManagementMain
         RefreshValuesFromIni()
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles NextWeekButton.Click
-        PlayerWealth = Convert.ToDouble(FinanceInfoLabel.Text)
-        Try
-            If Mechanics.GetDay(DayLabel.Text) > 30 Then
-                DayLabel.Text = Mechanics.GetDay(DayLabel.Text) - 30
-                Month = Month + 1
-            Else
-                DayLabel.Text = Mechanics.GetDay(DayLabel.Text)
-            End If
-        Catch ex As Exception
-            MsgBox(ex.ToString)
-            MsgBox("Failed to increase day count.", MsgBoxStyle.Critical)
-        End Try
+        If Not GameOver = True Then
+            PlayerWealth = Convert.ToDouble(FinanceInfoLabel.Text)
+            TotalWorkForce = Convert.ToDouble(MPInfoLabel.Text)
+            Try
+                If Mechanics.GetDay(DayLabel.Text) > 30 Then
+                    DayLabel.Text = Mechanics.GetDay(DayLabel.Text) - 30
+                    Month = Month + 1
+                Else
+                    DayLabel.Text = Mechanics.GetDay(DayLabel.Text)
+                End If
+            Catch ex As Exception
+                MsgBox(ex.ToString)
+                MsgBox("Failed to increase day count.", MsgBoxStyle.Critical)
+            End Try
+            Try
+                If Not Month = 13 Then
+                    MonthLabel.Text = Mechanics.GetMonth(Month)
+                Else
+                    'Updates the money on the UI with the new value after inflation is applied.
+                    FinanceInfoLabel.Text = Mechanics.Inflation(PlayerWealth)
+                    PlayerWealth = FinanceInfoLabel.Text
+                    HistoryLog.AppendText(Environment.NewLine)
+                    HistoryLog.AppendText(Environment.NewLine + "Your treasury master comes running to your office to warn you that inflation has destroyed a good portion of your money.")
 
-        Try
-            If Not Month = 13 Then
-                MonthLabel.Text = Mechanics.GetMonth(Month)
-            Else
-                'Updates the money on the UI with the new value after inflation is applied.
-                FinanceInfoLabel.Text = Mechanics.Inflation(PlayerWealth)
-                PlayerWealth = FinanceInfoLabel.Text
-                HistoryLog.AppendText(Environment.NewLine + "Your treasury master comes running to your office to warn you that inflation has destroyed a good portion of your money.")
+                    LostToTaxesAndMoneyTaxesApplied = Mechanics.Taxes(PlayerWealth)
+                    FinanceInfoLabel.Text = LostToTaxesAndMoneyTaxesApplied(0)
+                    LostToTaxes = LostToTaxesAndMoneyTaxesApplied(1)
+                    HistoryLog.AppendText(Environment.NewLine)
+                    HistoryLog.AppendText(Environment.NewLine + "The local government requires payment of taxes. You lost the following: $" + LostToTaxes.ToString)
+                    Month = 1
+                    MonthLabel.Text = Mechanics.GetMonth(Month)
+                    YearLabel.Text = YearLabel.Text + 1
+                End If
+            Catch ex As Exception
+                MsgBox(ex.ToString)
+                MsgBox("Failed to increase month count or call Inflation/Taxes", MsgBoxStyle.Critical)
+            End Try
 
-                LostToTaxesAndMoneyTaxesApplied = Mechanics.Taxes(PlayerWealth)
-                FinanceInfoLabel.Text = LostToTaxesAndMoneyTaxesApplied(0)
-                LostToTaxes = LostToTaxesAndMoneyTaxesApplied(1)
+            HistoryLog.AppendText(Environment.NewLine)
+            HistoryLog.AppendText(Environment.NewLine + "You come back to your camp to check how it is going. It is " + DayLabel.Text + "th of " + MonthLabel.Text)
 
-                HistoryLog.AppendText(Environment.NewLine + "The local government requires payment of taxes. You lost the following: $" + LostToTaxes.ToString)
-                Month = 1
-                MonthLabel.Text = Mechanics.GetMonth(Month)
-                YearLabel.Text = YearLabel.Text + 1
-            End If
-        Catch ex As Exception
-            MsgBox(ex.ToString)
-            MsgBox("Failed to increase month count or call Inflation/Taxes", MsgBoxStyle.Critical)
-        End Try
+            Try
+                If CampManagementPoliciesForm.EatAllYouCanPolicy = True Then
+                    WeekFoodProfitMultiplier = 1.25
+                    NewFoodAfterWorkersEat = MPInfoLabel.Text * 6
+                    RationInfoLabel.Text = RationInfoLabel.Text - NewFoodAfterWorkersEat
+                End If
+                If CampManagementPoliciesForm.FourMealsPolicy = True Then
+                    WeekFoodProfitMultiplier = 1.1
+                    NewFoodAfterWorkersEat = MPInfoLabel.Text * 4
+                    RationInfoLabel.Text = RationInfoLabel.Text - NewFoodAfterWorkersEat
+                End If
+                If CampManagementPoliciesForm.EatAllYouCanPolicy = False And CampManagementPoliciesForm.FourMealsPolicy = False Then
+                    WeekFoodProfitMultiplier = 1
+                    NewFoodAfterWorkersEat = MPInfoLabel.Text * 2
+                    RationInfoLabel.Text = RationInfoLabel.Text - NewFoodAfterWorkersEat
+                End If
+            Catch ex As Exception
+                MsgBox(ex.ToString)
+                MsgBox("Failed to calculate food consumption by workers.")
+            End Try
 
-        HistoryLog.AppendText(Environment.NewLine + "You come back to your camp to check how it is going. It is " + DayLabel.Text + "th of " + MonthLabel.Text)
+            Try
+                NewPlayerWealthAfterWorkForceProfits = Resources.WorkForceGenerateProfits(PlayerWealth, TotalWorkForce)
+                If CampManagementPoliciesForm.ExhaustionPolicy = True Then
+                    FinanceInfoLabel.Text = NewPlayerWealthAfterWorkForceProfits(0) * 1.25
+                    HistoryLog.AppendText(Environment.NewLine + "The smell of death is strong. 6 prisoners died due to exhaustion while working to death, but you received twice as much profit.")
+                    MPInfoLabel.Text = MPInfoLabel.Text - 6
+                End If
+                If CampManagementPoliciesForm.EasierWorkPolicy = True Then
+                    FinanceInfoLabel.Text = NewPlayerWealthAfterWorkForceProfits(0) * 1.15
+                    HistoryLog.AppendText(Environment.NewLine + "2 prisoners died due to exhaustion while working to death, but you received a bit more profit.")
+                    MPInfoLabel.Text = MPInfoLabel.Text - 2
+                End If
+                If CampManagementPoliciesForm.EasierWorkPolicy = False And CampManagementPoliciesForm.ExhaustionPolicy = False Then
+                    FinanceInfoLabel.Text = NewPlayerWealthAfterWorkForceProfits(0) * 1
+                    HistoryLog.AppendText(Environment.NewLine + "The prisoners have been working hard under the military police.")
+                End If
+                If MPInfoLabel.Text < 0 Then
+                    HistoryLog.AppendText(Environment.NewLine)
+                    HistoryLog.AppendText(Environment.NewLine + "You have failed. All your prisoners are dead, And, by order Of the High Command, you are to be court-martialed.")
+                    GameOver = True
+                End If
+            Catch ex As Exception
+                MsgBox(ex.ToString)
+                MsgBox("Error while working prisoners to death.")
+            End Try
 
+
+        Else
+            MsgBox("Re-open the game, and start a new game.")
+        End If
     End Sub
     Private Sub CampManagementMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
@@ -151,5 +193,14 @@ Public Class CampManagementMain
             RefreshValuesFromIni()
         End If
 
+    End Sub
+
+    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
+        Me.Close()
+
+    End Sub
+
+    Private Sub PolicyButton_Click(sender As Object, e As EventArgs) Handles PolicyButton.Click
+        CampManagementPoliciesForm.Show()
     End Sub
 End Class

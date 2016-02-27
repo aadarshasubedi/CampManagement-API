@@ -39,3 +39,4 @@ C:\Users\Miller\Source\Repos\CampManagement-API\CampManagement\obj\Debug\CampMan
 C:\Users\Miller\Source\Repos\CampManagement-API\CampManagement\obj\Debug\CampManagement.CampManagementMain.resources
 C:\Users\Miller\Source\Repos\CampManagement-API\CampManagement\obj\Debug\CampManagement.CampManagementNewGame.resources
 C:\Users\Miller\Source\Repos\CampManagement-API\CampManagement\obj\Debug\CampManagement.CampManagementFirstMenu.resources
+C:\Users\Miller\Source\Repos\CampManagement-API\CampManagement\obj\Debug\CampManagement.CampManagementPoliciesForm.resources

@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class CampManagementPolicies
+Partial Class CampManagementPoliciesForm
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -24,6 +24,9 @@ Partial Class CampManagementPolicies
     Private Sub InitializeComponent()
         Me.BackToGameButton = New System.Windows.Forms.Button()
         Me.PoliciesPanel = New System.Windows.Forms.Panel()
+        Me.RadioButton3 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
         Me.RequestPrisonersInfo = New System.Windows.Forms.Label()
         Me.KillPrisonersInfo = New System.Windows.Forms.Label()
         Me.FourMealsADayInfo = New System.Windows.Forms.Label()
@@ -32,22 +35,22 @@ Partial Class CampManagementPolicies
         Me.WorkToDeathInfo = New System.Windows.Forms.Label()
         Me.RequestPrisonersCheckBox = New System.Windows.Forms.CheckBox()
         Me.ExecutePrisonersCheckBox = New System.Windows.Forms.CheckBox()
-        Me.TwoMealsPolicyCheckBox = New System.Windows.Forms.CheckBox()
+        Me.FourMealsPolicyCheckBox = New System.Windows.Forms.CheckBox()
         Me.EatAllYouCanPolicyCheckBox = New System.Windows.Forms.CheckBox()
         Me.EasierWorkPolicyCheckBox = New System.Windows.Forms.CheckBox()
         Me.ExhaustionPolicyCheckBox = New System.Windows.Forms.CheckBox()
         Me.PolicyLabel = New System.Windows.Forms.Label()
         Me.BuyWoodLabel = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.SellFoodLabel = New System.Windows.Forms.Label()
+        Me.SellWaterLabel = New System.Windows.Forms.Label()
+        Me.SellWoodLabel = New System.Windows.Forms.Label()
         Me.BuyFoodLabel = New System.Windows.Forms.Label()
         Me.BuyWaterLabel = New System.Windows.Forms.Label()
         Me.FoodLabel = New System.Windows.Forms.Label()
         Me.WaterLabel = New System.Windows.Forms.Label()
         Me.WoodLabel = New System.Windows.Forms.Label()
         Me.MarketPanelLabel = New System.Windows.Forms.Label()
-        Me.SellFoodLabel = New System.Windows.Forms.Label()
-        Me.SellWaterLabel = New System.Windows.Forms.Label()
-        Me.SellWoodLabel = New System.Windows.Forms.Label()
         Me.PoliciesPanel.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
@@ -67,6 +70,9 @@ Partial Class CampManagementPolicies
         '
         Me.PoliciesPanel.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.PoliciesPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PoliciesPanel.Controls.Add(Me.RadioButton3)
+        Me.PoliciesPanel.Controls.Add(Me.RadioButton2)
+        Me.PoliciesPanel.Controls.Add(Me.RadioButton1)
         Me.PoliciesPanel.Controls.Add(Me.RequestPrisonersInfo)
         Me.PoliciesPanel.Controls.Add(Me.KillPrisonersInfo)
         Me.PoliciesPanel.Controls.Add(Me.FourMealsADayInfo)
@@ -75,7 +81,7 @@ Partial Class CampManagementPolicies
         Me.PoliciesPanel.Controls.Add(Me.WorkToDeathInfo)
         Me.PoliciesPanel.Controls.Add(Me.RequestPrisonersCheckBox)
         Me.PoliciesPanel.Controls.Add(Me.ExecutePrisonersCheckBox)
-        Me.PoliciesPanel.Controls.Add(Me.TwoMealsPolicyCheckBox)
+        Me.PoliciesPanel.Controls.Add(Me.FourMealsPolicyCheckBox)
         Me.PoliciesPanel.Controls.Add(Me.EatAllYouCanPolicyCheckBox)
         Me.PoliciesPanel.Controls.Add(Me.EasierWorkPolicyCheckBox)
         Me.PoliciesPanel.Controls.Add(Me.ExhaustionPolicyCheckBox)
@@ -84,6 +90,42 @@ Partial Class CampManagementPolicies
         Me.PoliciesPanel.Name = "PoliciesPanel"
         Me.PoliciesPanel.Size = New System.Drawing.Size(423, 252)
         Me.PoliciesPanel.TabIndex = 2
+        '
+        'RadioButton3
+        '
+        Me.RadioButton3.AutoSize = True
+        Me.RadioButton3.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.RadioButton3.Location = New System.Drawing.Point(299, 86)
+        Me.RadioButton3.Name = "RadioButton3"
+        Me.RadioButton3.Size = New System.Drawing.Size(119, 17)
+        Me.RadioButton3.TabIndex = 31
+        Me.RadioButton3.TabStop = True
+        Me.RadioButton3.Text = "Bottle water Work"
+        Me.RadioButton3.UseVisualStyleBackColor = True
+        '
+        'RadioButton2
+        '
+        Me.RadioButton2.AutoSize = True
+        Me.RadioButton2.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.RadioButton2.Location = New System.Drawing.Point(299, 63)
+        Me.RadioButton2.Name = "RadioButton2"
+        Me.RadioButton2.Size = New System.Drawing.Size(98, 17)
+        Me.RadioButton2.TabIndex = 30
+        Me.RadioButton2.TabStop = True
+        Me.RadioButton2.Text = "Farming Work"
+        Me.RadioButton2.UseVisualStyleBackColor = True
+        '
+        'RadioButton1
+        '
+        Me.RadioButton1.AutoSize = True
+        Me.RadioButton1.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.RadioButton1.Location = New System.Drawing.Point(299, 40)
+        Me.RadioButton1.Name = "RadioButton1"
+        Me.RadioButton1.Size = New System.Drawing.Size(114, 17)
+        Me.RadioButton1.TabIndex = 29
+        Me.RadioButton1.TabStop = True
+        Me.RadioButton1.Text = "Lumberjack Work"
+        Me.RadioButton1.UseVisualStyleBackColor = True
         '
         'RequestPrisonersInfo
         '
@@ -173,16 +215,16 @@ Partial Class CampManagementPolicies
         Me.ExecutePrisonersCheckBox.Text = "Execute 5 prisoners [misc]"
         Me.ExecutePrisonersCheckBox.UseVisualStyleBackColor = True
         '
-        'TwoMealsPolicyCheckBox
+        'FourMealsPolicyCheckBox
         '
-        Me.TwoMealsPolicyCheckBox.AutoSize = True
-        Me.TwoMealsPolicyCheckBox.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.TwoMealsPolicyCheckBox.Location = New System.Drawing.Point(27, 122)
-        Me.TwoMealsPolicyCheckBox.Name = "TwoMealsPolicyCheckBox"
-        Me.TwoMealsPolicyCheckBox.Size = New System.Drawing.Size(139, 17)
-        Me.TwoMealsPolicyCheckBox.TabIndex = 20
-        Me.TwoMealsPolicyCheckBox.Text = "4 meals a day [rations]"
-        Me.TwoMealsPolicyCheckBox.UseVisualStyleBackColor = True
+        Me.FourMealsPolicyCheckBox.AutoSize = True
+        Me.FourMealsPolicyCheckBox.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.FourMealsPolicyCheckBox.Location = New System.Drawing.Point(27, 122)
+        Me.FourMealsPolicyCheckBox.Name = "FourMealsPolicyCheckBox"
+        Me.FourMealsPolicyCheckBox.Size = New System.Drawing.Size(139, 17)
+        Me.FourMealsPolicyCheckBox.TabIndex = 20
+        Me.FourMealsPolicyCheckBox.Text = "4 meals a day [rations]"
+        Me.FourMealsPolicyCheckBox.UseVisualStyleBackColor = True
         '
         'EatAllYouCanPolicyCheckBox
         '
@@ -258,6 +300,39 @@ Partial Class CampManagementPolicies
         Me.Panel1.Size = New System.Drawing.Size(423, 96)
         Me.Panel1.TabIndex = 18
         '
+        'SellFoodLabel
+        '
+        Me.SellFoodLabel.AutoSize = True
+        Me.SellFoodLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SellFoodLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.SellFoodLabel.Location = New System.Drawing.Point(152, 61)
+        Me.SellFoodLabel.Name = "SellFoodLabel"
+        Me.SellFoodLabel.Size = New System.Drawing.Size(87, 13)
+        Me.SellFoodLabel.TabIndex = 24
+        Me.SellFoodLabel.Text = "SELL  - 10 for $3"
+        '
+        'SellWaterLabel
+        '
+        Me.SellWaterLabel.AutoSize = True
+        Me.SellWaterLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SellWaterLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.SellWaterLabel.Location = New System.Drawing.Point(152, 45)
+        Me.SellWaterLabel.Name = "SellWaterLabel"
+        Me.SellWaterLabel.Size = New System.Drawing.Size(87, 13)
+        Me.SellWaterLabel.TabIndex = 23
+        Me.SellWaterLabel.Text = "SELL  - 10 for $5"
+        '
+        'SellWoodLabel
+        '
+        Me.SellWoodLabel.AutoSize = True
+        Me.SellWoodLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SellWoodLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.SellWoodLabel.Location = New System.Drawing.Point(152, 28)
+        Me.SellWoodLabel.Name = "SellWoodLabel"
+        Me.SellWoodLabel.Size = New System.Drawing.Size(93, 13)
+        Me.SellWoodLabel.TabIndex = 22
+        Me.SellWoodLabel.Text = "SELL  - 10 for $10"
+        '
         'BuyFoodLabel
         '
         Me.BuyFoodLabel.AutoSize = True
@@ -324,40 +399,7 @@ Partial Class CampManagementPolicies
         Me.MarketPanelLabel.TabIndex = 15
         Me.MarketPanelLabel.Text = "MARKET" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
-        'SellFoodLabel
-        '
-        Me.SellFoodLabel.AutoSize = True
-        Me.SellFoodLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SellFoodLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.SellFoodLabel.Location = New System.Drawing.Point(152, 61)
-        Me.SellFoodLabel.Name = "SellFoodLabel"
-        Me.SellFoodLabel.Size = New System.Drawing.Size(87, 13)
-        Me.SellFoodLabel.TabIndex = 24
-        Me.SellFoodLabel.Text = "SELL  - 10 for $3"
-        '
-        'SellWaterLabel
-        '
-        Me.SellWaterLabel.AutoSize = True
-        Me.SellWaterLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SellWaterLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.SellWaterLabel.Location = New System.Drawing.Point(152, 45)
-        Me.SellWaterLabel.Name = "SellWaterLabel"
-        Me.SellWaterLabel.Size = New System.Drawing.Size(87, 13)
-        Me.SellWaterLabel.TabIndex = 23
-        Me.SellWaterLabel.Text = "SELL  - 10 for $5"
-        '
-        'SellWoodLabel
-        '
-        Me.SellWoodLabel.AutoSize = True
-        Me.SellWoodLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SellWoodLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.SellWoodLabel.Location = New System.Drawing.Point(152, 28)
-        Me.SellWoodLabel.Name = "SellWoodLabel"
-        Me.SellWoodLabel.Size = New System.Drawing.Size(93, 13)
-        Me.SellWoodLabel.TabIndex = 22
-        Me.SellWoodLabel.Text = "SELL  - 10 for $10"
-        '
-        'CampManagementPolicies
+        'CampManagementPoliciesForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -370,7 +412,7 @@ Partial Class CampManagementPolicies
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "CampManagementPolicies"
+        Me.Name = "CampManagementPoliciesForm"
         Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "CampManagementPolicies"
@@ -386,7 +428,7 @@ Partial Class CampManagementPolicies
     Friend WithEvents PolicyLabel As Label
     Friend WithEvents ExhaustionPolicyCheckBox As CheckBox
     Friend WithEvents EasierWorkPolicyCheckBox As CheckBox
-    Friend WithEvents TwoMealsPolicyCheckBox As CheckBox
+    Friend WithEvents FourMealsPolicyCheckBox As CheckBox
     Friend WithEvents EatAllYouCanPolicyCheckBox As CheckBox
     Friend WithEvents RequestPrisonersCheckBox As CheckBox
     Friend WithEvents ExecutePrisonersCheckBox As CheckBox
@@ -407,4 +449,7 @@ Partial Class CampManagementPolicies
     Friend WithEvents SellFoodLabel As Label
     Friend WithEvents SellWaterLabel As Label
     Friend WithEvents SellWoodLabel As Label
+    Friend WithEvents RadioButton3 As RadioButton
+    Friend WithEvents RadioButton2 As RadioButton
+    Friend WithEvents RadioButton1 As RadioButton
 End Class
