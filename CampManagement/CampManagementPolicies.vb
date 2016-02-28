@@ -1,5 +1,31 @@
 ﻿Public Class CampManagementPoliciesForm
     Public Shared ExhaustionPolicy, EasierWorkPolicy, FourMealsPolicy, EatAllYouCanPolicy, RequestPrisoner, ExecutePrisoners As Boolean
+
+    Private Const WmNchittest As Integer = &H84
+    Private Const Htclient As Integer = &H1
+    Private Const Htcaption As Integer = &H2
+
+    Public Sub EventHandler()
+        AddHandler AppDomain.CurrentDomain.UnhandledException, AddressOf UnhandledExceptionEventRaised
+        InitializeComponent()
+    End Sub
+    Sub UnhandledExceptionEventRaised(ByVal sender As Object, ByVal e As UnhandledExceptionEventArgs)
+        If e.IsTerminating Then
+            Dim crash As Object = e.ExceptionObject
+            MessageBox.Show(crash.ToString)
+        End If
+    End Sub
+    Protected Overrides Sub WndProc(ByRef m As Message)
+        MyBase.WndProc(m)
+        Console.WriteLine(m.ToString())
+        Select Case m.Msg
+            Case WmNchittest
+                If m.Result = New IntPtr(Htclient) Then
+                    m.Result = New IntPtr(Htcaption)
+                End If
+        End Select
+        End
+    End Sub
     Private Sub BackToGameButton_Click(sender As Object, e As EventArgs) Handles BackToGameButton.Click
         Me.Close()
     End Sub

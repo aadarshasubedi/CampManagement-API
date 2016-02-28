@@ -11,6 +11,30 @@ Public Class CampManagementFirstMenu
     Private DLCFilesPath = CurrentDirectory + "/Data/DLC_Modules"
     Private DataFilesPath = CurrentDirectory + "/Data"
 
+    Private Const WmNchittest As Integer = &H84
+    Private Const Htclient As Integer = &H1
+    Private Const Htcaption As Integer = &H2
+
+    Public Sub EventHandler()
+        AddHandler AppDomain.CurrentDomain.UnhandledException, AddressOf UnhandledExceptionEventRaised
+        InitializeComponent()
+    End Sub
+    Sub UnhandledExceptionEventRaised(ByVal sender As Object, ByVal e As UnhandledExceptionEventArgs)
+        If e.IsTerminating Then
+            Dim crash As Object = e.ExceptionObject
+            MessageBox.Show(crash.ToString)
+        End If
+    End Sub
+    Protected Overrides Sub WndProc(ByRef m As Message)
+        MyBase.WndProc(m)
+        Console.WriteLine(m.ToString())
+        Select Case m.Msg
+            Case WmNchittest
+                If m.Result = New IntPtr(Htclient) Then
+                    m.Result = New IntPtr(Htcaption)
+                End If
+        End Select
+    End Sub
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles QuitButton.Click
         MsgBox("Thanks for taking a look at CampManagement!")
         Me.Close()
@@ -28,6 +52,10 @@ Public Class CampManagementFirstMenu
     End Sub
 
     Private Sub HelpButton_Click(sender As Object, e As EventArgs) Handles HelpButtonTutorial.Click
+
+    End Sub
+
+    Private Sub CampManagementFirstMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
 End Class
