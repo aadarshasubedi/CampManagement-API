@@ -297,7 +297,7 @@ Partial Class CampManagementMain
         Me.NextWeekButton.Name = "NextWeekButton"
         Me.NextWeekButton.Size = New System.Drawing.Size(111, 29)
         Me.NextWeekButton.TabIndex = 1
-        Me.NextWeekButton.Text = "Go forth a week"
+        Me.NextWeekButton.Text = "Next week"
         Me.NextWeekButton.UseVisualStyleBackColor = False
         '
         'Timer1
