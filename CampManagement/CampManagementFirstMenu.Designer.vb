@@ -130,9 +130,9 @@ Partial Class CampManagementFirstMenu
         Me.GameVersionLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.GameVersionLabel.Location = New System.Drawing.Point(413, 237)
         Me.GameVersionLabel.Name = "GameVersionLabel"
-        Me.GameVersionLabel.Size = New System.Drawing.Size(31, 13)
+        Me.GameVersionLabel.Size = New System.Drawing.Size(22, 13)
         Me.GameVersionLabel.TabIndex = 15
-        Me.GameVersionLabel.Text = "1.2.5"
+        Me.GameVersionLabel.Text = "1.3"
         '
         'CampManagementFirstMenu
         '
@@ -145,6 +145,7 @@ Partial Class CampManagementFirstMenu
         Me.Controls.Add(Me.GameNameLabel)
         Me.Controls.Add(Me.CopyrightLabel)
         Me.Controls.Add(Me.Panel1)
+        Me.DoubleBuffered = True
         Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.MaximizeBox = False

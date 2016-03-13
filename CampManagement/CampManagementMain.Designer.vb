@@ -519,6 +519,7 @@ Partial Class CampManagementMain
         Me.Controls.Add(Me.HistoryLog)
         Me.Controls.Add(Me.NextWeekButton)
         Me.Controls.Add(Me.MainPanel)
+        Me.DoubleBuffered = True
         Me.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "CampManagementMain"

@@ -1,5 +1,4 @@
-﻿Imports System.Runtime.InteropServices
-Imports System.Text
+﻿Imports System.Text
 Imports TheckStudios_Management_Sim_API_2016
 
 Public Class CampManagementNewGame
@@ -32,17 +31,17 @@ Public Class CampManagementNewGame
             MessageBox.Show(crash.ToString)
         End If
     End Sub
-    Protected Overrides Sub WndProc(ByRef m As Message)
-        MyBase.WndProc(m)
-        Console.WriteLine(m.ToString())
-        Select Case m.Msg
-            Case WmNchittest
-                If m.Result = New IntPtr(Htclient) Then
-                    m.Result = New IntPtr(Htcaption)
-                End If
-        End Select
-        End
-    End Sub
+    '  Protected Overrides Sub WndProc(ByRef m As Message)
+    '     MyBase.WndProc(m)
+    '     Console.WriteLine(m.ToString())
+    '    Select Case m.Msg
+    '         Case WmNchittest
+    '              If m.Result = New IntPtr(Htclient) Then
+    '                   m.Result = New IntPtr(Htcaption)
+    '             End If
+    '      End Select
+    '       End
+    '   End Sub
     Private Sub BackButton_Click(sender As Object, e As EventArgs) Handles BackButton.Click
         CampManagementFirstMenu.Show()
         Me.Close()

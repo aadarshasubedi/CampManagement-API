@@ -51,9 +51,6 @@ Public Class CampManagementMain
                 End If
         End Select
     End Sub
-    Private Sub CampManagementMain_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
-        Application.Exit()
-    End Sub
 
     Private Sub BuyWoodLabel_Click(sender As Object, e As EventArgs) Handles BuyWoodLabel.Click
         WoodInfoLabel.Text = WoodInfoLabel.Text + 10
@@ -276,9 +273,6 @@ Public Class CampManagementMain
 
             'Checks if there are any values below the necessary for the camp to survive, and issue a Game Over.
             CheckFailure()
-
-
-
         Else
             MsgBox("You have lost the game, please, re-open the game, and start a new game.")
         End If
@@ -310,7 +304,6 @@ Public Class CampManagementMain
 
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
         Me.Close()
-
     End Sub
 
     Private Sub PolicyButton_Click(sender As Object, e As EventArgs) Handles PolicyButton.Click

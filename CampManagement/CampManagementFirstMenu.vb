@@ -50,12 +50,4 @@ Public Class CampManagementFirstMenu
         CampManagementMain.Show()
         Me.Close()
     End Sub
-
-    Private Sub HelpButton_Click(sender As Object, e As EventArgs) Handles HelpButtonTutorial.Click
-
-    End Sub
-
-    Private Sub CampManagementFirstMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
 End Class
