@@ -121,7 +121,7 @@ Partial Class CampManagementFirstMenu
         Me.GameDescriptionLabel.Name = "GameDescriptionLabel"
         Me.GameDescriptionLabel.Size = New System.Drawing.Size(132, 39)
         Me.GameDescriptionLabel.TabIndex = 14
-        Me.GameDescriptionLabel.Text = "A ""Game"" by Miller Berto" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Made with Visual Basic" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.GameDescriptionLabel.Text = "A ""Game"" by Miller Berto" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Made with Visual Basic " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
         'GameVersionLabel
         '
@@ -132,7 +132,7 @@ Partial Class CampManagementFirstMenu
         Me.GameVersionLabel.Name = "GameVersionLabel"
         Me.GameVersionLabel.Size = New System.Drawing.Size(22, 13)
         Me.GameVersionLabel.TabIndex = 15
-        Me.GameVersionLabel.Text = "1.3"
+        Me.GameVersionLabel.Text = "1.6"
         '
         'CampManagementFirstMenu
         '

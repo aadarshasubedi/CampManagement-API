@@ -36,9 +36,7 @@ Public Class CampManagementFirstMenu
         End Select
     End Sub
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles QuitButton.Click
-        MsgBox("Thanks for taking a look at CampManagement!")
         Me.Close()
-
     End Sub
 
     Private Sub NewGameButton_Click(sender As Object, e As EventArgs) Handles NewGameButton.Click

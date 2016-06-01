@@ -13,13 +13,11 @@ Public Class Resources
     Shared ReceiveProfileString = GetPrivateProfileString("Stats", "Difficulty", "", IniString, IniString.Capacity, GameStatsIni)
     Private Shared DifficultyValue = ReceiveProfileString
 
-
     'Declares Constants
     Const Null As VariantType = VariantType.Null
 
     Const EasyProfitPerWorkForceUnit As Double = 1.15
     Const HardProfitPerWorkForceUnit As Double = 1.1
-
 
     Private Declare Auto Function GetPrivateProfileString Lib "kernel32" (ByVal lpAppName As String, ByVal lpKeyName As String, ByVal lpDefault As String, ByVal lpReturnedString As StringBuilder, ByVal nSize As Integer, ByVal lpFileName As String) As Integer
     Private Declare Auto Function WritePrivateProfileString Lib "Kernel32" (ByVal lpAppName As String, ByVal lpKeyName As String, ByVal lpString As String, ByVal lpFileName As String) As Integer
@@ -68,23 +66,22 @@ Public Class Resources
     End Function
 End Class
 Public Class Mechanics
-
     'Declares StringBuilders for .INI reading
     Private Shared IniString = New StringBuilder(500)
     Private Shared IniStringIsModEnabled = New StringBuilder(500)
     Private Shared IniStringModFilePath = New StringBuilder(500)
     Private Shared IniStringModRandomEventText = New StringBuilder(900)
+
     'Declares variables, self-explanatory
     Private Shared NewPlayerWealth, TaxTotal, InflationCalculus, InflationDifference, RandomEventRandomNumber, RandomEventRandomNumberDrawn, ModuleSelected,
     RandomEventSelect, NewPlayerWealthRandomEvent, NewPlayerWoodAmountRandomEvent, NewPlayerWaterAmountRandomEvent, NewPlayerWorkForceAmountRandomEvent, NewPlayerRationAmountRandomEvent
     'CurrentDirectory = Current Directory location
     Private Shared CurrentDirectory = Environment.CurrentDirectory
-    'GameModuleData = Modules Folder location
-    Private Shared GameModuleData = CurrentDirectory + "/Data/DLC_Modules/"
     'GameData = Data Folder location
     Private Shared GameData = CurrentDirectory + "/Data/"
-    'GameStatsIni = GameStats.ini location
+    Private Shared GameModuleData = GameData + "/DLC_Modules/"
     Private Shared GameStatsIni = GameData + "/GameStats.ini"
+
     'Gets current game difficulty settings.
     Shared ReceiveProfileString = GetPrivateProfileString("Stats", "Difficulty", "", IniString, IniString.Capacity, GameStatsIni)
     Private Shared DifficultyValue = ReceiveProfileString
@@ -95,7 +92,6 @@ Public Class Mechanics
     'Yes, this is heresy, but I like it :(
     Const Zero = 0
     Const One = 1
-
 
     'Declares Null as a way of returning Null instead of 0 on Double(). A cheap workaround.
     Const Null As VariantType = VariantType.Null
@@ -131,14 +127,8 @@ Public Class Mechanics
     End Enum
 
     Public Shared Function GetDay(OldDay As Double) As Double
-        'Old day = Itself + 7
         OldDay = OldDay + 7
         Return OldDay
-        'It is possible for the days to go over 30, so be sure to state:
-        'If OldDay > 30 then
-        'OldDay = OldDay - 30
-        'end if
-
     End Function
     Public Shared Function GetMonth(Month As Double) As String
         If Month = 0 Then
@@ -180,7 +170,6 @@ Public Class Mechanics
         If Month = 12 Then
             Return "December"
         End If
-
     End Function
     Public Shared Function RandomEvent(WorkForce As Double, PlayerWealth As Double, WoodAmount As Double, WaterAmount As Double) As Double()
         'This Function draws a RandomEvent using a loop, apply a custom or pre-defined message to it
@@ -191,7 +180,7 @@ Public Class Mechanics
         Dim RandomEventRandomNumber As Random = New Random
         RandomEventRandomNumberDrawn = (RandomEventRandomNumber.Next(1, 20))
 
-        'If using a Mod, use RandomEvents from Mod store into arrays. 
+        'If using a Mod, use RandomEvents from Mod store into arrays.
         'If Not, use RandomEvents from Vanilla and store into arrays.
         GetPrivateProfileString("Stats", "IsModEnabled", "", IniStringIsModEnabled, IniStringIsModEnabled.Capacity, GameStatsIni)
         If IniStringIsModEnabled = True Then
@@ -305,7 +294,6 @@ Public Class Mechanics
         Else
             Return HardTax(PlayerWealth)
         End If
-
     End Function
     Private Shared Function EasyTax(PlayerWealth As Double) As Double()
         Try
@@ -363,69 +351,51 @@ Public Class Mechanics
             If PlayerWealth > InflationPlayerWealth25000 Then
                 InflationCalculus = EasyInflationPercentage25000
                 InflationDifference = PlayerWealth * InflationCalculus
-
                 Return InflationDifference
-
             End If
             'If the player has a bit of money, inflation will be less punishing.
             If PlayerWealth < InflationPlayerWealth5000 And PlayerWealth > InflationPlayerWealth2500 Then
                 InflationCalculus = EasyInflationPercentage5000
                 InflationDifference = PlayerWealth * InflationCalculus
-
                 Return InflationDifference
-
             End If
             'If the player has a bit of money, inflation will be less punishing.
             If PlayerWealth < InflationPlayerWealth2500 Then
                 InflationCalculus = EasyInflationPercentage2500
                 InflationDifference = PlayerWealth * InflationCalculus
-
                 Return InflationDifference
-
             End If
-
         Catch EasyInflationException As Exception
             'If any problems happen while calling Inflation (Usually lacking files), state it to the end-user.
             MsgBox(EasyInflationException.ToString)
             MsgBox("Failed To Call Inflation! Files must be missing from the Data folder!")
         End Try
-
-        Return EasyInflation
     End Function
     Private Shared Function HardInflation(PlayerWealth As Double) As Double
         Try
-
             'If the player has too much money, inflation will be more punishing
             If PlayerWealth > InflationPlayerWealth25000 Then
                 InflationCalculus = HardInflationPercentage25000
                 InflationDifference = PlayerWealth * InflationCalculus
-
                 Return InflationDifference
-
             End If
             'If the player has a bit of money, inflation will be less punishing.
             If PlayerWealth < InflationPlayerWealth5000 And PlayerWealth > InflationPlayerWealth2500 Then
                 InflationCalculus = HardInflationPercentage5000
                 InflationDifference = PlayerWealth * InflationCalculus
-
                 Return InflationDifference
-
             End If
             'If the player has a bit of money, inflation will be less punishing.
             If PlayerWealth < InflationPlayerWealth2500 Then
                 InflationCalculus = HardInflationPercentage2500
                 InflationDifference = PlayerWealth * InflationCalculus
-
                 Return InflationDifference
-
             End If
-
         Catch HardInflationException As Exception
             'If any problems happen while calling Inflation (Usually lacking files), state it to the end-user.
             MsgBox(HardInflationException.ToString)
             MsgBox("Failed To Call Inflation! Files must be missing from the Data folder!")
         End Try
-
     End Function
 
     Public Shared Sub SetDifficultyEasy()
@@ -434,9 +404,4 @@ Public Class Mechanics
     Public Shared Sub SetDifficultyHard()
         WritePrivateProfileString("Stats", "Difficulty", One, GameStatsIni)
     End Sub
-End Class
-
-
-Public Class Misc
-
 End Class

@@ -25,3 +25,12 @@ C:\Users\Miller\Source\Repos\CampManagement-API\TheckStudios Management Sim API 
 C:\Users\Miller\Source\Repos\CampManagement-API\TheckStudios Management Sim API 2015\obj\Debug\TheckStudios Management Sim API 2016.xml
 C:\Users\Miller\Source\Repos\CampManagement-API\TheckStudios Management Sim API 2015\obj\Debug\TheckStudios Management Sim API 2016.pdb
 C:\Users\Miller\Source\Repos\CampManagement-API\TheckStudios Management Sim API 2015\obj\Debug\TheckStudios Management Sim API 2016.vbprojResolveAssemblyReference.cache
+C:\Users\mler3\Source\Repos\CampManagement-API\TheckStudios Management Sim API 2015\bin\Debug\TheckStudios Management Sim API 2016.dll
+C:\Users\mler3\Source\Repos\CampManagement-API\TheckStudios Management Sim API 2015\bin\Debug\TheckStudios Management Sim API 2016.pdb
+C:\Users\mler3\Source\Repos\CampManagement-API\TheckStudios Management Sim API 2015\bin\Debug\TheckStudios Management Sim API 2016.xml
+C:\Users\mler3\Source\Repos\CampManagement-API\TheckStudios Management Sim API 2015\obj\Debug\TheckStudios Management Sim API 2016.vbprojResolveAssemblyReference.cache
+C:\Users\mler3\Source\Repos\CampManagement-API\TheckStudios Management Sim API 2015\obj\Debug\TheckStudios_Management_Sim_API_2016.Resources.resources
+C:\Users\mler3\Source\Repos\CampManagement-API\TheckStudios Management Sim API 2015\obj\Debug\TheckStudios Management Sim API 2016.vbproj.GenerateResource.Cache
+C:\Users\mler3\Source\Repos\CampManagement-API\TheckStudios Management Sim API 2015\obj\Debug\TheckStudios Management Sim API 2016.dll
+C:\Users\mler3\Source\Repos\CampManagement-API\TheckStudios Management Sim API 2015\obj\Debug\TheckStudios Management Sim API 2016.xml
+C:\Users\mler3\Source\Repos\CampManagement-API\TheckStudios Management Sim API 2015\obj\Debug\TheckStudios Management Sim API 2016.pdb

@@ -22,19 +22,13 @@ Partial Class CampManagementMain
     'Do not modify it using the code editor.
     <DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CampManagementMain))
-        Me.MainPanel = New System.Windows.Forms.Panel()
+        Me.StoragePanel = New System.Windows.Forms.Panel()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.WaterInfoLabel = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label16 = New System.Windows.Forms.Label()
-        Me.Label15 = New System.Windows.Forms.Label()
         Me.TaxesLabel = New System.Windows.Forms.Label()
-        Me.CountryLabel = New System.Windows.Forms.Label()
-        Me.DayLabel = New System.Windows.Forms.Label()
-        Me.YearLabel = New System.Windows.Forms.Label()
         Me.TaxesDescriptionLabel = New System.Windows.Forms.Label()
-        Me.MonthLabel = New System.Windows.Forms.Label()
         Me.MPInfoLabel = New System.Windows.Forms.Label()
         Me.WoodInfoLabel = New System.Windows.Forms.Label()
         Me.RationInfoLabel = New System.Windows.Forms.Label()
@@ -43,15 +37,17 @@ Partial Class CampManagementMain
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.CountryLabel = New System.Windows.Forms.Label()
+        Me.DayLabel = New System.Windows.Forms.Label()
+        Me.YearLabel = New System.Windows.Forms.Label()
+        Me.MonthLabel = New System.Windows.Forms.Label()
         Me.NextWeekButton = New System.Windows.Forms.Button()
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.HistoryLog = New System.Windows.Forms.TextBox()
         Me.SaveButton = New System.Windows.Forms.Button()
         Me.LoadButton = New System.Windows.Forms.Button()
-        Me.CopyrightLabel = New System.Windows.Forms.Label()
         Me.PolicyButton = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.ExitButton = New System.Windows.Forms.Button()
+        Me.MarketPanel = New System.Windows.Forms.Panel()
         Me.SellFoodLabel = New System.Windows.Forms.Label()
         Me.SellWaterLabel = New System.Windows.Forms.Label()
         Me.SellWoodLabel = New System.Windows.Forms.Label()
@@ -62,43 +58,52 @@ Partial Class CampManagementMain
         Me.WaterLabel = New System.Windows.Forms.Label()
         Me.WoodLabel = New System.Windows.Forms.Label()
         Me.MarketPanelLabel = New System.Windows.Forms.Label()
-        Me.MainPanel.SuspendLayout()
-        Me.Panel1.SuspendLayout()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.StoragePanel.SuspendLayout()
+        Me.MarketPanel.SuspendLayout()
         Me.SuspendLayout()
         '
-        'MainPanel
+        'StoragePanel
         '
-        Me.MainPanel.BackColor = System.Drawing.SystemColors.Desktop
-        Me.MainPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.MainPanel.Controls.Add(Me.WaterInfoLabel)
-        Me.MainPanel.Controls.Add(Me.Label6)
-        Me.MainPanel.Controls.Add(Me.Label16)
-        Me.MainPanel.Controls.Add(Me.Label15)
-        Me.MainPanel.Controls.Add(Me.TaxesLabel)
-        Me.MainPanel.Controls.Add(Me.CountryLabel)
-        Me.MainPanel.Controls.Add(Me.DayLabel)
-        Me.MainPanel.Controls.Add(Me.YearLabel)
-        Me.MainPanel.Controls.Add(Me.TaxesDescriptionLabel)
-        Me.MainPanel.Controls.Add(Me.MonthLabel)
-        Me.MainPanel.Controls.Add(Me.MPInfoLabel)
-        Me.MainPanel.Controls.Add(Me.WoodInfoLabel)
-        Me.MainPanel.Controls.Add(Me.RationInfoLabel)
-        Me.MainPanel.Controls.Add(Me.FinanceInfoLabel)
-        Me.MainPanel.Controls.Add(Me.Label4)
-        Me.MainPanel.Controls.Add(Me.Label3)
-        Me.MainPanel.Controls.Add(Me.Label2)
-        Me.MainPanel.Controls.Add(Me.Label1)
-        Me.MainPanel.Location = New System.Drawing.Point(12, 12)
-        Me.MainPanel.Name = "MainPanel"
-        Me.MainPanel.Size = New System.Drawing.Size(336, 112)
-        Me.MainPanel.TabIndex = 0
+        Me.StoragePanel.BackColor = System.Drawing.SystemColors.Desktop
+        Me.StoragePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.StoragePanel.Controls.Add(Me.Label5)
+        Me.StoragePanel.Controls.Add(Me.WaterInfoLabel)
+        Me.StoragePanel.Controls.Add(Me.Label6)
+        Me.StoragePanel.Controls.Add(Me.TaxesLabel)
+        Me.StoragePanel.Controls.Add(Me.TaxesDescriptionLabel)
+        Me.StoragePanel.Controls.Add(Me.MPInfoLabel)
+        Me.StoragePanel.Controls.Add(Me.WoodInfoLabel)
+        Me.StoragePanel.Controls.Add(Me.RationInfoLabel)
+        Me.StoragePanel.Controls.Add(Me.FinanceInfoLabel)
+        Me.StoragePanel.Controls.Add(Me.Label4)
+        Me.StoragePanel.Controls.Add(Me.Label3)
+        Me.StoragePanel.Controls.Add(Me.Label2)
+        Me.StoragePanel.Controls.Add(Me.Label1)
+        Me.StoragePanel.Location = New System.Drawing.Point(540, 206)
+        Me.StoragePanel.Name = "StoragePanel"
+        Me.StoragePanel.Size = New System.Drawing.Size(267, 138)
+        Me.StoragePanel.TabIndex = 0
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label5.Location = New System.Drawing.Point(3, 0)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(63, 17)
+        Me.Label5.TabIndex = 25
+        Me.Label5.Text = "STORAGE"
         '
         'WaterInfoLabel
         '
         Me.WaterInfoLabel.AutoSize = True
         Me.WaterInfoLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.WaterInfoLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.WaterInfoLabel.Location = New System.Drawing.Point(127, 74)
+        Me.WaterInfoLabel.Location = New System.Drawing.Point(117, 89)
         Me.WaterInfoLabel.Name = "WaterInfoLabel"
         Me.WaterInfoLabel.Size = New System.Drawing.Size(25, 13)
         Me.WaterInfoLabel.TabIndex = 13
@@ -109,103 +114,39 @@ Partial Class CampManagementMain
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Label6.Location = New System.Drawing.Point(13, 74)
+        Me.Label6.Location = New System.Drawing.Point(3, 89)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(79, 13)
         Me.Label6.TabIndex = 12
         Me.Label6.Text = "Water barrels:"
         '
-        'Label16
-        '
-        Me.Label16.AutoSize = True
-        Me.Label16.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Label16.Location = New System.Drawing.Point(216, 43)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(29, 13)
-        Me.Label16.TabIndex = 11
-        Me.Label16.Text = "Day:"
-        '
-        'Label15
-        '
-        Me.Label15.AutoSize = True
-        Me.Label15.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Label15.Location = New System.Drawing.Point(216, 27)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(45, 13)
-        Me.Label15.TabIndex = 10
-        Me.Label15.Text = "Month:"
-        '
         'TaxesLabel
         '
         Me.TaxesLabel.AutoSize = True
         Me.TaxesLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.TaxesLabel.Location = New System.Drawing.Point(284, 9)
+        Me.TaxesLabel.Location = New System.Drawing.Point(117, 114)
         Me.TaxesLabel.Name = "TaxesLabel"
         Me.TaxesLabel.Size = New System.Drawing.Size(29, 15)
         Me.TaxesLabel.TabIndex = 9
         Me.TaxesLabel.Text = "15%"
-        '
-        'CountryLabel
-        '
-        Me.CountryLabel.AutoSize = True
-        Me.CountryLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.CountryLabel.Location = New System.Drawing.Point(216, 86)
-        Me.CountryLabel.Name = "CountryLabel"
-        Me.CountryLabel.Size = New System.Drawing.Size(55, 15)
-        Me.CountryLabel.TabIndex = 2
-        Me.CountryLabel.Text = "Germany"
-        '
-        'DayLabel
-        '
-        Me.DayLabel.AutoSize = True
-        Me.DayLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DayLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.DayLabel.Location = New System.Drawing.Point(300, 43)
-        Me.DayLabel.Name = "DayLabel"
-        Me.DayLabel.Size = New System.Drawing.Size(13, 13)
-        Me.DayLabel.TabIndex = 5
-        Me.DayLabel.Text = "1"
-        '
-        'YearLabel
-        '
-        Me.YearLabel.AutoSize = True
-        Me.YearLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.YearLabel.Location = New System.Drawing.Point(282, 86)
-        Me.YearLabel.Name = "YearLabel"
-        Me.YearLabel.Size = New System.Drawing.Size(31, 15)
-        Me.YearLabel.TabIndex = 3
-        Me.YearLabel.Text = "1946"
         '
         'TaxesDescriptionLabel
         '
         Me.TaxesDescriptionLabel.AutoSize = True
         Me.TaxesDescriptionLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TaxesDescriptionLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.TaxesDescriptionLabel.Location = New System.Drawing.Point(216, 10)
+        Me.TaxesDescriptionLabel.Location = New System.Drawing.Point(3, 116)
         Me.TaxesDescriptionLabel.Name = "TaxesDescriptionLabel"
         Me.TaxesDescriptionLabel.Size = New System.Drawing.Size(67, 13)
         Me.TaxesDescriptionLabel.TabIndex = 8
         Me.TaxesDescriptionLabel.Text = "Yearly taxes:"
-        '
-        'MonthLabel
-        '
-        Me.MonthLabel.AutoSize = True
-        Me.MonthLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MonthLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.MonthLabel.Location = New System.Drawing.Point(267, 27)
-        Me.MonthLabel.Name = "MonthLabel"
-        Me.MonthLabel.Size = New System.Drawing.Size(46, 13)
-        Me.MonthLabel.TabIndex = 4
-        Me.MonthLabel.Text = "January"
         '
         'MPInfoLabel
         '
         Me.MPInfoLabel.AutoSize = True
         Me.MPInfoLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.MPInfoLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.MPInfoLabel.Location = New System.Drawing.Point(127, 59)
+        Me.MPInfoLabel.Location = New System.Drawing.Point(117, 74)
         Me.MPInfoLabel.Name = "MPInfoLabel"
         Me.MPInfoLabel.Size = New System.Drawing.Size(19, 13)
         Me.MPInfoLabel.TabIndex = 7
@@ -216,7 +157,7 @@ Partial Class CampManagementMain
         Me.WoodInfoLabel.AutoSize = True
         Me.WoodInfoLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.WoodInfoLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.WoodInfoLabel.Location = New System.Drawing.Point(127, 43)
+        Me.WoodInfoLabel.Location = New System.Drawing.Point(117, 58)
         Me.WoodInfoLabel.Name = "WoodInfoLabel"
         Me.WoodInfoLabel.Size = New System.Drawing.Size(25, 13)
         Me.WoodInfoLabel.TabIndex = 6
@@ -227,7 +168,7 @@ Partial Class CampManagementMain
         Me.RationInfoLabel.AutoSize = True
         Me.RationInfoLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RationInfoLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.RationInfoLabel.Location = New System.Drawing.Point(127, 27)
+        Me.RationInfoLabel.Location = New System.Drawing.Point(117, 42)
         Me.RationInfoLabel.Name = "RationInfoLabel"
         Me.RationInfoLabel.Size = New System.Drawing.Size(25, 13)
         Me.RationInfoLabel.TabIndex = 5
@@ -238,7 +179,7 @@ Partial Class CampManagementMain
         Me.FinanceInfoLabel.AutoSize = True
         Me.FinanceInfoLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FinanceInfoLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.FinanceInfoLabel.Location = New System.Drawing.Point(127, 10)
+        Me.FinanceInfoLabel.Location = New System.Drawing.Point(117, 25)
         Me.FinanceInfoLabel.Name = "FinanceInfoLabel"
         Me.FinanceInfoLabel.Size = New System.Drawing.Size(25, 13)
         Me.FinanceInfoLabel.TabIndex = 4
@@ -249,7 +190,7 @@ Partial Class CampManagementMain
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Label4.Location = New System.Drawing.Point(13, 59)
+        Me.Label4.Location = New System.Drawing.Point(3, 74)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(57, 13)
         Me.Label4.TabIndex = 3
@@ -260,7 +201,7 @@ Partial Class CampManagementMain
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Label3.Location = New System.Drawing.Point(13, 43)
+        Me.Label3.Location = New System.Drawing.Point(3, 58)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(99, 13)
         Me.Label3.TabIndex = 2
@@ -271,7 +212,7 @@ Partial Class CampManagementMain
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Label2.Location = New System.Drawing.Point(13, 27)
+        Me.Label2.Location = New System.Drawing.Point(3, 42)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(74, 13)
         Me.Label2.TabIndex = 1
@@ -282,27 +223,65 @@ Partial Class CampManagementMain
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Label1.Location = New System.Drawing.Point(13, 10)
+        Me.Label1.Location = New System.Drawing.Point(3, 25)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(51, 13)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Treasury:"
         '
+        'CountryLabel
+        '
+        Me.CountryLabel.AutoSize = True
+        Me.CountryLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.CountryLabel.Location = New System.Drawing.Point(74, 407)
+        Me.CountryLabel.Name = "CountryLabel"
+        Me.CountryLabel.Size = New System.Drawing.Size(55, 15)
+        Me.CountryLabel.TabIndex = 2
+        Me.CountryLabel.Text = "Germany"
+        '
+        'DayLabel
+        '
+        Me.DayLabel.AutoSize = True
+        Me.DayLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DayLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.DayLabel.Location = New System.Drawing.Point(52, 391)
+        Me.DayLabel.Name = "DayLabel"
+        Me.DayLabel.Size = New System.Drawing.Size(19, 13)
+        Me.DayLabel.TabIndex = 5
+        Me.DayLabel.Text = "20"
+        '
+        'YearLabel
+        '
+        Me.YearLabel.AutoSize = True
+        Me.YearLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.YearLabel.Location = New System.Drawing.Point(142, 390)
+        Me.YearLabel.Name = "YearLabel"
+        Me.YearLabel.Size = New System.Drawing.Size(31, 15)
+        Me.YearLabel.TabIndex = 3
+        Me.YearLabel.Text = "1945"
+        '
+        'MonthLabel
+        '
+        Me.MonthLabel.AutoSize = True
+        Me.MonthLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MonthLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.MonthLabel.Location = New System.Drawing.Point(77, 391)
+        Me.MonthLabel.Name = "MonthLabel"
+        Me.MonthLabel.Size = New System.Drawing.Size(59, 13)
+        Me.MonthLabel.TabIndex = 4
+        Me.MonthLabel.Text = "November"
+        '
         'NextWeekButton
         '
         Me.NextWeekButton.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.NextWeekButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.NextWeekButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.NextWeekButton.Location = New System.Drawing.Point(237, 365)
+        Me.NextWeekButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.NextWeekButton.Location = New System.Drawing.Point(367, 207)
         Me.NextWeekButton.Name = "NextWeekButton"
-        Me.NextWeekButton.Size = New System.Drawing.Size(111, 29)
+        Me.NextWeekButton.Size = New System.Drawing.Size(167, 24)
         Me.NextWeekButton.TabIndex = 1
         Me.NextWeekButton.Text = "Next week"
         Me.NextWeekButton.UseVisualStyleBackColor = False
-        '
-        'Timer1
-        '
-        Me.Timer1.Enabled = True
         '
         'HistoryLog
         '
@@ -310,11 +289,11 @@ Partial Class CampManagementMain
         Me.HistoryLog.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.HistoryLog.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.HistoryLog.ForeColor = System.Drawing.SystemColors.Window
-        Me.HistoryLog.Location = New System.Drawing.Point(363, 12)
+        Me.HistoryLog.Location = New System.Drawing.Point(12, 12)
         Me.HistoryLog.Multiline = True
         Me.HistoryLog.Name = "HistoryLog"
         Me.HistoryLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.HistoryLog.Size = New System.Drawing.Size(444, 382)
+        Me.HistoryLog.Size = New System.Drawing.Size(795, 188)
         Me.HistoryLog.TabIndex = 7
         Me.HistoryLog.Text = resources.GetString("HistoryLog.Text")
         '
@@ -323,9 +302,9 @@ Partial Class CampManagementMain
         Me.SaveButton.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.SaveButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.SaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.SaveButton.Location = New System.Drawing.Point(12, 314)
+        Me.SaveButton.Location = New System.Drawing.Point(12, 243)
         Me.SaveButton.Name = "SaveButton"
-        Me.SaveButton.Size = New System.Drawing.Size(71, 29)
+        Me.SaveButton.Size = New System.Drawing.Size(135, 25)
         Me.SaveButton.TabIndex = 8
         Me.SaveButton.Text = "Save"
         Me.SaveButton.UseVisualStyleBackColor = False
@@ -335,131 +314,121 @@ Partial Class CampManagementMain
         Me.LoadButton.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.LoadButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.LoadButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.LoadButton.Location = New System.Drawing.Point(12, 349)
+        Me.LoadButton.Location = New System.Drawing.Point(12, 281)
         Me.LoadButton.Name = "LoadButton"
-        Me.LoadButton.Size = New System.Drawing.Size(71, 29)
+        Me.LoadButton.Size = New System.Drawing.Size(135, 25)
         Me.LoadButton.TabIndex = 9
         Me.LoadButton.Text = "Load"
         Me.LoadButton.UseVisualStyleBackColor = False
-        '
-        'CopyrightLabel
-        '
-        Me.CopyrightLabel.AutoSize = True
-        Me.CopyrightLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.CopyrightLabel.Location = New System.Drawing.Point(618, 398)
-        Me.CopyrightLabel.Name = "CopyrightLabel"
-        Me.CopyrightLabel.Size = New System.Drawing.Size(189, 15)
-        Me.CopyrightLabel.TabIndex = 11
-        Me.CopyrightLabel.Text = "Miller Berto Simberg Anaia © 2016"
         '
         'PolicyButton
         '
         Me.PolicyButton.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.PolicyButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.PolicyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.PolicyButton.Location = New System.Drawing.Point(12, 130)
+        Me.PolicyButton.Location = New System.Drawing.Point(12, 206)
         Me.PolicyButton.Name = "PolicyButton"
-        Me.PolicyButton.Size = New System.Drawing.Size(88, 25)
+        Me.PolicyButton.Size = New System.Drawing.Size(135, 25)
         Me.PolicyButton.TabIndex = 13
         Me.PolicyButton.Text = "Management"
         Me.PolicyButton.UseVisualStyleBackColor = False
         '
-        'Button1
+        'ExitButton
         '
-        Me.Button1.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Location = New System.Drawing.Point(12, 384)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(71, 29)
-        Me.Button1.TabIndex = 14
-        Me.Button1.Text = "Exit"
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.ExitButton.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.ExitButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.ExitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ExitButton.Location = New System.Drawing.Point(12, 319)
+        Me.ExitButton.Name = "ExitButton"
+        Me.ExitButton.Size = New System.Drawing.Size(78, 25)
+        Me.ExitButton.TabIndex = 14
+        Me.ExitButton.Text = "Exit"
+        Me.ExitButton.UseVisualStyleBackColor = False
         '
-        'Panel1
+        'MarketPanel
         '
-        Me.Panel1.BackColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel1.Controls.Add(Me.SellFoodLabel)
-        Me.Panel1.Controls.Add(Me.SellWaterLabel)
-        Me.Panel1.Controls.Add(Me.SellWoodLabel)
-        Me.Panel1.Controls.Add(Me.BuyFoodLabel)
-        Me.Panel1.Controls.Add(Me.BuyWaterLabel)
-        Me.Panel1.Controls.Add(Me.BuyWoodLabel)
-        Me.Panel1.Controls.Add(Me.FoodLabel)
-        Me.Panel1.Controls.Add(Me.WaterLabel)
-        Me.Panel1.Controls.Add(Me.WoodLabel)
-        Me.Panel1.Controls.Add(Me.MarketPanelLabel)
-        Me.Panel1.Location = New System.Drawing.Point(106, 130)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(242, 86)
-        Me.Panel1.TabIndex = 19
+        Me.MarketPanel.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.MarketPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.MarketPanel.Controls.Add(Me.SellFoodLabel)
+        Me.MarketPanel.Controls.Add(Me.SellWaterLabel)
+        Me.MarketPanel.Controls.Add(Me.SellWoodLabel)
+        Me.MarketPanel.Controls.Add(Me.BuyFoodLabel)
+        Me.MarketPanel.Controls.Add(Me.BuyWaterLabel)
+        Me.MarketPanel.Controls.Add(Me.BuyWoodLabel)
+        Me.MarketPanel.Controls.Add(Me.FoodLabel)
+        Me.MarketPanel.Controls.Add(Me.WaterLabel)
+        Me.MarketPanel.Controls.Add(Me.WoodLabel)
+        Me.MarketPanel.Controls.Add(Me.MarketPanelLabel)
+        Me.MarketPanel.Location = New System.Drawing.Point(540, 350)
+        Me.MarketPanel.Name = "MarketPanel"
+        Me.MarketPanel.Size = New System.Drawing.Size(267, 86)
+        Me.MarketPanel.TabIndex = 19
         '
         'SellFoodLabel
         '
         Me.SellFoodLabel.AutoSize = True
         Me.SellFoodLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SellFoodLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.SellFoodLabel.Location = New System.Drawing.Point(142, 60)
+        Me.SellFoodLabel.Location = New System.Drawing.Point(159, 60)
         Me.SellFoodLabel.Name = "SellFoodLabel"
-        Me.SellFoodLabel.Size = New System.Drawing.Size(87, 13)
+        Me.SellFoodLabel.Size = New System.Drawing.Size(79, 13)
         Me.SellFoodLabel.TabIndex = 24
-        Me.SellFoodLabel.Text = "SELL  - 10 for $3"
+        Me.SellFoodLabel.Text = "Sell:  10 for $3"
         '
         'SellWaterLabel
         '
         Me.SellWaterLabel.AutoSize = True
         Me.SellWaterLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SellWaterLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.SellWaterLabel.Location = New System.Drawing.Point(142, 44)
+        Me.SellWaterLabel.Location = New System.Drawing.Point(159, 42)
         Me.SellWaterLabel.Name = "SellWaterLabel"
-        Me.SellWaterLabel.Size = New System.Drawing.Size(87, 13)
+        Me.SellWaterLabel.Size = New System.Drawing.Size(79, 13)
         Me.SellWaterLabel.TabIndex = 23
-        Me.SellWaterLabel.Text = "SELL  - 10 for $5"
+        Me.SellWaterLabel.Text = "Sell:  10 for $5"
         '
         'SellWoodLabel
         '
         Me.SellWoodLabel.AutoSize = True
         Me.SellWoodLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SellWoodLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.SellWoodLabel.Location = New System.Drawing.Point(142, 28)
+        Me.SellWoodLabel.Location = New System.Drawing.Point(159, 25)
         Me.SellWoodLabel.Name = "SellWoodLabel"
-        Me.SellWoodLabel.Size = New System.Drawing.Size(93, 13)
+        Me.SellWoodLabel.Size = New System.Drawing.Size(85, 13)
         Me.SellWoodLabel.TabIndex = 22
-        Me.SellWoodLabel.Text = "SELL  - 10 for $10"
+        Me.SellWoodLabel.Text = "Sell:  10 for $10"
         '
         'BuyFoodLabel
         '
         Me.BuyFoodLabel.AutoSize = True
         Me.BuyFoodLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BuyFoodLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.BuyFoodLabel.Location = New System.Drawing.Point(44, 60)
+        Me.BuyFoodLabel.Location = New System.Drawing.Point(67, 59)
         Me.BuyFoodLabel.Name = "BuyFoodLabel"
-        Me.BuyFoodLabel.Size = New System.Drawing.Size(85, 13)
+        Me.BuyFoodLabel.Size = New System.Drawing.Size(80, 13)
         Me.BuyFoodLabel.TabIndex = 21
-        Me.BuyFoodLabel.Text = "BUY  - 10 for $5"
+        Me.BuyFoodLabel.Text = "Buy:  10 for $5"
         '
         'BuyWaterLabel
         '
         Me.BuyWaterLabel.AutoSize = True
         Me.BuyWaterLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BuyWaterLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.BuyWaterLabel.Location = New System.Drawing.Point(44, 44)
+        Me.BuyWaterLabel.Location = New System.Drawing.Point(67, 43)
         Me.BuyWaterLabel.Name = "BuyWaterLabel"
-        Me.BuyWaterLabel.Size = New System.Drawing.Size(91, 13)
+        Me.BuyWaterLabel.Size = New System.Drawing.Size(86, 13)
         Me.BuyWaterLabel.TabIndex = 20
-        Me.BuyWaterLabel.Text = "BUY  - 10 for $10"
+        Me.BuyWaterLabel.Text = "Buy:  10 for $10"
         '
         'BuyWoodLabel
         '
         Me.BuyWoodLabel.AutoSize = True
         Me.BuyWoodLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BuyWoodLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.BuyWoodLabel.Location = New System.Drawing.Point(44, 27)
+        Me.BuyWoodLabel.Location = New System.Drawing.Point(67, 26)
         Me.BuyWoodLabel.Name = "BuyWoodLabel"
-        Me.BuyWoodLabel.Size = New System.Drawing.Size(91, 13)
+        Me.BuyWoodLabel.Size = New System.Drawing.Size(86, 13)
         Me.BuyWoodLabel.TabIndex = 17
-        Me.BuyWoodLabel.Text = "BUY  - 10 for $20"
+        Me.BuyWoodLabel.Text = "Buy:  10 for $20"
         '
         'FoodLabel
         '
@@ -468,9 +437,9 @@ Partial Class CampManagementMain
         Me.FoodLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.FoodLabel.Location = New System.Drawing.Point(3, 59)
         Me.FoodLabel.Name = "FoodLabel"
-        Me.FoodLabel.Size = New System.Drawing.Size(37, 15)
+        Me.FoodLabel.Size = New System.Drawing.Size(44, 15)
         Me.FoodLabel.TabIndex = 19
-        Me.FoodLabel.Text = "Food:"
+        Me.FoodLabel.Text = "Ration:"
         '
         'WaterLabel
         '
@@ -499,26 +468,65 @@ Partial Class CampManagementMain
         Me.MarketPanelLabel.AutoSize = True
         Me.MarketPanelLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.MarketPanelLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.MarketPanelLabel.Location = New System.Drawing.Point(3, 5)
+        Me.MarketPanelLabel.Location = New System.Drawing.Point(3, 0)
         Me.MarketPanelLabel.Name = "MarketPanelLabel"
         Me.MarketPanelLabel.Size = New System.Drawing.Size(58, 17)
         Me.MarketPanelLabel.TabIndex = 15
         Me.MarketPanelLabel.Text = "MARKET" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.BackColor = System.Drawing.SystemColors.ControlText
+        Me.Label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Label7.Location = New System.Drawing.Point(12, 422)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(77, 15)
+        Me.Label7.TabIndex = 20
+        Me.Label7.Text = "Commander:"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.BackColor = System.Drawing.SystemColors.ControlText
+        Me.Label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Label8.Location = New System.Drawing.Point(12, 407)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(56, 15)
+        Me.Label8.TabIndex = 21
+        Me.Label8.Text = "Location:"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.BackColor = System.Drawing.SystemColors.ControlText
+        Me.Label9.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Label9.Location = New System.Drawing.Point(12, 391)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(34, 15)
+        Me.Label9.TabIndex = 22
+        Me.Label9.Text = "Date:"
+        '
         'CampManagementMain
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.SystemColors.ControlText
-        Me.ClientSize = New System.Drawing.Size(821, 422)
-        Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.Button1)
+        Me.ClientSize = New System.Drawing.Size(821, 446)
+        Me.Controls.Add(Me.Label9)
+        Me.Controls.Add(Me.Label8)
+        Me.Controls.Add(Me.Label7)
+        Me.Controls.Add(Me.MarketPanel)
+        Me.Controls.Add(Me.ExitButton)
         Me.Controls.Add(Me.PolicyButton)
-        Me.Controls.Add(Me.CopyrightLabel)
+        Me.Controls.Add(Me.DayLabel)
+        Me.Controls.Add(Me.MonthLabel)
         Me.Controls.Add(Me.LoadButton)
+        Me.Controls.Add(Me.CountryLabel)
+        Me.Controls.Add(Me.YearLabel)
         Me.Controls.Add(Me.SaveButton)
         Me.Controls.Add(Me.HistoryLog)
         Me.Controls.Add(Me.NextWeekButton)
-        Me.Controls.Add(Me.MainPanel)
+        Me.Controls.Add(Me.StoragePanel)
         Me.DoubleBuffered = True
         Me.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -526,16 +534,16 @@ Partial Class CampManagementMain
         Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "CampManagement"
-        Me.MainPanel.ResumeLayout(False)
-        Me.MainPanel.PerformLayout()
-        Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
+        Me.StoragePanel.ResumeLayout(False)
+        Me.StoragePanel.PerformLayout()
+        Me.MarketPanel.ResumeLayout(False)
+        Me.MarketPanel.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents MainPanel As Panel
+    Friend WithEvents StoragePanel As Panel
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
@@ -551,18 +559,14 @@ Partial Class CampManagementMain
     Friend WithEvents YearLabel As Label
     Friend WithEvents MonthLabel As Label
     Friend WithEvents DayLabel As Label
-    Friend WithEvents Label16 As Label
-    Friend WithEvents Label15 As Label
-    Friend WithEvents Timer1 As Timer
     Friend WithEvents HistoryLog As TextBox
     Friend WithEvents WaterInfoLabel As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents SaveButton As Button
     Friend WithEvents LoadButton As Button
-    Friend WithEvents CopyrightLabel As Label
     Friend WithEvents PolicyButton As Button
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Panel1 As Panel
+    Friend WithEvents ExitButton As Button
+    Friend WithEvents MarketPanel As Panel
     Friend WithEvents SellFoodLabel As Label
     Friend WithEvents SellWaterLabel As Label
     Friend WithEvents SellWoodLabel As Label
@@ -573,4 +577,8 @@ Partial Class CampManagementMain
     Friend WithEvents WaterLabel As Label
     Friend WithEvents WoodLabel As Label
     Friend WithEvents MarketPanelLabel As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label7 As Label
+    Friend WithEvents Label8 As Label
+    Friend WithEvents Label9 As Label
 End Class

@@ -145,9 +145,9 @@ Partial Class CampManagementPoliciesForm
         Me.RequestPrisonersCheckBox.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.RequestPrisonersCheckBox.Location = New System.Drawing.Point(27, 187)
         Me.RequestPrisonersCheckBox.Name = "RequestPrisonersCheckBox"
-        Me.RequestPrisonersCheckBox.Size = New System.Drawing.Size(159, 17)
+        Me.RequestPrisonersCheckBox.Size = New System.Drawing.Size(124, 17)
         Me.RequestPrisonersCheckBox.TabIndex = 22
-        Me.RequestPrisonersCheckBox.Text = "Request 5 prisoners [misc]"
+        Me.RequestPrisonersCheckBox.Text = "Receive 5 prisoners"
         Me.RequestPrisonersCheckBox.UseVisualStyleBackColor = True
         '
         'ExecutePrisonersCheckBox
@@ -156,9 +156,9 @@ Partial Class CampManagementPoliciesForm
         Me.ExecutePrisonersCheckBox.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.ExecutePrisonersCheckBox.Location = New System.Drawing.Point(27, 164)
         Me.ExecutePrisonersCheckBox.Name = "ExecutePrisonersCheckBox"
-        Me.ExecutePrisonersCheckBox.Size = New System.Drawing.Size(156, 17)
+        Me.ExecutePrisonersCheckBox.Size = New System.Drawing.Size(135, 17)
         Me.ExecutePrisonersCheckBox.TabIndex = 21
-        Me.ExecutePrisonersCheckBox.Text = "Execute 5 prisoners [misc]"
+        Me.ExecutePrisonersCheckBox.Text = "Terminate 5 prisoners"
         Me.ExecutePrisonersCheckBox.UseVisualStyleBackColor = True
         '
         'FourMealsPolicyCheckBox
@@ -167,9 +167,9 @@ Partial Class CampManagementPoliciesForm
         Me.FourMealsPolicyCheckBox.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.FourMealsPolicyCheckBox.Location = New System.Drawing.Point(27, 122)
         Me.FourMealsPolicyCheckBox.Name = "FourMealsPolicyCheckBox"
-        Me.FourMealsPolicyCheckBox.Size = New System.Drawing.Size(139, 17)
+        Me.FourMealsPolicyCheckBox.Size = New System.Drawing.Size(134, 17)
         Me.FourMealsPolicyCheckBox.TabIndex = 20
-        Me.FourMealsPolicyCheckBox.Text = "4 meals a day [rations]"
+        Me.FourMealsPolicyCheckBox.Text = "Extra meal [Nutrition]"
         Me.FourMealsPolicyCheckBox.UseVisualStyleBackColor = True
         '
         'EatAllYouCanPolicyCheckBox
@@ -178,9 +178,9 @@ Partial Class CampManagementPoliciesForm
         Me.EatAllYouCanPolicyCheckBox.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.EatAllYouCanPolicyCheckBox.Location = New System.Drawing.Point(27, 99)
         Me.EatAllYouCanPolicyCheckBox.Name = "EatAllYouCanPolicyCheckBox"
-        Me.EatAllYouCanPolicyCheckBox.Size = New System.Drawing.Size(156, 17)
+        Me.EatAllYouCanPolicyCheckBox.Size = New System.Drawing.Size(148, 17)
         Me.EatAllYouCanPolicyCheckBox.TabIndex = 19
-        Me.EatAllYouCanPolicyCheckBox.Text = "Eat-all-you-want [rations]"
+        Me.EatAllYouCanPolicyCheckBox.Text = "Extra 4 meals [Nutrition]"
         Me.EatAllYouCanPolicyCheckBox.UseVisualStyleBackColor = True
         '
         'EasierWorkPolicyCheckBox
@@ -189,9 +189,9 @@ Partial Class CampManagementPoliciesForm
         Me.EasierWorkPolicyCheckBox.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.EasierWorkPolicyCheckBox.Location = New System.Drawing.Point(27, 63)
         Me.EasierWorkPolicyCheckBox.Name = "EasierWorkPolicyCheckBox"
-        Me.EasierWorkPolicyCheckBox.Size = New System.Drawing.Size(167, 17)
+        Me.EasierWorkPolicyCheckBox.Size = New System.Drawing.Size(150, 17)
         Me.EasierWorkPolicyCheckBox.TabIndex = 18
-        Me.EasierWorkPolicyCheckBox.Text = "10h-a-day work [workforce]"
+        Me.EasierWorkPolicyCheckBox.Text = "Double Journeys [Labor]"
         Me.EasierWorkPolicyCheckBox.UseVisualStyleBackColor = True
         '
         'ExhaustionPolicyCheckBox
@@ -200,9 +200,9 @@ Partial Class CampManagementPoliciesForm
         Me.ExhaustionPolicyCheckBox.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.ExhaustionPolicyCheckBox.Location = New System.Drawing.Point(27, 40)
         Me.ExhaustionPolicyCheckBox.Name = "ExhaustionPolicyCheckBox"
-        Me.ExhaustionPolicyCheckBox.Size = New System.Drawing.Size(162, 17)
+        Me.ExhaustionPolicyCheckBox.Size = New System.Drawing.Size(122, 17)
         Me.ExhaustionPolicyCheckBox.TabIndex = 17
-        Me.ExhaustionPolicyCheckBox.Text = "Work to death [workforce]"
+        Me.ExhaustionPolicyCheckBox.Text = "Tiring work [Labor]"
         Me.ExhaustionPolicyCheckBox.UseVisualStyleBackColor = True
         '
         'PolicyLabel

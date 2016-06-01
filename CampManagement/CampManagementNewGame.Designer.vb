@@ -92,10 +92,10 @@ Partial Class CampManagementNewGame
         Me.EasyDifficultyCheck.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.EasyDifficultyCheck.Location = New System.Drawing.Point(15, 118)
         Me.EasyDifficultyCheck.Name = "EasyDifficultyCheck"
-        Me.EasyDifficultyCheck.Size = New System.Drawing.Size(59, 17)
+        Me.EasyDifficultyCheck.Size = New System.Drawing.Size(156, 17)
         Me.EasyDifficultyCheck.TabIndex = 5
         Me.EasyDifficultyCheck.TabStop = True
-        Me.EasyDifficultyCheck.Text = "Private"
+        Me.EasyDifficultyCheck.Text = "Initiate (Normal Difficulty)"
         Me.EasyDifficultyCheck.UseVisualStyleBackColor = False
         '
         'HardDifficultyCheck
@@ -105,10 +105,10 @@ Partial Class CampManagementNewGame
         Me.HardDifficultyCheck.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.HardDifficultyCheck.Location = New System.Drawing.Point(15, 141)
         Me.HardDifficultyCheck.Name = "HardDifficultyCheck"
-        Me.HardDifficultyCheck.Size = New System.Drawing.Size(65, 17)
+        Me.HardDifficultyCheck.Size = New System.Drawing.Size(157, 17)
         Me.HardDifficultyCheck.TabIndex = 6
         Me.HardDifficultyCheck.TabStop = True
-        Me.HardDifficultyCheck.Text = "Captain"
+        Me.HardDifficultyCheck.Text = "Veteran (Harder Difficulty)"
         Me.HardDifficultyCheck.UseVisualStyleBackColor = False
         '
         'ChooseaDifficulty
@@ -146,11 +146,11 @@ Partial Class CampManagementNewGame
         '
         Me.CopyrightLabelNewGame.AutoSize = True
         Me.CopyrightLabelNewGame.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.CopyrightLabelNewGame.Location = New System.Drawing.Point(235, 179)
+        Me.CopyrightLabelNewGame.Location = New System.Drawing.Point(312, 179)
         Me.CopyrightLabelNewGame.Name = "CopyrightLabelNewGame"
-        Me.CopyrightLabelNewGame.Size = New System.Drawing.Size(184, 13)
+        Me.CopyrightLabelNewGame.Size = New System.Drawing.Size(107, 13)
         Me.CopyrightLabelNewGame.TabIndex = 10
-        Me.CopyrightLabelNewGame.Text = "Miller Berto Simberg Anaia © 2016"
+        Me.CopyrightLabelNewGame.Text = "Miller Berto © 2016"
         '
         'InstalledModules
         '

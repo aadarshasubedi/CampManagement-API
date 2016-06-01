@@ -9,18 +9,19 @@ Public Class CampManagementNewGame
     Private IniString = New StringBuilder(500)
     'Defines variables, self-explanatory
     Private CurrentDirectory = Application.StartupPath
-    Private DLCFilesPath = CurrentDirectory + "/Data/DLC_Modules"
     Private DataFilesPath = CurrentDirectory + "/Data"
+    Private DLCFilesPath = DataFilesPath + "/DLC_Modules"
+    Private GameStatsIni = DataFilesPath + "/GameStats.ini"
     Private DLCModuleName, DLCSelected, DLCQuantity, ReadyToLaunchA, ReadyToLaunchB, ReadyToLaunchC
+
 
     'Defines Constants
     Const MinCharacter = 4
-    Const MaxCharacter = 18
+    Const MaxCharacter = 16
 
     Private Const WmNchittest As Integer = &H84
     Private Const Htclient As Integer = &H1
     Private Const Htcaption As Integer = &H2
-
     Public Sub EventHandler()
         AddHandler AppDomain.CurrentDomain.UnhandledException, AddressOf UnhandledExceptionEventRaised
         InitializeComponent()
@@ -31,17 +32,6 @@ Public Class CampManagementNewGame
             MessageBox.Show(crash.ToString)
         End If
     End Sub
-    '  Protected Overrides Sub WndProc(ByRef m As Message)
-    '     MyBase.WndProc(m)
-    '     Console.WriteLine(m.ToString())
-    '    Select Case m.Msg
-    '         Case WmNchittest
-    '              If m.Result = New IntPtr(Htclient) Then
-    '                   m.Result = New IntPtr(Htcaption)
-    '             End If
-    '      End Select
-    '       End
-    '   End Sub
     Private Sub BackButton_Click(sender As Object, e As EventArgs) Handles BackButton.Click
         CampManagementFirstMenu.Show()
         Me.Close()
@@ -74,7 +64,6 @@ Public Class CampManagementNewGame
                         WritePrivateProfileString("Stats", "IsModEnabled", True, DataFilesPath + "/GameStats.ini")
                         WritePrivateProfileString("Stats", "WhichMod", ModuleSelectionDropBox.Text, DataFilesPath + "/GameStats.ini")
                         WritePrivateProfileString("Stats", "WhichModFile", "DLC_" + DLCNumber.ToString + ".ini", DataFilesPath + "/GameStats.ini")
-
                     End If
                 Next
             End If
@@ -91,18 +80,16 @@ Public Class CampManagementNewGame
                 ReadyToLaunchA = True
             Else
                 MsgBox("Your camp's name must be above " + MinCharacter.ToString + " and lower than " + MaxCharacter.ToString)
-
             End If
         Catch ex As Exception
             MsgBox(ex.ToString)
             MsgBox("An exception occured while writing Camp Name to disk.")
         End Try
 
-
         Try
             'If a playername has been chosen, and it is not above the max characters, but above the minimum.. Create Profile and Save to File.
             If PlayerNameTextBox.Text.Length < MaxCharacter And PlayerNameTextBox.Text.Length > MinCharacter Then
-                WritePrivateProfileString("Stats", "CEOName", CampTextBox.Text, DataFilesPath + "/GameStats.ini")
+                WritePrivateProfileString("Stats", "OwnerName", CampTextBox.Text, DataFilesPath + "/GameStats.ini")
                 ReadyToLaunchB = True
             Else
                 MsgBox("Your name must be above " + MinCharacter.ToString + " and lower than " + MaxCharacter.ToString)
@@ -111,7 +98,6 @@ Public Class CampManagementNewGame
             MsgBox(ex.ToString)
             MsgBox("An exception occured while writing Player Name to disk.")
         End Try
-
 
         Try
             'If Easy is Checked and Difficulty is not, assume Easy Difficulty. If the inverse happens, assume Hard Difficulty. This does work properly.
@@ -128,18 +114,21 @@ Public Class CampManagementNewGame
         End Try
 
 
-        Try
-            If ReadyToLaunchA = True And ReadyToLaunchB = True And ReadyToLaunchC = True Then
-                Me.Hide()
-                CampManagementMain.Show()
-            Else
-                MsgBox("Please, check if all information is entered.")
-            End If
-        Catch ex As Exception
-            MsgBox(ex.ToString)
-            MsgBox("An exception occured while starting the game.")
-        End Try
-
+        If ReadyToLaunchA = True And ReadyToLaunchB = True And ReadyToLaunchC = True Then
+            WritePrivateProfileString("Stats", "Ration", 100, GameStatsIni)
+            WritePrivateProfileString("Stats", "Water", 100, GameStatsIni)
+            WritePrivateProfileString("Stats", "Money", 200, GameStatsIni)
+            WritePrivateProfileString("Stats", "Wood", 200, GameStatsIni)
+            WritePrivateProfileString("Stats", "ManpowerForce", 20, GameStatsIni)
+            WritePrivateProfileString("Stats", "CurrentYear", 1946, GameStatsIni)
+            WritePrivateProfileString("Stats", "CurrentMonth", 1, GameStatsIni)
+            WritePrivateProfileString("Stats", "CurrentDay", 1, GameStatsIni)
+            WritePrivateProfileString("Stats", "LoadGameStatsOnStartup", "True", DataFilesPath + "/GameStats.ini")
+            Me.Hide()
+            CampManagementMain.Show()
+        Else
+            MsgBox("Please, check if all information is entered.")
+        End If
 
     End Sub
 End Class
