@@ -21,8 +21,9 @@ Public Class CampManagementMain
     Private PlayerWealth, TotalWorkforce As Double
 
     'GameModuleData = Modules Folder location
-    Private GameModuleData = CurrentDirectory + "/Data/DLC_Modules/"
-    Private GameStatsIni = CurrentDirectory + "/Data/GameStats.ini"
+    Private GameData = CurrentDirectory + "/Data/"
+    Private GameModuleData = GameData + "/DLC_Modules/"
+    Private GameStatsIni = GameData + "/GameStats.ini"
 
     Friend IsModEnabled As String = GetPrivateProfileString("Stats", "IsModEnabled", "", IniStringIsModEnabled, IniStringIsModEnabled.Capacity, GameStatsIni)
     Friend LoadGameStatsOnStartup As Boolean = GetPrivateProfileString("Stats", "LoadGameStatsOnStartup", "", IniStringLoadGameStatsOnStartup, IniStringLoadGameStatsOnStartup.Capacity, GameStatsIni)
@@ -41,7 +42,7 @@ Public Class CampManagementMain
     Sub ApplicationException(ByVal sender As Object, ByVal Application As UnhandledExceptionEventArgs)
         If Application.IsTerminating Then
             Dim ApplicationCrashed As Object = Application.ExceptionObject
-            MsgBox("An error has happened! It is as follows: " + ApplicationCrashed.ToString)
+            MsgBox("An Error has happened! It Is As follows: " + ApplicationCrashed.ToString)
         End If
     End Sub
     Protected Overrides Sub WndProc(ByRef m As Message)
@@ -286,8 +287,7 @@ Public Class CampManagementMain
 
 
         'Checks what will be the values used to handle food consumption, and apply them to a variable.
-        Try
-            If CampManagementPoliciesForm.EatAllYouCanPolicy = True Then
+        If CampManagementPoliciesForm.EatAllYouCanPolicy = True Then
                 WeekFoodProfitMultiplier = 1.25
                 NewFoodAfterWorkersEat = MPInfoLabel.Text * 6
                 RationInfoLabel.Text = RationInfoLabel.Text - NewFoodAfterWorkersEat
@@ -304,14 +304,11 @@ Public Class CampManagementMain
                 NewFoodAfterWorkersEat = MPInfoLabel.Text * 2
                 RationInfoLabel.Text = RationInfoLabel.Text - NewFoodAfterWorkersEat
             End If
-        Catch ex As Exception
-            MsgBox(ex.ToString)
-            MsgBox("Failed to calculate food consumption by workers.")
-        End Try
 
-        'Checks what will be the values used to handle worker profit, and apply them to a variable. Also uses the food consumption variable multipliers.
 
-        NewPlayerWealthAfterWorkForceProfits = Resources.WorkForceGenerateProfits(PlayerWealth, TotalWorkforce)
+            'Checks what will be the values used to handle worker profit, and apply them to a variable. Also uses the food consumption variable multipliers.
+
+            NewPlayerWealthAfterWorkForceProfits = Resources.WorkForceGenerateProfits(PlayerWealth, TotalWorkforce)
             If CampManagementPoliciesForm.ExhaustionPolicy = True Then
                 FinanceInfoLabel.Text = NewPlayerWealthAfterWorkForceProfits(0) * 1.25 * WeekFoodProfitMultiplier
                 HistoryLog.AppendText(Environment.NewLine + "The smell of death is strong. 6 prisoners died due to exhaustion while working to death, but you received twice as much profit.")
@@ -333,14 +330,19 @@ Public Class CampManagementMain
                 CampManagementPoliciesForm.RequestPrisoner = False
                 MPInfoLabel.Text = MPInfoLabel.Text + 5
                 FinanceInfoLabel.Text = FinanceInfoLabel.Text - 20
-                HistoryLog.AppendText(Environment.NewLine + "A military truck has just arrived, with 5 new POWs. For this extra shipment, High Command charged you $20")
-            End If
-            If CampManagementPoliciesForm.ExecutePrisoners = True Then
-                CampManagementPoliciesForm.ExecutePrisoners = False
-                MPInfoLabel.Text = MPInfoLabel.Text - 5
-                FinanceInfoLabel.Text = FinanceInfoLabel.Text + 20
-                HistoryLog.AppendText(Environment.NewLine + "A military truck has just left the camp with 5 dead POWs. For taking care of german conscripts, High Command awarded you $20")
-            End If
+            HistoryLog.AppendText(Environment.NewLine + "A military truck has just arrived, with 5 new POWs. The Treasury has been charged $20 for shipping costs.")
+        End If
+        If CampManagementPoliciesForm.ExecutePrisoners = True Then
+            CampManagementPoliciesForm.ExecutePrisoners = False
+            MPInfoLabel.Text = MPInfoLabel.Text - 5
+            FinanceInfoLabel.Text = FinanceInfoLabel.Text + 20
+            HistoryLog.AppendText(Environment.NewLine + "A military truck has just left the camp with 5 dead POWs. The money destined to feed the 5 POWs is now surplus, and your treasury now has $20 extra. ")
+        End If
+
+        If CheckFailure() = True Then
+            DecreeGameOver()
+            MsgBox("You have failed the game. Please, load a previous session or start a new.")
+        End If
 
     End Sub
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles ExitButton.Click, ExitButton.Click
